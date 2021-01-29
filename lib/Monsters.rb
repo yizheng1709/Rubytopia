@@ -49,7 +49,26 @@ class Dragon
 
     def initialize
         self.health = 60
-        self.name = "Dyanna the Dragon"
+        name_set
+    end 
+
+    def name_set
+        num = rand(6)
+        if num == 0
+            self.name = "DyanNa"
+        elsif num == 1
+            self.name = "DaNa"
+        elsif num == 2
+            self.name = "DonNa"
+        elsif num == 3
+            self.name = "DekKee"
+        elsif num == 4
+            self.name == "DonKee"
+        elsif num == 5
+            self.name == "D.Dog"
+        elsif num == 6
+            self.name == "DoDo"
+        end 
     end 
 
     def battle_cry
