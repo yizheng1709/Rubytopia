@@ -30,7 +30,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         # sleep(5)
         # self.user_choosing_background
         #method for scraping favorited site (method will scrape a brief description of the place)
-        # self.goblin_encounter
+        # self.monter_generator
     end 
 
     def greeting_user
@@ -251,6 +251,10 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             MP: #{player_mana}"
         elsif choice == "3" || choice == "attack" || choice == "Attack"
             #ask player which attack they want to use
+            #make a method that lists player.set_of_attacks
+            #set attack = gets.strip again
+            #if attack = the certain number, subtract the damage 
+            #from @monster.health
         elsif choice == "4" || choice.include?("nothing")
             self.player.do_nothing
         else 

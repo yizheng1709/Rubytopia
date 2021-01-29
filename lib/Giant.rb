@@ -9,9 +9,9 @@ class Giant < Race
     end 
 
     def set_of_attacks
-        "Whack-A-Mole (Does 5 damage.) \n
-        Whack-A-Lot (Does 8 damage.) \n
-        Whack-Like-Crazy (Does 11 damage.) \n"
+        "1. Whack-A-Mole (Does 5 damage.) \n
+        2. Whack-A-Lot (Does 8 damage.) \n
+        3. Whack-Like-Crazy (Does 11 damage.) \n"
     end 
 
 

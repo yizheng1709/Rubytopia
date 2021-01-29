@@ -1,10 +1,14 @@
-class Goblin 
+class Goblin < Monster 
     attr_accessor :health, :name  
 
     def initialize
         self.health = 20
         self.name_set
     end
+
+    def health=(health)
+        @health = health.clamp(0,20)
+    end 
 
     #random name generator 
     def name_set

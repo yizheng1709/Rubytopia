@@ -1,10 +1,14 @@
-class Dragon 
+class Dragon < Monster 
     attr_accessor :health, :name  
 
     def initialize
         self.health = 60
         name_set
         binding.pry
+    end 
+
+    def health=(health)
+        @health = health.clamp(0, 60)
     end 
 
     def name_set
