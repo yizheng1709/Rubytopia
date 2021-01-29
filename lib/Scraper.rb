@@ -16,7 +16,7 @@ class Scraper
 
     def make_mythplace
         self.get_places.children.collect do |listing|
-            place = MythPlace.new
+            place = MythPlace.new #add arguments
             place.name = listing.children.children.text.split(": ")[0]
             description = listing.children.children.text.split(": ")[1].downcase.gsub(/^[aA]\s/, "the ")
             description = description.gsub(".","?")

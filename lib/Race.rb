@@ -1,10 +1,11 @@
 class Race
-    attr_accessor :health, :mana, :HP_pots, :MP_pots, :evilness   
+    attr_accessor :health, :mana, :HP_pots, :MP_pots, :evilness, :friends_made    
 
     def initialize(name)
         @name = name 
         @HP_pots = 10
-        @MP_pots = 10 
+        @MP_pots = 10
+        @friends_made = [] 
     end 
 
     def evilness= (evilness)
@@ -26,6 +27,10 @@ class Race
 
     def increase_evilness
         self.evilness = @evilness + 2
+    end 
+
+    def friends_made_count
+        @friends_made.count 
     end 
 
     def death?

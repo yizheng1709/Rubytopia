@@ -19,10 +19,11 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     
     attr_accessor :player_name, :monster, :background, :player  
     #monster should record his own health
-    @@monsters_slain = [] #if over 5, Satan takes over your heart
-    @@friends_made = [] #if over 5, your journey comes to an end and your friends bid you farewell
+   #if friends_made.count == 5, your journey comes to an end and your friends bid you farewell
+    
 
     def start
+        Scraper.new.make_mythplace
         self.greeting_user
         self.selecting_race
         sleep(5)
@@ -61,7 +62,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def create_giant 
-        player = Giant.new(self.player_name)
+        self.player = Giant.new(self.player_name)
         puts "      💎 Welcome to Rubytopia, #{self.player_name}! 💎\n
         You've chosen to be part of the Giant Race. \n
         As a Giant, you have incredible stamina, \n
@@ -73,19 +74,18 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
     
     def create_elf 
-        elf = Elf.new(self.player_name)
+        self.player = Elf.new(self.player_name)
         puts "      💎 Welcome to Rubytopia, #{self.player_name}!💎 \n
         You've chosen to be part of the Elf Race. \n
         As an Elf, your ❤  is purest amongst other races, \n 
         so you are able to channel your mana more efficiently. \n
-        You are not easily corrupted by darkness, \n
-        but that does not mean you should be careless. \n
+       
         HP: #{player.health} \n
         MP: #{player.mana} \n"
     end 
 
     def create_human 
-        human = Human.new(self.player_name)
+        self.player = Human.new(self.player_name)
         puts "#{self.player_name}, seriously? \n
         Why would you want to be a Human \n
         when you are already one in real life? \n
@@ -93,8 +93,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         💎 Welcome to Rubytopia, #{self.player_name}! 💎\n
         You've chosen to be part of the Human Race. \n
         As a Human, you have average stats amongst other races. \n
-        You are easily influenced by darkness, \n
-        so be careful with the choices you make during your adventure. \n
+        
         HP: #{player.health} \n
         MP: #{player.mana} \n" 
     end 
@@ -124,18 +123,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end  
     end 
 
-    def self.friends_made
-        @@friends_made
-    end 
-
-    def friends_made_save 
-        self.class.friends_made << self.monster 
-    end 
-
-    def self.friends_made_count 
-        @@friends_made.count 
-    end 
-
     def monster_generator 
         num = rand(1) #add to this as I build more monsters
         if num == 0
@@ -151,11 +138,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "The Goblin shyly smiles and waves at you. \n \n"
         puts "What will you do? \n \n"
     end  
-
-    def goblin_battle_cry
-        puts "The Goblin is sad. \n
-        :("
-    end 
 
     def goblin_beg #begs every time he attakcs but player is still alive
         puts "#{monster.name} said:"
@@ -186,11 +168,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         self.monster = Dragon.new 
         puts "*The Dragon farted.*"
         puts "The putrid smell is strong enough to make you forget your own name."
-    end 
-    
-    def dragon_battle_cry
-        puts "The Dragon said: Shall I wait for you to put on a diaper first? \n
-        Or do you not know how to do that?\n"
     end 
 
     def dragon_insult #invoke this method after Dragon lands an attack and HP is not 0
@@ -265,7 +242,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def player_turn 
         counter = 0
-        while !over?
+        while !over? #could use this as a separate method
             self.ask_player_for_battle_turn_choice
             counter += 1
         end 
@@ -309,7 +286,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     #these methods should be cchecked every time a battle ends 
     def self.friendly_ending? 
-        if self.friends_made_count == 5 
+        if self.player.friends_made_count == 5 
             puts "Your journey comes to an end, as you realize you have work tomorrow. \n
             As you are about to walk through the exit portal, \n
             all of the friends that you've made today came to bid farewell. \n"

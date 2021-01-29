@@ -31,7 +31,7 @@ class Dragon < Monster
     end 
 
     def battle_cry
-        puts "Shall I wait for you to put on a diaper first? \n
+        "Shall I wait for you to put on a diaper first? \n
         Or do you not know how to do that?\n"
     end 
 

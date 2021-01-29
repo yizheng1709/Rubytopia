@@ -30,6 +30,11 @@ class Goblin < Monster
         end 
     end 
 
+    def battle_cry
+        "The Goblin is sad. \n
+        :("
+    end 
+
     def attack #how to refer to the specific Rubytopia game
         a = rand(3)
         if a == 0 
