@@ -35,7 +35,6 @@ class Dragon
     def initialize
         self.health = 60
         self.name = "Dyanna"
-        puts "*The Dragon farted.*"
     end 
 
     def battle_cry

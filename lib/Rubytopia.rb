@@ -13,6 +13,10 @@ require_relative "MythPlace"
 #the place will be an instance variable of :setting
 #if i have time, change the available races according to setting
 
+#add current monster to friend list if monster does not die
+#if you cannot kill mosnter within 10 turns, the monster thinks you're super nice
+#add current mosnter to slain list if monster dies
+
 
 class RubytopiaGame #this is the only clss that should have puts, and method invocation 
     
@@ -155,11 +159,18 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         @@friends_made.count 
     end 
 
-    
+    def monster_generator 
+        num = rand(1) #add to this as I build more monsters
+        if num == 0
+            goblin_encounter 
+        elsif num == 1
+            dragon_encounter 
+        end 
+    end 
 
     def goblin_encounter
         puts "You've encountered a goblin! \n\n"
-        monster = Goblin.new
+        self.monster = Goblin.new
         puts "The Goblin shyly smiles and waves at you. \n \n"
         puts "What will you do? \n \n"
     end  
@@ -186,6 +197,13 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         elsif a == 8
             puts "I love you! Please let me go!"
         end 
+    end 
+
+    def dragon_encounter 
+        puts "Just your luck! You've encountered a fierce and sassy dragon! Yikes!"
+        self.monster = Dragon.new 
+        puts "*The Dragon farted.*"
+        puts "The putrid smell is strong enough to make you forget your own name."
     end 
 
     def dragon_insult #invoke this method after Dragon lands an attack and HP is not 0
@@ -222,7 +240,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     def battle 
         puts "You've decided to battle! Great!"
         monster.battle_cry 
-        #random monster generator 
+    
     end 
 
     def turn 
