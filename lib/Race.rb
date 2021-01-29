@@ -7,6 +7,10 @@ class Race
         @MP_pots = 10 
     end 
 
+    def evilness= (evilness)
+        @evilness = evilness.clamp(0,10)
+    end 
+
     def drink_health_potion #can be done once per turn
         self.player_health += 10 
     end 
@@ -15,8 +19,9 @@ class Race
         self.player_mana += 10
     end 
 
-    def evilness= (evilness)
-        @evilness = evilness.clamp(0,10)
+    def do_nothing 
+        "Oh...okay. You chose to do nothing. Interesting choice. \n
+        Do you think you could be friends with the monster or something?"
     end 
 
 

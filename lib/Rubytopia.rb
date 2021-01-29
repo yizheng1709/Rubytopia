@@ -17,7 +17,7 @@
 
 class RubytopiaGame #this is the only clss that should have puts, and method invocation 
     
-    attr_accessor :player_name, :monster, :background  
+    attr_accessor :player_name, :monster, :background, :player  
     #monster should record his own health
     @@monsters_slain = [] #if over 5, Satan takes over your heart
     @@friends_made = [] #if over 5, your journey comes to an end and your friends bid you farewell
@@ -61,15 +61,15 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def create_giant 
-        giant = Giant.new(self.player_name)
+        player = Giant.new(self.player_name)
         puts "      💎 Welcome to Rubytopia, #{self.player_name}! 💎\n
         You've chosen to be part of the Giant Race. \n
         As a Giant, you have incredible stamina, \n
         but you have no idea what mana is or how to channel it. \n
         However, that does not stop you from being a happy Giant. \n
 
-        HP: #{giant.health} \n
-        MP: #{giant.mana} \n"
+        HP: #{player.health} \n
+        MP: #{player.mana} \n"
     end 
     
     def create_elf 
@@ -80,8 +80,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         so you are able to channel your mana more efficiently. \n
         You are not easily corrupted by darkness, \n
         but that does not mean you should be careless. \n
-        HP: #{elf.health} \n
-        MP: #{elf.mana} \n"
+        HP: #{player.health} \n
+        MP: #{player.mana} \n"
     end 
 
     def create_human 
@@ -95,8 +95,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         As a Human, you have average stats amongst other races. \n
         You are easily influenced by darkness, \n
         so be careful with the choices you make during your adventure. \n
-        HP: #{human.health} \n
-        MP: #{human.mana} \n" 
+        HP: #{player.health} \n
+        MP: #{player.mana} \n" 
     end 
 
     def setting_the_background
@@ -207,7 +207,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def dragon_insult #invoke this method after Dragon lands an attack and HP is not 0
         #get a random generator to select a random outcome 
-        if dragon.health > 0
+        if monster.health > 0
             a = rand(8)
             puts "The Dragon said:"
              if a == 0
@@ -239,19 +239,40 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     def battle 
         puts "You've decided to battle! Great!"
         monster.battle_cry 
-    
     end 
+
+    def ask_player_for_battle_turn_choice
+        puts "What will you do?"
+        puts "1. Drink HP potion (+10 HP)"
+        puts "2. Drink MP potion (+10 MP)"
+        puts "3. Attack"
+        puts "4. Do nothing"
+    end  
 
     def turn 
         counter = 0
         while !player_death?
             #player could attack or drink potion or be idle 
-            if counter == 10 && self.monster.health > 0 #how to code monster health hasnt changed?
-                #if it hasnt changed, you become friends with the monster. 
-                #add to array of friends. 
-                
-                #elsif monster_health == 0 
-                #self.monsters_slain_save 
+            self.ask_player_for_battle_turn_choice
+            choice = gets.strip 
+            if choice == "1" || choice.include?("HP") 
+                self.player.drink_health_potion
+                puts "HP +10 \n
+                HP: #{player.health}"
+            elsif choice == "2" || choice.include?("MP")
+                self.player.drink_mana_potion
+                puts "MP +10 \n
+                MP: #{player_mana}"
+            elsif choice == "3" || choice == "attack" || choice == "Attack"
+                #ask player which attack they want to use
+            elsif choice == "4" || choice.include?("nothing")
+                self.player.do_nothing
+            end 
+        end 
+        if counter == 10 && self.monster.health > 0
+                self.friends_made_save 
+            elsif monster.health == 0 
+                self.monsters_slain_save 
             end 
         end 
     end 
