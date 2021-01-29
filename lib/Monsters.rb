@@ -4,6 +4,11 @@ class Goblin
     def initialize
         self.health = 20
         self.name = "Gerald"
+    end
+    
+    def battle_cry
+        puts "The Goblin is sad. \n
+        :("
     end 
 
     def attack #how to refer to the specific Rubytopia game
@@ -33,6 +38,11 @@ class Dragon
         puts "*The Dragon farted.*"
     end 
 
+    def battle_cry
+        puts "Shall I wait for you to put on a diaper first? \n
+        Or do you not know how to do that?\n"
+    end 
+
     def attack #argument of adventurer's class
         # adventurer.health = adventurer.health - 10, something like that 
         # if adventurer.health != 0
@@ -41,32 +51,6 @@ class Dragon
             # 8 tail whip, 10 claw , 15 fire breath 
     end 
 
-    def insult #invoke this method after Dragon lands an attack and HP is not 0
-               #get a random generator to select a random outcome 
-        if self.health > 0
-            a = rand(8)
-            puts "The Dragon said:"
-            if a == 0
-                puts "What are you doing here? Did someone leave your cage open?"
-            elsif a == 1
-                 puts "Let's play Horse. I'll be the front end, and you be yourself."
-            elsif a == 2
-                 puts "I'm busy right now. Could I ignore you another time?"
-            elsif a == 3
-                puts "You are living proof that our Creator has a sense of humor."
-            elsif a == 4
-                puts "How do you explain to your mother what you do for a living?"
-            elsif a == 5
-                puts "Did you step on a branch? Or was that your back?"
-            elsif a == 6
-                puts "I wish I was shopping right now."
-            elsif a == 7
-                puts "You know, I really don't think you can defeat me."
-            elsif a == 8
-                puts "I'm going to be late to my date."
-            end 
-        end 
-    end 
 
 
 end 

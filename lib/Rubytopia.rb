@@ -155,6 +155,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         @@friends_made.count 
     end 
 
+    
+
     def goblin_encounter
         puts "You've encountered a goblin! \n\n"
         monster = Goblin.new
@@ -211,6 +213,16 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
                 puts "I'm going to be late to my date."
             end 
         end 
+    end 
+
+    def run_away
+        puts "You've decided to run away...?! Wow, okay."
+    end 
+
+    def battle 
+        puts "You've decided to battle! Great!"
+        monster.battle_cry 
+        #random monster generator 
     end 
 
     def turn 
