@@ -1,0 +1,5 @@
+
+require_relative "../config/environment"
+
+Scraper.new.make_mythplace
+Rubytopia.new.start 

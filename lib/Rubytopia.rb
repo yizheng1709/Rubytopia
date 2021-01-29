@@ -1,10 +1,4 @@
-require_relative "Elf"
-require_relative "Human"
-require_relative "Giant"
-require_relative "Monsters"
-require_relative "Race"
-require_relative "Scraper"
-require_relative "MythPlace"
+
 # FOUND scrape a site that lists major events or eras (or mythological ones)
 #ask user a time period or era or mythological countries they like
 
@@ -23,15 +17,10 @@ require_relative "MythPlace"
 
 class RubytopiaGame #this is the only clss that should have puts, and method invocation 
     
-    attr_accessor :player_name, :player_race, :monster, :background  
+    attr_accessor :player_name, :monster, :background  
     #monster should record his own health
     @@monsters_slain = [] #if over 5, Satan takes over your heart
     @@friends_made = [] #if over 5, your journey comes to an end and your friends bid you farewell
-
-    def initialize
-        Scraper.new.make_mythplace
-        self.start 
-    end 
 
     def start
         self.greeting_user
@@ -73,7 +62,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def create_giant 
         giant = Giant.new(self.player_name)
-        self.player_race = giant #idk if i need this
         puts "      💎 Welcome to Rubytopia, #{self.player_name}! 💎\n
         You've chosen to be part of the Giant Race. \n
         As a Giant, you have incredible stamina, \n
@@ -86,7 +74,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     
     def create_elf 
         elf = Elf.new(self.player_name)
-        self.player_race = elf #object elf #idk if i need this
         puts "      💎 Welcome to Rubytopia, #{self.player_name}!💎 \n
         You've chosen to be part of the Elf Race. \n
         As an Elf, your ❤  is purest amongst other races, \n 
@@ -99,7 +86,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def create_human 
         human = Human.new(self.player_name)
-        self.player_race = human #object human #idk if i need this
         puts "#{self.player_name}, seriously? \n
         Why would you want to be a Human \n
         when you are already one in real life? \n
@@ -184,7 +170,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def goblin_beg #begs every time he attakcs but player is still alive
-        puts "Gerald said:"
+        puts "#{monster.name} said:"
         a = rand(8)
         if a == 0
             puts "Please let me go! I have six wives and ten kids waiting for me!"
@@ -260,7 +246,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         counter = 0
         while !player_death?
             #player could attack or drink potion or be idle 
-            if counter == 10 && self.monster_health #how to code monster health hasnt changed?
+            if counter == 10 && self.monster.health > 0 #how to code monster health hasnt changed?
                 #if it hasnt changed, you become friends with the monster. 
                 #add to array of friends. 
                 

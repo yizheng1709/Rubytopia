@@ -1,7 +1,5 @@
 require_relative "./Race"
 class Human < Race 
-    attr_accessor :health, :mana
-    attr_reader :name, :race, :happiness, :evilness
 
     def initialize(name)
         super

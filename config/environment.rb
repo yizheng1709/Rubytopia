@@ -1,0 +1,11 @@
+
+require_relative '..lib/Dragon.rb'
+require_relative '..lib/Elf.rb'
+require_relative '..lib/Giant.rb'
+require_relative '..lib/Goblin.rb'
+require_relative '..lib/Human.rb'
+require_relative '..lib/Monster.rb'
+require_relative '..lib/MythPlace.rb'
+require_relative '..lib/Race.rb'
+require_relative '..lib/Rubytopia.rb'
+require_relative '..lib/Scraper.rb'

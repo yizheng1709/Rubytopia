@@ -10,4 +10,6 @@ class MythPlace
     def self.all
         @@all
     end 
+
+    #create a search by name method so that the gets can be used as an argument
 end 

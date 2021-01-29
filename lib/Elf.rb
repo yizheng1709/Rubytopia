@@ -1,7 +1,5 @@
 require_relative "./Race"
 class Elf < Race 
-    attr_accessor :health, :mana, :HP_pots, :MP_pots, :happiness, :evilness    
-    attr_reader :name, :race
 
     def initialize(name)
         super
