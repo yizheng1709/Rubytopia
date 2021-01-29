@@ -123,6 +123,19 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end  
     end 
 
+    def goblin_encounter
+        puts "You've encountered a goblin!"
+        self.monster = Goblin.new
+        puts "The Goblin shyly smiles and waves at you."
+    end  
+
+    def dragon_encounter 
+        puts "Just your luck! You've encountered a fierce and sassy dragon! Yikes!"
+        self.monster = Dragon.new 
+        puts "*The Dragon farted.*"
+        puts "The putrid smell is strong enough to make you forget your own name."
+    end 
+
     def monster_generator 
         num = rand(1) #add to this as I build more monsters
         if num == 0
@@ -132,12 +145,25 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end 
     end 
 
-    def goblin_encounter
-        puts "You've encountered a goblin! \n\n"
-        self.monster = Goblin.new
-        puts "The Goblin shyly smiles and waves at you. \n \n"
-        puts "What will you do? \n \n"
-    end  
+    def monster_encounter 
+        monster_generator
+        run_or_fight
+    end 
+
+    def run_or_fight
+        puts "What will you do?"
+        puts "Run or Fight?"
+        choice = gets.strip 
+        if run_or_fight.include?("run") || run_or_fight.include?("Run")
+            self.run_away
+        elsif run_or_fight.include?("fight") || run_or_fight.include?("Fight")
+            self.battle #double check the logic of battle method
+        else 
+            puts "There is no third choice, sorry."
+            puts "Please do try to stick with the choices that I've given you."
+            run_or_fight
+        end 
+    end 
 
     def goblin_beg #begs every time he attakcs but player is still alive
         puts "#{monster.name} said:"
@@ -161,13 +187,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         elsif a == 8
             puts "I love you! Please let me go!"
         end 
-    end 
-
-    def dragon_encounter 
-        puts "Just your luck! You've encountered a fierce and sassy dragon! Yikes!"
-        self.monster = Dragon.new 
-        puts "*The Dragon farted.*"
-        puts "The putrid smell is strong enough to make you forget your own name."
     end 
 
     def dragon_insult #invoke this method after Dragon lands an attack and HP is not 0
