@@ -15,7 +15,10 @@ require_relative "MythPlace"
 
 #add current monster to friend list if monster does not die
 #if you cannot kill mosnter within 10 turns, the monster thinks you're super nice
+#the monster tells you his/her name if they become your friend!
 #add current mosnter to slain list if monster dies
+#battle cry happens immediately when player chooses to enter into battle
+
 
 
 class RubytopiaGame #this is the only clss that should have puts, and method invocation 
@@ -175,6 +178,11 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "What will you do? \n \n"
     end  
 
+    def goblin_battle_cry
+        puts "The Goblin is sad. \n
+        :("
+    end 
+
     def goblin_beg #begs every time he attakcs but player is still alive
         puts "Gerald said:"
         a = rand(8)
@@ -204,6 +212,11 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         self.monster = Dragon.new 
         puts "*The Dragon farted.*"
         puts "The putrid smell is strong enough to make you forget your own name."
+    end 
+    
+    def dragon_battle_cry
+        puts "The Dragon said: Shall I wait for you to put on a diaper first? \n
+        Or do you not know how to do that?\n"
     end 
 
     def dragon_insult #invoke this method after Dragon lands an attack and HP is not 0

@@ -3,12 +3,27 @@ class Goblin
 
     def initialize
         self.health = 20
-        self.name = "Gerald"
+        self.name_set
     end
-    
-    def battle_cry
-        puts "The Goblin is sad. \n
-        :("
+
+    #random name generator 
+    def name_set
+        num = rand(6)
+        if num == 0
+            self.name = "Gary"
+        elsif num == 1
+            self.name = "Gerald"
+        elsif num == 2
+            self.name = "Gunther"
+        elsif num == 3
+            self.name = "Gavin"
+        elsif num == 4
+            self.name == "Gideon"
+        elsif num == 5
+            self.name == "Greg"
+        elsif num == 6
+            self.name == "Gabriel"
+        end 
     end 
 
     def attack #how to refer to the specific Rubytopia game
@@ -34,7 +49,7 @@ class Dragon
 
     def initialize
         self.health = 60
-        self.name = "Dyanna"
+        self.name = "Dyanna the Dragon"
     end 
 
     def battle_cry
