@@ -5,7 +5,8 @@ class Elf < Race
         super
         @health = 50
         @mana = 100
-        @evil = 0
+        @evil = 1
+        @happiness = 5
     end 
 
     def set_of_attacks 

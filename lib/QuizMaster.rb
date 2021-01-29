@@ -2,7 +2,14 @@ class QuizMaster
     #random event that could happen
     #increases happiness if answer is correct
     #random generator for a question 
-
+    #if happiness gets to 0, game ends???
+    def greeting 
+        "Hello, I am Luke the Quiz Master. \n
+        My only desire in life is to mess with people's lives \n
+        by appearing before them and asking them questions \n
+        to test their intelligence. \n
+        Today is your lucky day! \n"
+    end 
 
     def question_one 
         "What is the square root of 225?"

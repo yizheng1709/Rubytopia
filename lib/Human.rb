@@ -5,6 +5,7 @@ class Human < Race
         @health = 80
         @mana = 40
         @evilness = 2
+        @happiness = 4
     end 
 
     def set_of_attacks

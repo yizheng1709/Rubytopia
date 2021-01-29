@@ -1,5 +1,6 @@
 class Race
-    attr_accessor :health, :mana, :HP_pots, :MP_pots, :evilness, :friends_made    
+    attr_accessor :health, :mana, :HP_pots, :MP_pots, :evilness, 
+    :friends_made, :happiness    
 
     def initialize(name)
         @name = name 
@@ -8,6 +9,10 @@ class Race
         @friends_made = [] 
     end 
 
+    def evilness= (evilness)
+        @evilness = evilness.clamp(0,10)
+    end 
+    
     def evilness= (evilness)
         @evilness = evilness.clamp(0,10)
     end 

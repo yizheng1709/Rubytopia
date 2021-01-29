@@ -5,7 +5,8 @@ class Giant < Race
        super 
         @health = 120
         @mana = 0
-        @evilness = 2
+        @evilness = 3
+        @happiness = 6
     end 
 
     def set_of_attacks
