@@ -9,30 +9,6 @@ class Goblin
         puts "The Goblin shyly smiles and waves at you. \n \n"
     end 
 
-    def beg #begs every time he attakcs but player is still alive
-        puts "Gerald said:"
-        a = rand(8)
-        if a == 0
-            puts "Please let me go! I have six wives and ten kids waiting for me!"
-        elsif a == 1
-            puts "I left the oven on! Please let me go!"
-        elsif a == 2
-            puts "Let me be your servant instead!"
-        elsif a == 3
-            puts "I want to finish my college degree first! Please!"
-        elsif a == 4
-            puts "I cannot bring dishonor to my family!"
-        elsif a == 5
-            puts "I've done nothing wrong in my life!"
-        elsif a == 6
-            puts "Why are you so cruel?"
-        elsif a == 7
-            puts "You're not scared of going to Hell?"
-        elsif a == 8
-            puts "I love you! Please let me go!"
-        end 
-    end 
-
     def attack #how to refer to the specific Rubytopia game
         a = rand(3)
         if a == 0 

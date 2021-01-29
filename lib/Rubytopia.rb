@@ -22,6 +22,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     @@friends_made = [] #if over 5, your journey comes to an end and your friends bid you farewell
 
     def initialize
+        Scraper.new.make_mythplace
         self.start 
     end 
 
@@ -112,7 +113,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def setting_the_background
-        puts "\n\n        Rubytopia is a land that is know for its mysterious portal. \n
+        puts "\n\nRubytopia is a land that is know for its mysterious portal. \n
         This portal can take you to any mythological land that you so desire. \n
         Today, it's your turn to play with this mysterious portal! \n
         Which mytholgical land would you like to visit? \n
@@ -131,7 +132,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             Did you know that #{self.background.name} is #{self.background.description} \n
             Well, now you do."
         else 
-            puts "        Please remember how to spell proper nouns."
+            puts "\nPlease remember how to spell proper nouns.\n"
             self.setting_the_background 
         end  
     end 
@@ -181,6 +182,30 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         self.monster_health = monster.health
         puts "What will you do? \n \n"
     end  
+
+    def beg #begs every time he attakcs but player is still alive
+        puts "Gerald said:"
+        a = rand(8)
+        if a == 0
+            puts "Please let me go! I have six wives and ten kids waiting for me!"
+        elsif a == 1
+            puts "I left the oven on! Please let me go!"
+        elsif a == 2
+            puts "Let me be your servant instead!"
+        elsif a == 3
+            puts "I want to finish my college degree first! Please!"
+        elsif a == 4
+            puts "I cannot bring dishonor to my family!"
+        elsif a == 5
+            puts "I've done nothing wrong in my life!"
+        elsif a == 6
+            puts "Why are you so cruel?"
+        elsif a == 7
+            puts "You're not scared of going to Hell?"
+        elsif a == 8
+            puts "I love you! Please let me go!"
+        end 
+    end 
 
     def turn 
         counter = 0

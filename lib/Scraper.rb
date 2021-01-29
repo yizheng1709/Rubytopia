@@ -19,13 +19,11 @@ class Scraper
             place = MythPlace.new
             place.name = listing.children.children.text.split(": ")[0]
             description = listing.children.children.text.split(": ")[1].downcase.gsub(/^[aA]\s/, "the ")
-            # description = description.downcase.gsub(/^[aA]\s/, "the ")
             description = description.gsub(".","?")
             place.description = description
-            # binding.pry
         end 
     end  
 end 
 
-Scraper.new.make_mythplace
+# Scraper.new.make_mythplace
              
