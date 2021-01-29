@@ -124,18 +124,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end  
     end 
 
-    def self.monsters_slain
-        @@monsters_slain
-    end 
-
-    def monsters_slain_save 
-        self.class.monsters_slain << self.monster 
-    end 
-
-    def self.monsters_slain_count 
-        @@monsters_slain.count 
-    end 
-
     def self.friends_made
         @@friends_made
     end 
@@ -239,6 +227,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     def battle 
         puts "You've decided to battle! Great!"
         monster.battle_cry 
+        self.turn until 
     end 
 
     def ask_player_for_battle_turn_choice
@@ -251,7 +240,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def turn 
         counter = 0
-        while !player_death? 
+        while !player.death? 
             self.ask_player_for_battle_turn_choice
             choice = gets.strip 
             if choice == "1" || choice.include?("HP") || choice.include?("hp")
@@ -270,16 +259,17 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
                 puts "Umm, #{player_name}... It's not hard to choose from 1-4. \n
                 Please try again."
             end 
-            if !self.death?
-                counter += 1
-            else 
-                self.death?
+            counter += 1
         end 
         if counter == 10 && self.monster.health > 0
-                self.friends_made_save 
-            elsif monster.health == 0 
-                self.monsters_slain_save 
-            end 
+            self.friends_made_save 
+        elsif monster.health == 0 
+            self.monsters_slain_save 
+            self.increase_evilness
+            puts "Oh... You actually killed the monster... \n
+            Well, okay. \n
+            Umm... You're not slightly more evil. \n
+            Evilness Counter: #{player.evilness}"
         end 
     end 
 
@@ -317,7 +307,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
     
     def self.bad_ending?
-        if self.monsters_slain_count == 5
+        if self.player.evilness == 10
             puts "I can't believe you are so cruel! \n
             But you know who loves cruel souls? \n
             Satan. \n
@@ -327,8 +317,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             restart?
         end 
     end 
-            
-
 end 
 
 game_one = RubytopiaGame.new 
