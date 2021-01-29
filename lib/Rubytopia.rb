@@ -227,7 +227,11 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     def battle 
         puts "You've decided to battle! Great!"
         monster.battle_cry 
-        self.turn until 
+        #monsters begs and fights back only 
+        until over?
+            self.player_turn
+            self.mosnter_turn 
+        end  
     end 
 
     def ask_player_for_battle_turn_choice
@@ -236,29 +240,29 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "2. Drink MP potion (+10 MP)"
         puts "3. Attack"
         puts "4. Do nothing"
+        choice = gets.strip 
+        if choice == "1" || choice.include?("HP") || choice.include?("hp")
+            self.player.drink_health_potion
+            puts "HP +10 \n
+            HP: #{player.health}"
+        elsif choice == "2" || choice.include?("MP") || choice.include?("mp")
+            self.player.drink_mana_potion
+            puts "MP +10 \n
+            MP: #{player_mana}"
+        elsif choice == "3" || choice == "attack" || choice == "Attack"
+            #ask player which attack they want to use
+        elsif choice == "4" || choice.include?("nothing")
+            self.player.do_nothing
+        else 
+            puts "Umm, #{player_name}... It's not hard to choose from 1-4. \n
+            Please try again."
+        end 
     end  
 
-    def turn 
+    def player_turn 
         counter = 0
-        while !player.death? 
+        while !over?
             self.ask_player_for_battle_turn_choice
-            choice = gets.strip 
-            if choice == "1" || choice.include?("HP") || choice.include?("hp")
-                self.player.drink_health_potion
-                puts "HP +10 \n
-                HP: #{player.health}"
-            elsif choice == "2" || choice.include?("MP") || choice.include?("mp")
-                self.player.drink_mana_potion
-                puts "MP +10 \n
-                MP: #{player_mana}"
-            elsif choice == "3" || choice == "attack" || choice == "Attack"
-                #ask player which attack they want to use
-            elsif choice == "4" || choice.include?("nothing")
-                self.player.do_nothing
-            else 
-                puts "Umm, #{player_name}... It's not hard to choose from 1-4. \n
-                Please try again."
-            end 
             counter += 1
         end 
         if counter == 10 && self.monster.health > 0
@@ -273,9 +277,13 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end 
     end 
 
-
-
     #this should be checked every turn the user is fighting a monster
+    def over?
+        if player.death? || self.friendly_ending? || self.bad_ending?
+            true 
+        end 
+    end 
+    
     def death?
         if self.player.death?
             puts "Your adventure was aight. \n
