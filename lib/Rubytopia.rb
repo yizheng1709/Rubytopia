@@ -16,8 +16,8 @@ require_relative "MythPlace"
 
 class RubytopiaGame #this is the only clss that should have puts, and method invocation 
     
-    attr_accessor :player_name, :player_race, :player_health, :player_mana, 
-    :monster_health, :monster, :background  
+    attr_accessor :player_name, :player_race, :monster, :background  
+    #monster should record his own health
     @@monsters_slain = [] #if over 5, Satan takes over your heart
     @@friends_made = [] #if over 5, your journey comes to an end and your friends bid you farewell
 
@@ -66,8 +66,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def create_giant 
         giant = Giant.new(self.player_name)
-        self.player_health = giant.health 
-        self.player_mana = giant.mana 
         self.player_race = giant #idk if i need this
         puts "      💎 Welcome to Rubytopia, #{self.player_name}! 💎\n
         You've chosen to be part of the Giant Race. \n
@@ -75,14 +73,12 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         but you have no idea what mana is or how to channel it. \n
         However, that does not stop you from being a happy Giant. \n
 
-        HP: #{self.player_health} \n
-        MP: #{self.player_mana} \n"
+        HP: #{giant.health} \n
+        MP: #{giant.mana} \n"
     end 
     
     def create_elf 
         elf = Elf.new(self.player_name)
-        self.player_health = elf.health
-        self.player_mana = elf.mana 
         self.player_race = elf #object elf #idk if i need this
         puts "      💎 Welcome to Rubytopia, #{self.player_name}!💎 \n
         You've chosen to be part of the Elf Race. \n
@@ -90,15 +86,13 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         so you are able to channel your mana more efficiently. \n
         You are not easily corrupted by darkness, \n
         but that does not mean you should be careless. \n
-        HP: #{self.player_health} \n
-        MP: #{self.player_mana} \n"
+        HP: #{elf.health} \n
+        MP: #{elf.mana} \n"
     end 
 
     def create_human 
         human = Human.new(self.player_name)
         self.player_race = human #object human #idk if i need this
-        self.player_health = human.health
-        self.player_mana = human.mana 
         puts "#{self.player_name}, seriously? \n
         Why would you want to be a Human \n
         when you are already one in real life? \n
@@ -108,8 +102,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         As a Human, you have average stats amongst other races. \n
         You are easily influenced by darkness, \n
         so be careful with the choices you make during your adventure. \n
-        HP: #{self.player_health} \n
-        MP: #{self.player_mana} \n" 
+        HP: #{human.health} \n
+        MP: #{human.mana} \n" 
     end 
 
     def setting_the_background
