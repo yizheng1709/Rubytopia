@@ -137,21 +137,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end  
     end 
 
-    #scraping method #done
-    # def user_choosing_background 
-    #     choice = gets 
-    #     if MythPlace.all.find {|place| place.name == choice}
-    #         self.background = MythPlace.all.find {|place| place.name == choice}
-    #         puts "Splendid choice! You've chosen to explore #{self.background.name}. \n
-    #         Did you know that #{self.background.name} is #{self.background.description} \n
-    #         Well, now you do."
-    #     else 
-    #         puts "Please remember how to spell proper nouns."
-    #         self.setting_the_background 
-    #     end  
-    # end 
-
-
     def self.monsters_slain
         @@monsters_slain
     end 
@@ -183,7 +168,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "What will you do? \n \n"
     end  
 
-    def beg #begs every time he attakcs but player is still alive
+    def goblin_beg #begs every time he attakcs but player is still alive
         puts "Gerald said:"
         a = rand(8)
         if a == 0
@@ -231,8 +216,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             restart?
         end 
     end 
-
-
 
     def restart?
         puts "Would you like to restart your adventure? \n
