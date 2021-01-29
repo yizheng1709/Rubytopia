@@ -6,12 +6,14 @@ class Giant < Race
         @health = 120
         @mana = 0
         @evilness = 2
-        @happiness = 8
     end 
 
-    def take_damage
-        #monster should invoke this method 
+    def set_of_attacks
+        "Whack-A-Mole (Does 5 damage.) \n
+        Whack-A-Lot (Does 8 damage.) \n
+        Whack-Like-Crazy (Does 11 damage.) \n"
     end 
+
 
 end 
 

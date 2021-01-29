@@ -9,13 +9,7 @@ class Human < Race
         @happiness = 5
     end 
 
-    def evilness= (evilness)
-        @evilness = evilness.clamp(0,10)
-    end 
-
-    def happiness= (happiness)
-        @happiness = happiness.clamp(0,10)
-    end 
+   
 end 
 
 # anita = Human.new("Anita")
