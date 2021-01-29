@@ -9,16 +9,6 @@ class Giant < Race
         @mana = 0
         @evilness = 2
         @happiness = 8
-        
-
-        puts "     💎 Welcome to Rubytopia, #{@name}! 💎\n
-        You've chosen to be part of the Giant Race. \n
-        As a Giant, you have incredible stamina, \n
-        but you have no idea what mana is or how to channel it. \n
-        However, that does not stop you from being a happy Giant. \n
-
-        HP: #{health} \n
-        MP: #{mana} \n"
     end 
 
     def evilness= (evilness)

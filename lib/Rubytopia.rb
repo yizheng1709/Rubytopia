@@ -158,7 +158,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     def goblin_encounter
         puts "You've encountered a goblin! \n\n"
         monster = Goblin.new
-        self.monster_health = monster.health
+        puts "The Goblin shyly smiles and waves at you. \n \n"
         puts "What will you do? \n \n"
     end  
 
@@ -183,6 +183,33 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             puts "You're not scared of going to Hell?"
         elsif a == 8
             puts "I love you! Please let me go!"
+        end 
+    end 
+
+    def dragon_insult #invoke this method after Dragon lands an attack and HP is not 0
+        #get a random generator to select a random outcome 
+        if dragon.health > 0
+            a = rand(8)
+            puts "The Dragon said:"
+             if a == 0
+                puts "What are you doing here? Did someone leave your cage open?"
+             elsif a == 1
+                 puts "Let's play Horse. I'll be the front end, and you be yourself."
+             elsif a == 2
+                  puts "I'm busy right now. Could I ignore you another time?"
+            elsif a == 3
+                puts "You are living proof that our Creator has a sense of humor."
+            elsif a == 4
+                 puts "How do you explain to your mother what you do for a living?"
+            elsif a == 5
+                puts "Did you step on a branch? Or was that your back?"
+            elsif a == 6
+                puts "I wish I was shopping right now."
+            elsif a == 7
+                puts "You know, I really don't think you can defeat me."
+            elsif a == 8
+                puts "I'm going to be late to my date."
+            end 
         end 
     end 
 

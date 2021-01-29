@@ -1,12 +1,9 @@
-#make 5 monsters 
-#when encounter adventurer, smile
 class Goblin 
     attr_accessor :health, :name  
 
     def initialize
         self.health = 20
         self.name = "Gerald"
-        puts "The Goblin shyly smiles and waves at you. \n \n"
     end 
 
     def attack #how to refer to the specific Rubytopia game
