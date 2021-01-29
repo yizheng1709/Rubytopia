@@ -12,7 +12,7 @@ class Dragon < Monster
     end 
 
     def name_set
-        num = rand(6)
+        num = rand(7)
         if num == 0
             self.name = "DyanNa"
         elsif num == 1
@@ -46,3 +46,5 @@ class Dragon < Monster
 
 
 end 
+
+Dragon.new.name 
