@@ -251,15 +251,14 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def turn 
         counter = 0
-        while !player_death?
-            #player could attack or drink potion or be idle 
+        while !player_death? 
             self.ask_player_for_battle_turn_choice
             choice = gets.strip 
-            if choice == "1" || choice.include?("HP") 
+            if choice == "1" || choice.include?("HP") || choice.include?("hp")
                 self.player.drink_health_potion
                 puts "HP +10 \n
                 HP: #{player.health}"
-            elsif choice == "2" || choice.include?("MP")
+            elsif choice == "2" || choice.include?("MP") || choice.include?("mp")
                 self.player.drink_mana_potion
                 puts "MP +10 \n
                 MP: #{player_mana}"
@@ -267,7 +266,14 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
                 #ask player which attack they want to use
             elsif choice == "4" || choice.include?("nothing")
                 self.player.do_nothing
+            else 
+                puts "Umm, #{player_name}... It's not hard to choose from 1-4. \n
+                Please try again."
             end 
+            if !self.death?
+                counter += 1
+            else 
+                self.death?
         end 
         if counter == 10 && self.monster.health > 0
                 self.friends_made_save 
@@ -281,7 +287,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     #this should be checked every turn the user is fighting a monster
     def death?
-        if player_health == 0
+        if self.player.death?
             puts "Your adventure was aight. \n
             Nothing to brag about. \n"
             restart?

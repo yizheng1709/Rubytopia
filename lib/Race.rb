@@ -24,6 +24,13 @@ class Race
         Do you think you could be friends with the monster or something?"
     end 
 
+    def increase_evilness
+        self.evilness = @evilness + 2
+    end 
+
+    def death?
+        self.health == 0
+    end 
 
 end 
 
