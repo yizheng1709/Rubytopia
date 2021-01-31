@@ -123,6 +123,93 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end  
     end 
 
+    def event_generator 
+        a = rand(1)
+        if a == 0
+            monster_generator
+        elsif a == 1
+            quizmaster_generator 
+        end 
+    end 
+
+    #THIS METHOD IS SO REPETITIVE 
+    def quizmaster_generator #is this method too long?
+        luke = QuizMaster.new #i need to reference the player answer
+        puts luke.greeting #so thats why I have to put everything into one method
+        question = question_generator
+        puts question
+        player_answer = gets.strip.downcase 
+        if question == luke.question_one
+            if luke.one_answer.include?(player_answer) #should I make the questions just class methods?
+                correct_answer
+            else 
+                wrong_answer
+            end 
+        elsif question == luke.question_two 
+            if luke.two_answer.include?(player_answer)
+                correct_answer
+            else 
+                wrong_answer
+            end 
+        elsif question == luke.question_three 
+            if luke.three_answer.include?(player_answer)
+                correct_answer
+            else 
+                wrong_answer
+            end 
+        elsif question == luke.question_four 
+            if luke.four_answer.include?(player_answer)
+                correct_answer
+            else 
+                wrong_answer
+        elsif question == luke.question_five 
+            if luke.five_answer.include?(player_answer)
+                correct_answer
+            else 
+                wrong_answer
+            end    
+        elsif question == luke.question_six 
+            if luke.six_answer.include?(player_answer)
+                correct_answer
+            else 
+                wrong_answer
+            end 
+        elsif question == luke.question_seven 
+            if luke.seven_answer.include?(player_answer)
+                correct_answer
+            else 
+                wrong_answer
+            end 
+        elsif question == luke.question_eight 
+            if luke.eight_answer.include?(player_answer)
+                correct_answer
+            else 
+                wrong_answer
+            end 
+        elsif question == luke.question_nine 
+            if luke.nine_answer.include?(player_answer)
+                correct_answer
+            else 
+                wrong_answer
+            end  
+        end    
+    end  
+
+    def correct_answer
+        player.happiness = player.happiness + 1
+        puts "Amazing! Your answer is correct, \n
+        so Luke the Quiz Master left you alone. \n
+        You feel so smart that your happiness increased by 1 point! \n
+        Happiness: #{player.happiness}"
+    end 
+
+    def wrong_answer 
+        player.happiness = player.happiness - 1
+        puts "Luke the Quiz Master laughs at your wrong answer."
+        puts "You're upset about giving the incorrect answer."
+        puts "Happiness: #{player.happiness}"
+    end 
+
     def goblin_encounter
         puts "You've encountered a goblin!"
         self.monster = Goblin.new

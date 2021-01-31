@@ -12,9 +12,9 @@ class Race
     def evilness= (evilness)
         @evilness = evilness.clamp(0,10)
     end 
-    
-    def evilness= (evilness)
-        @evilness = evilness.clamp(0,10)
+
+    def happiness= (happiness)
+        @happiness = happiness.clamp(0,10)
     end 
 
     def drink_health_potion #can be done once per turn
@@ -23,6 +23,17 @@ class Race
 
     def drink_mana_potion
         self.player_mana += 10
+    end 
+
+    def takes_damage_from_goblin 
+        a = rand(3)
+        if a == 0
+            self.health -= 2
+        elsif a == 1
+            self.health -= 3
+        elsif a == 2 
+            self.health -= 4
+        end 
     end 
 
     def do_nothing 
