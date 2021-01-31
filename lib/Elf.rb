@@ -3,8 +3,8 @@ class Elf < Race
 
     def initialize(name)
         super
-        @health = 50
-        @mana = 100
+        @health = 60
+        @mana = 80
         @evil = 1
         @happiness = 5
     end 

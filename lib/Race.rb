@@ -36,6 +36,17 @@ class Race
         end 
     end 
 
+    def takes_damage_from_dragon 
+        a = rand(3)
+        if a == 0
+            self.health -= 4
+        elsif a == 1
+            self.health -= 5
+        elsif a == 2 
+            self.health -= 8
+        end 
+    end 
+
     def do_nothing 
         "Oh...okay. You chose to do nothing. Interesting choice. \n
         Do you think you could be friends with the monster or something?"
