@@ -1,4 +1,4 @@
-class Dragon < Monster 
+class Dragon
     attr_accessor :health, :name  
 
     def initialize

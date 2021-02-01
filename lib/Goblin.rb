@@ -1,4 +1,4 @@
-class Goblin < Monster 
+class Goblin
     attr_accessor :health, :name  
 
     def initialize

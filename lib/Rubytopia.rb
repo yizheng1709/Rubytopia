@@ -2,13 +2,9 @@
 #if you cannot kill mosnter within 10 turns, the monster thinks you're super nice
 
 
-
-
-
-
 class RubytopiaGame #this is the only clss that should have puts, and method invocation 
     
-    attr_accessor :player_name, :monster, :player  
+    attr_accessor :player_name, :monster, :player, :background   
     #monster should record his own health
    #if friends_made.count == 5, your journey comes to an end and your friends bid you farewell
     
@@ -17,12 +13,13 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         Scraper.new.make_mythplace
         self.greeting_user
         self.selecting_race
-        sleep(5)
+        sleep(4)
         self.setting_the_background 
-        # sleep(5)
-        # self.user_choosing_background
-        #method for scraping favorited site (method will scrape a brief description of the place)
-        # self.monter_generator
+        sleep(1)
+        self.first_event_setup
+        sleep(1)
+        self.event_generator
+
     end 
 
     def greeting_user
@@ -35,9 +32,9 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     
     def selecting_race
         puts "Please select a race to continue. \n\n
-        1. Elf \n
-        2. Human \n
-        3. Giant"
+        1. Giant \n
+        2. Elf \n
+        3. Human"
         race_choice = gets.strip
         if race_choice.include?("1") || race_choice == "giant" || race_choice == "Giant"
             self.create_giant
@@ -54,14 +51,14 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def create_giant 
         self.player = Giant.new(self.player_name)
-        puts "      💎 Welcome to Rubytopia, #{self.player_name}! 💎\n
+        puts "       💎 Welcome to Rubytopia, #{self.player_name}! 💎\n
         You've chosen to be part of the Giant Race. \n
         As a Giant, you have incredible stamina, \n
         but you have no idea what mana is or how to channel it. \n
         However, that does not stop you from being a happy Giant. \n
 
         HP: #{player.health} (MAX) \n
-        MP: #{player.mana} (MAX) \n"
+        MP: #{player.mana} (MAX) \n\n"
     end 
     
     def create_elf 
@@ -72,7 +69,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         so you are able to channel your mana more efficiently. \n
        
         HP: #{player.health} (MAX) \n
-        MP: #{player.mana} (MAX) \n"
+        MP: #{player.mana} (MAX) \n\n"
     end 
 
     def create_human 
@@ -86,33 +83,52 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         As a Human, you have average stats amongst other races. \n
         
         HP: #{player.health} (MAX) \n
-        MP: #{player.mana} (MAX) \n" 
+        MP: #{player.mana} (MAX) \n\n" 
     end 
 
     def setting_the_background
-        puts "\n\nRubytopia is a land that is know for its mysterious portal. \n
+        puts "        Rubytopia is a land that is know for its mysterious portal. \n
         This portal can take you to any mythological land that you so desire. \n
         Today, it's your turn to play with this mysterious portal! \n
         Which mytholgical land would you like to visit? \n
         The most popular choices for Rubytopian citizens have been: \n
         Themyscira \n
-        Avalon \n
+        Camelot \n
         Atlantis \n
         Hell \n
         Asgard \n
         But feel free to take the road less traveled \n
-        and go somewhere less popular. \n\n"
-        choice = gets 
-        if MythPlace.all.find {|place| place.name == choice} #truthy statement #why is this not registering
-            background = MythPlace.all.find {|place| place.name == choice}
-            puts "Splendid choice! You've chosen to explore #{self.background.name}. \n
-            Did you know that #{background.name} is #{background.description} \n
-            Well, now you do."
+        and go somewhere less popular. \n \n"
+        choice = gets.strip 
+        if MythPlace.all.find {|place| place.name.downcase == choice.downcase} 
+            self.background = MythPlace.all.find {|place| place.name.downcase == choice.downcase}
+            puts "Splendid choice! You've chosen to explore #{background.name}. \n"
+            info_about_background
+            sleep(3)
         else 
-            puts "\nPlease remember how to spell proper nouns.\n"
+            puts "Please remember how to spell the place.\n"
+            sleep(1)
             self.setting_the_background 
         end  
     end 
+
+    def info_about_background
+        puts "Would you like to learn something about #{self.background.name}?"
+        input = gets.strip.downcase 
+        if input == "yes" || input == "y"
+            puts "Did you know that #{background.name} is \n 
+            #{background.description} \n
+            Well, now you do."
+        elsif input == "no" || input == "n"
+            puts "      Well, *someone* isn't open to being a student. Okay then. \n
+            I will try to not take it personally."
+        else  
+            info_about_background
+        end 
+    end 
+
+    def first_event_setup
+        puts "You stepped through the portal and entered #{self.background.name}. "
 
     def event_generator 
         a = rand(2)
@@ -139,77 +155,82 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         luke = QuizMaster.new #i need to reference the player answer
         puts luke.greeting #so thats why I have to put everything into one method
         question = luke.question_generator
-        puts luke.question
+        puts question
         player_answer = gets.strip.downcase 
         if question == luke.question_one
             if luke.one_answer.include?(player_answer) #should I make the questions just class methods?
-                correct_answer
+                self.correct_answer
             else 
-                wrong_answer
+                self.wrong_answer
             end 
         elsif question == luke.question_two 
             if luke.two_answer.include?(player_answer)
-                correct_answer
+                self.correct_answer
             else 
-                wrong_answer
+                self.wrong_answer
             end 
         elsif question == luke.question_three 
             if luke.three_answer.include?(player_answer)
-                correct_answer
+                self.correct_answer
             else 
-                wrong_answer
+                self.wrong_answer
             end 
         elsif question == luke.question_four 
             if luke.four_answer.include?(player_answer)
-                correct_answer
+                self.correct_answer
             else 
-                wrong_answer
+                self.wrong_answer
+            end 
         elsif question == luke.question_five 
             if luke.five_answer.include?(player_answer)
-                correct_answer
+                self.correct_answer
             else 
-                wrong_answer
+                self.wrong_answer
             end    
         elsif question == luke.question_six 
             if luke.six_answer.include?(player_answer)
-                correct_answer
+                self.correct_answer
             else 
-                wrong_answer
+                self.wrong_answer
             end 
         elsif question == luke.question_seven 
             if luke.seven_answer.include?(player_answer)
-                correct_answer
+                self.correct_answer
             else 
-                wrong_answer
+                self.wrong_answer
             end 
         elsif question == luke.question_eight 
             if luke.eight_answer.include?(player_answer)
-                correct_answer
+                self.correct_answer
             else 
-                wrong_answer
+                self.wrong_answer
             end 
         elsif question == luke.question_nine 
             if luke.nine_answer.include?(player_answer)
-                correct_answer
+                self.correct_answer
             else 
-                wrong_answer
+                self.wrong_answer
             end  
         end    
     end  
-
+#question class; question attribute and answer attribute
+#store in class variable. #sample method 
+#every instance of question has attribute of question and answer 
+#start with a hash of questions and answer
+#create new instance of question/answer with hash
     def correct_answer
-        player.increase_happiness_by_1
+        self.player.increase_happiness_by_1
         puts "Amazing! Your answer is correct, \n
         so Luke the Quiz Master left you alone. \n
         You feel so smart that your happiness increased by 1 point! \n
-        Happiness: #{player.happiness}"
+        Happiness: #{self.player.happiness}"
     end 
 
     def wrong_answer 
-        player.decrease_happiness_by_1
+        self.player.decrease_happiness_by_1
         puts "Luke the Quiz Master laughs at your wrong answer."
         puts "You're upset about giving the incorrect answer."
-        puts "Happiness: #{player.happiness}"
+        puts "Happiness: #{self.player.happiness}"
     end 
 
     def goblin_encounter
@@ -240,20 +261,20 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "What will you do?"
         puts "Run or Fight?"
         choice = gets.strip 
-        if run_or_fight.include?("run") || run_or_fight.include?("Run")
+        if self.run_or_fight.include?("run") || self.run_or_fight.include?("Run")
             self.run_away
-        elsif run_or_fight.include?("fight") || run_or_fight.include?("Fight")
+        elsif run_or_fight.include?("fight") || self.run_or_fight.include?("Fight")
             self.battle #double check the logic of battle method
         else 
             puts "There is no third choice, sorry."
             puts "Please do try to stick with the choices that I've given you."
-            run_or_fight
+            self.run_or_fight
         end 
     end 
 
     def monster_reply
-        if monster.health > 0
-            puts monster.reply 
+        if self.monster.health > 0
+            puts self.monster.reply 
         end 
     end 
 
@@ -263,7 +284,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def battle #### MODIFY METHOD
         puts "You've decided to battle! Great!"
-        monster.battle_cry 
+        puts monster.battle_cry 
         #monsters begs and fights back only 
         until over? #until the 
             self.player_turn
@@ -304,7 +325,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         4. Ask the monster to be friends...? \n"
     end 
 
-    def ask_player_for_battle_turn_choice
+    def player_turn_choice
         list_of_battle_choices
         choice = gets.strip 
         if choice.include?("1") || choice.include?("HP") || choice.include?("hp")
@@ -322,10 +343,11 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         else 
             puts "Umm, #{player_name}... It's not hard to choose from 1-4. \n
             Please try again."
+            self.player_turn_choice
         end 
     end  
 
-    def choosing_attack 
+    def choosing_attack  #part of player_turn_choice
         puts player.set_of_attacks
         atk = gets.strip
         if atk.include?("1")
@@ -351,15 +373,18 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def player_turn 
-        ask_player_for_battle_turn_choice
-        #check for monster.health
-        #if monster.health == 0
-        # puts "W O W ! You defeated the monster!"
-        # player.increase_evilness_by_2
-        # puts "Well, now your evilness level is #{player.evilness}! \n
-        # What could go wrong?"
-        #else
-        #monster_turn 
+        #loop so that once the amount of turns is > 7, the monster becomes friend?
+        self.player_turn_choice
+        if monster.health == 0
+            player.increase_evilness_by_2
+            puts self.monster.death_cry
+            puts "W O W ! You defeated the monster!"
+            puts "Well, now your evilness level is #{player.evilness}! \n
+            What could go wrong?"
+        elsif monster.health > 0
+            puts self.monster.reply
+            self.monster_turn 
+        end 
     end 
 
     def monster_turn
@@ -369,36 +394,10 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         Your HP: #{self.player.health} \n"
     end 
 
-    # def player_turn 
-    #     counter = 0 #
-    #     while !over? #could use this as a separate method
-    #         self.ask_player_for_battle_turn_choice
-    #         counter += 1
-    #     end 
-    #     if counter == 10 && self.monster.health > 0
-    #         self.friends_made_save 
-    #     elsif monster.health == 0 
-    #         self.monsters_slain_save 
-    #         self.increase_evilness
-    #         puts "Oh... You actually killed the monster... \n
-    #         Well, okay. \n
-    #         Umm... You're not slightly more evil. \n
-    #         Evilness Counter: #{player.evilness}"
-    #     end 
-    # end 
-
     #this should be checked every turn the user is fighting a monster
     def over?
-        if player.death? || self.friendly_ending? || self.bad_ending?
+        if self.death? || self.friendly_ending? || self.bad_ending?
             true 
-        end 
-    end 
-    
-    def death?
-        if self.player.death?
-            puts "Your adventure was aight. \n
-            Nothing to brag about. \n"
-            restart?
         end 
     end 
 
@@ -413,28 +412,35 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end 
     end 
 
+    
+    def death? #ending 1
+        if self.player.death?
+            puts "Your adventure was aight. \n
+            Nothing to brag about. \n"
+            self.restart?
+        end 
+    end 
+
     #these methods should be cchecked every time a battle ends 
-    def self.friendly_ending? 
+    def friendly_ending? #ending 2
         if self.player.friends_made_count == 5 
             puts "Your journey comes to an end, as you realize you have work tomorrow. \n
             As you are about to walk through the exit portal, \n
             all of the friends that you've made today came to bid farewell. \n"
-            self.friends_made.each {|friend| puts "#{friend.name} said: See you around?"}
-            restart?
+            self.player.friends_made.each {|friend| puts "#{friend.name} said: See you around?"}
+            self.restart?
         end 
     end 
     
-    def self.bad_ending?
+    def bad_ending? #ending three
         if self.player.evilness == 10
             puts "I can't believe you are so cruel! \n
             But you know who loves cruel souls? \n
             Satan. \n
             Satan loves your soul so much that he decided to take it from you. \n
             Now your soul is part of Satan's favorite souls collection. \n
-            Way to go, #{player_name}."
-            restart?
+            Way to go, #{self.player_name}."
+            self.restart?
         end 
     end 
 end 
-
-game_one = RubytopiaGame.new 
