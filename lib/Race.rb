@@ -47,9 +47,9 @@ class Race
         end 
     end 
 
-    def do_nothing 
-        "Oh...okay. You chose to do nothing. Interesting choice. \n
-        Do you think you could be friends with the monster or something?"
+    def sing_a_song 
+        "Oh...okay. You chose to sing a song. Interesting choice. \n
+        Do you think you're at a karaoke date with the monster or something?"
     end 
 
     def increase_evilness

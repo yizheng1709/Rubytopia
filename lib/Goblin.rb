@@ -40,7 +40,7 @@ class Goblin < Monster
     end 
 
     def reply 
-        "#{self.name} said: \n"
+        "#{self.name} the Goblin said: \n"
         a = rand(9)
         if a == 0
             "Please let me go! I have six wives and ten kids waiting for me!"

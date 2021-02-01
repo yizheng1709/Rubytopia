@@ -124,11 +124,13 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def monster_generator 
-        num = rand(2) #add to this as I build more monsters
+        num = rand(3) #add to this as I build more monsters
         if num == 0
             goblin_encounter 
         elsif num == 1
             dragon_encounter 
+        elsif num == 2
+            karen_encounter
         end 
     end 
 
@@ -211,16 +213,22 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def goblin_encounter
-        puts "You've encountered a goblin!"
         self.monster = Goblin.new
-        puts "The Goblin shyly smiles and waves at you."
+        puts "You've encountered a goblin! \n
+        The Goblin shyly smiles and waves at you. \n"
     end  
 
-    def dragon_encounter 
-        puts "Just your luck! You've encountered a fierce and sassy dragon! Yikes!"
-        self.monster = Dragon.new 
-        puts "*The Dragon farted.*"
-        puts "The putrid smell is strong enough to make you forget your own name."
+    def dragon_encounter
+        self.monster = Dragon.new  
+        puts "Just your luck! You've encountered a fierce and sassy dragon! Yikes! \n
+        *The Dragon farted.* \n
+        The putrid smell is strong enough to make you forget your own name. \n"
+    end 
+
+    def karen_encounter
+        self.monster = Karen.new 
+        puts "Today is not your day! You've encountered a mighty Keh-Rhan! \n
+        The monstrous Keh-Rhan makes your knees tremble. \n"
     end 
 
     def monster_encounter 

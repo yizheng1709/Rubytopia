@@ -48,7 +48,7 @@ class Dragon < Monster
 
     def reply
         a = rand(9)
-        "#{self.name} said: \n"
+        "#{self.name} the Dragon said: \n"
         if a == 0
             "What are you doing here? Did someone leave your cage open?"
         elsif a == 1

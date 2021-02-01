@@ -1,5 +1,34 @@
 class Karen
+    attr_accessor :health, :name  
 
+    def initialize
+        self.health = 65
+        self.name_set
+    end
+
+    def health=(health)
+        @health = health.clamp(0,65)
+    end 
+
+    #random name generator 
+    def name_set
+        num = rand(6)
+        if num == 0
+            self.name = "Joe-Le-An"
+        elsif num == 1
+            self.name = "Op-Al"
+        elsif num == 2
+            self.name = "DeBo-Ra-Ah-Ah"
+        elsif num == 3
+            self.name = "Mar-Ga-Ret"
+        elsif num == 4
+            self.name == "Whey-Le-E"
+        elsif num == 5
+            self.name == "Hay-Le-E"
+        elsif num == 6
+            self.name == "Nahn-See"
+        end 
+    end 
 
     def battle_cry
         "AHHHHHHHHHHHHHHHHHHHH!!!!! OUTSIDER!!!!!!"
@@ -10,7 +39,7 @@ class Karen
     end 
 
     def reply 
-        "The Keh-Rhan said: \n"
+        "#{self.name} the Keh-Rhan said: \n"
         a = rand()
         if a == 0
             "I *NEED* TO SPEAK TO YOUR MANAGER!!!!"
