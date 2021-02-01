@@ -267,30 +267,9 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end 
     end 
 
-    def dragon_insult #invoke this method after Dragon lands an attack and HP is not 0
-        #get a random generator to select a random outcome 
+    def monster_reply
         if monster.health > 0
-            a = rand(9)
-            puts "The Dragon said:"
-             if a == 0
-                puts "What are you doing here? Did someone leave your cage open?"
-             elsif a == 1
-                 puts "Let's play Horse. I'll be the front end, and you be yourself."
-             elsif a == 2
-                  puts "I'm busy right now. Could I ignore you another time?"
-            elsif a == 3
-                puts "You are living proof that our Creator has a sense of humor."
-            elsif a == 4
-                 puts "How do you explain to your mother what you do for a living?"
-            elsif a == 5
-                puts "Did you step on a branch? Or was that your back?"
-            elsif a == 6
-                puts "I wish I was shopping right now."
-            elsif a == 7
-                puts "You know, I really don't think you can defeat me."
-            elsif a == 8
-                puts "I'm going to be late to my date."
-            end 
+            puts monster.reply 
         end 
     end 
 
@@ -316,7 +295,13 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     #if fight, #ask_player_for_battle_turn_choice
     #execute the choice received from player
     #show results
-    #check for 
+    #check if monster.health == 0 ; friendly_ending/bad-ending
+    #if monster.health != 0
+    #   monster.reply
+    #monster's turn
+    #monter randomly attacks
+    #displays the result of monster's attack
+    #
     
     def list_of_battle_choices
         puts "What will you do? (1-4) \n 

@@ -3,8 +3,7 @@ class Dragon < Monster
 
     def initialize
         self.health = 60
-        name_set
-        binding.pry
+        self.name_set
     end 
 
     def health=(health)
@@ -43,6 +42,29 @@ class Dragon < Monster
             # 8 tail whip, 10 claw , 15 fire breath 
     end 
 
+    def reply
+        a = rand(9)
+        "#{self.name} said: \n"
+        if a == 0
+            "What are you doing here? Did someone leave your cage open?"
+        elsif a == 1
+            "Let's play Horse. I'll be the front end, and you be yourself."
+        elsif a == 2
+            "I'm busy right now. Could I ignore you another time?"
+        elsif a == 3
+            "You are living proof that our Creator has a sense of humor."
+        elsif a == 4
+            "How do you explain to your mother what you do for a living?"
+        elsif a == 5
+            "Did you step on a branch? Or was that your back?"
+        elsif a == 6
+            "I wish I was shopping right now."
+        elsif a == 7
+            "You know, I really don't think you can defeat me."
+        elsif a == 8
+            "I'm going to be late to my date. UGH!"
+        end 
+    end 
 
 
 end 
