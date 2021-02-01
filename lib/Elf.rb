@@ -14,6 +14,18 @@ class Elf < Race
         2. Triple Shot (Does 11 damage. Consumes 10 Mana.) \n
         3. Single Shot (Does 3 damage. Consumes 1 Mana.) \n"
     end 
+
+    def first_attack 
+        5
+    end 
+
+    def second_attack
+        11 
+    end 
+
+    def third_attack
+        3
+    end 
    
 
 end 

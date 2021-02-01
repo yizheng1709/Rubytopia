@@ -1,12 +1,3 @@
-
-# FOUND scrape a site that lists major events or eras (or mythological ones)
-#ask user a time period or era or mythological countries they like
-
-#and the player is sent back to a time as one of the three dominating races
-#to fight monsters! 
-#the place will be an instance variable of :setting
-#if i have time, change the available races according to setting
-
 #add current monster to friend list if monster does not die
 #if you cannot kill mosnter within 10 turns, the monster thinks you're super nice
 #the monster tells you his/her name if they become your friend!
@@ -44,15 +35,15 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     
     def selecting_race
         puts "Please select a race to continue. \n\n
-        Elf \n
-        Human \n
-        Giant"
+        1. Elf \n
+        2. Human \n
+        3. Giant"
         race_choice = gets.strip
-        if race_choice == "giant" || race_choice == "Giant"
+        if race_choice.include?("1") || race_choice == "giant" || race_choice == "Giant"
             self.create_giant
-        elsif race_choice == "elf" || race_choice == "Elf"
+        elsif race_choice.include?("2") || race_choice == "elf" || race_choice == "Elf"
             self.create_elf
-        elsif race_choice == "human" || race_choice == "Human"
+        elsif race_choice.include?("3") || race_choice == "human" || race_choice == "Human"
             self.create_human
         else
             puts "It's not hard to select a race.\n
@@ -254,7 +245,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def goblin_beg #begs every time he attakcs but player is still alive
         puts "#{monster.name} said:"
-        a = rand(8)
+        a = rand(9)
         if a == 0
             puts "Please let me go! I have six wives and ten kids waiting for me!"
         elsif a == 1
@@ -279,7 +270,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     def dragon_insult #invoke this method after Dragon lands an attack and HP is not 0
         #get a random generator to select a random outcome 
         if monster.health > 0
-            a = rand(8)
+            a = rand(9)
             puts "The Dragon said:"
              if a == 0
                 puts "What are you doing here? Did someone leave your cage open?"
@@ -324,27 +315,49 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "3. Attack"
         puts "4. Do nothing"
         choice = gets.strip 
-        if choice == "1" || choice.include?("HP") || choice.include?("hp")
+        if choice.include?("1") || choice.include?("HP") || choice.include?("hp")
             self.player.drink_health_potion
             puts "HP +10 \n
             HP: #{player.health}"
-        elsif choice == "2" || choice.include?("MP") || choice.include?("mp")
+        elsif choice.include?("2") || choice.include?("MP") || choice.include?("mp")
             self.player.drink_mana_potion
             puts "MP +10 \n
             MP: #{player_mana}"
-        elsif choice == "3" || choice == "attack" || choice == "Attack"
-            #ask player which attack they want to use
-            #make a method that lists player.set_of_attacks
-            #set attack = gets.strip again
-            #if attack = the certain number, subtract the damage 
-            #from @monster.health
-        elsif choice == "4" || choice.include?("nothing")
+        elsif choice.include?("3") || choice == "attack" || choice == "Attack"
+            self.choosing_attack
+        elsif choice.include?("4") || choice.include?("nothing")
             self.player.do_nothing
         else 
             puts "Umm, #{player_name}... It's not hard to choose from 1-4. \n
             Please try again."
         end 
     end  
+
+    def choosing_attack 
+        puts player.set_of_attacks
+            atk = gets.strip
+            if atk.include?("1")
+                dmg = player.first_attack #this section is repetitive
+                monster.health -= dmg  #could write as its own method
+                puts "You dealt #{dmg} damage! \n
+                Monster's HP: #{monster.health}"
+            elsif atk.include?("2")
+                dmg = player.second_attack
+                monster.health -= dmg 
+                puts "You dealt #{dmg} damage! \n
+                Monster's HP: #{monster.health}"
+            elsif atk.include?("3")
+                dmg = player.third_attack
+                monster.health -= dmg 
+                puts "You dealt #{dmg} damage! \n
+                Monster's HP: #{monster.health}"
+            else 
+                puts "#{player_name}, you really only have three attacks to choose from. \n
+                It's not that hard to choose. Please try again."
+                choosing_attack
+            end 
+        end 
+    end 
 
     def player_turn 
         counter = 0
