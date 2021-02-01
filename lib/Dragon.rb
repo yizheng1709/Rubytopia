@@ -34,6 +34,10 @@ class Dragon < Monster
         Or do you not know how to do that?\n"
     end 
 
+    def death_cry
+        "Ugh, I can't believe I got defeated by someone with one brain cell."
+    end 
+
     def attack #argument of adventurer's class
         # adventurer.health = adventurer.health - 10, something like that 
         # if adventurer.health != 0
@@ -69,4 +73,4 @@ class Dragon < Monster
 
 end 
 
-Dragon.new.name 
+# Dragon.new.name 

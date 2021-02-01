@@ -115,7 +115,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def event_generator 
-        a = rand(1)
+        a = rand(2)
         if a == 0
             monster_generator
         elsif a == 1
@@ -123,12 +123,21 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end 
     end 
 
-    #THIS METHOD IS SO REPETITIVE 
+    def monster_generator 
+        num = rand(2) #add to this as I build more monsters
+        if num == 0
+            goblin_encounter 
+        elsif num == 1
+            dragon_encounter 
+        end 
+    end 
+
+    #THIS METHOD IS SO REPETITIVE ********
     def quizmaster_generator #is this method too long?
         luke = QuizMaster.new #i need to reference the player answer
         puts luke.greeting #so thats why I have to put everything into one method
-        question = question_generator
-        puts question
+        question = luke.question_generator
+        puts luke.question
         player_answer = gets.strip.downcase 
         if question == luke.question_one
             if luke.one_answer.include?(player_answer) #should I make the questions just class methods?
@@ -214,15 +223,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "The putrid smell is strong enough to make you forget your own name."
     end 
 
-    def monster_generator 
-        num = rand(2) #add to this as I build more monsters
-        if num == 0
-            goblin_encounter 
-        elsif num == 1
-            dragon_encounter 
-        end 
-    end 
-
     def monster_encounter 
         monster_generator
         run_or_fight
@@ -240,30 +240,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             puts "There is no third choice, sorry."
             puts "Please do try to stick with the choices that I've given you."
             run_or_fight
-        end 
-    end 
-
-    def goblin_beg #begs every time he attakcs but player is still alive
-        puts "#{monster.name} said:"
-        a = rand(9)
-        if a == 0
-            puts "Please let me go! I have six wives and ten kids waiting for me!"
-        elsif a == 1
-            puts "I left the oven on! Please let me go!"
-        elsif a == 2
-            puts "Let me be your servant instead!"
-        elsif a == 3
-            puts "I want to finish my college degree first! Please!"
-        elsif a == 4
-            puts "I cannot bring dishonor to my family!"
-        elsif a == 5
-            puts "I've done nothing wrong in my life!"
-        elsif a == 6
-            puts "Why are you so cruel?"
-        elsif a == 7
-            puts "You're not scared of going to Hell?"
-        elsif a == 8
-            puts "I love you! Please let me go!"
         end 
     end 
 

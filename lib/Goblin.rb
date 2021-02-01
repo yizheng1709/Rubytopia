@@ -35,6 +35,10 @@ class Goblin < Monster
         :("
     end 
 
+    def death_cry
+        "I just wanted to bring honor to my wives and kids..."
+    end 
+
     def reply 
         "#{self.name} said: \n"
         a = rand(9)
