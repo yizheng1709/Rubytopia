@@ -60,6 +60,10 @@ class Race
         self.happiness = @happiness + 1
     end 
 
+    def decrease_happiness_by_1
+        self.happiness = @happiness - 1
+    end 
+
     def friends_made_count
         @friends_made.count 
     end 

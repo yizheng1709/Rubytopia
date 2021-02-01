@@ -198,7 +198,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end  
 
     def correct_answer
-        player.happiness = player.happiness + 1
+        player.increase_happiness_by_1
         puts "Amazing! Your answer is correct, \n
         so Luke the Quiz Master left you alone. \n
         You feel so smart that your happiness increased by 1 point! \n
@@ -206,7 +206,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def wrong_answer 
-        player.happiness = player.happiness - 1
+        player.decrease_happiness_by_1
         puts "Luke the Quiz Master laughs at your wrong answer."
         puts "You're upset about giving the incorrect answer."
         puts "Happiness: #{player.happiness}"
