@@ -3,18 +3,41 @@ class Giant < Race
 
     def initialize(name)
        super 
-        @health = 120
-        @mana = 0
+        @health = 100
+        @mana = 20
         @evilness = 3
         @happiness = 6
     end 
 
     def set_of_attacks
-        "1. Whack-A-Mole (Does 5 damage.) \n
-        2. Whack-A-Lot (Does 8 damage.) \n
-        3. Whack-Like-Crazy (Does 11 damage.) \n"
+        "1. Whack-A-Mole (Does 5 damage. Consumes 1 Mana.) \n
+        2. Whack-A-Lot (Does 8 damage. Consumes 2 Mana.) \n
+        3. Whack-Like-Crazy (Does 11 damage. Consumes 3 Mana.) \n"
     end 
 
+    def first_attack
+        5
+    end 
+
+    def second_attack
+        8
+    end 
+
+    def third_attack
+        11
+    end 
+
+    def first_mana
+        1
+    end 
+
+    def second_mana
+        2
+    end 
+
+    def third_mana
+        3
+    end 
 
 end 
 

@@ -335,27 +335,26 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def choosing_attack 
         puts player.set_of_attacks
-            atk = gets.strip
-            if atk.include?("1")
-                dmg = player.first_attack #this section is repetitive
-                monster.health -= dmg  #could write as its own method
-                puts "You dealt #{dmg} damage! \n
-                Monster's HP: #{monster.health}"
-            elsif atk.include?("2")
-                dmg = player.second_attack
-                monster.health -= dmg 
-                puts "You dealt #{dmg} damage! \n
-                Monster's HP: #{monster.health}"
-            elsif atk.include?("3")
-                dmg = player.third_attack
-                monster.health -= dmg 
-                puts "You dealt #{dmg} damage! \n
-                Monster's HP: #{monster.health}"
-            else 
-                puts "#{player_name}, you really only have three attacks to choose from. \n
-                It's not that hard to choose. Please try again."
-                choosing_attack
-            end 
+        atk = gets.strip
+        if atk.include?("1")
+            dmg = player.first_attack #this section is repetitive
+            monster.health -= dmg  #could write as its own method
+            puts "You dealt #{dmg} damage! \n
+            Monster's HP: #{monster.health}"
+        elsif atk.include?("2")
+            dmg = player.second_attack
+            monster.health -= dmg 
+            puts "You dealt #{dmg} damage! \n
+            Monster's HP: #{monster.health}"
+        elsif atk.include?("3")
+            dmg = player.third_attack
+            monster.health -= dmg 
+            puts "You dealt #{dmg} damage! \n
+            Monster's HP: #{monster.health}"
+        else 
+            puts "#{player_name}, you really only have three attacks to choose from. \n
+            It's not that hard to choose. Please try again."
+            choosing_attack
         end 
     end 
 

@@ -10,23 +10,34 @@ class Elf < Race
     end 
 
     def set_of_attacks 
-        "1. Arcane Arrows (Does 5 damage. Consumes 5 Mana.)\n
-        2. Triple Shot (Does 11 damage. Consumes 10 Mana.) \n
-        3. Single Shot (Does 3 damage. Consumes 1 Mana.) \n"
+        "1. Single Shot (Does 2 damage. Consumes 1 Mana.)\n
+        2. Triple Shots (Does 8 damage. Consumes 5 Mana.) \n
+        3. Arcane Arrows (Does 13 damage. Consumes 8 Mana.) \n"
     end 
 
     def first_attack 
-        5
+        2
     end 
 
     def second_attack
-        11 
+        8 
     end 
 
     def third_attack
-        3
+        13
     end 
    
+    def first_mana
+        1
+    end 
+
+    def second_mana
+        5
+    end 
+
+    def third_mana
+        8
+    end 
 
 end 
 
