@@ -1,14 +1,14 @@
 #add current monster to friend list if monster does not die
 #if you cannot kill mosnter within 10 turns, the monster thinks you're super nice
-#the monster tells you his/her name if they become your friend!
-#add current mosnter to slain list if monster dies
-#battle cry happens immediately when player chooses to enter into battle
+
+
+
 
 
 
 class RubytopiaGame #this is the only clss that should have puts, and method invocation 
     
-    attr_accessor :player_name, :monster, :background, :player  
+    attr_accessor :player_name, :monster, :player  
     #monster should record his own health
    #if friends_made.count == 5, your journey comes to an end and your friends bid you farewell
     
@@ -60,8 +60,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         but you have no idea what mana is or how to channel it. \n
         However, that does not stop you from being a happy Giant. \n
 
-        HP: #{player.health} \n
-        MP: #{player.mana} \n"
+        HP: #{player.health} (MAX) \n
+        MP: #{player.mana} (MAX) \n"
     end 
     
     def create_elf 
@@ -71,8 +71,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         As an Elf, your ❤  is purest amongst other races, \n 
         so you are able to channel your mana more efficiently. \n
        
-        HP: #{player.health} \n
-        MP: #{player.mana} \n"
+        HP: #{player.health} (MAX) \n
+        MP: #{player.mana} (MAX) \n"
     end 
 
     def create_human 
@@ -85,8 +85,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         You've chosen to be part of the Human Race. \n
         As a Human, you have average stats amongst other races. \n
         
-        HP: #{player.health} \n
-        MP: #{player.mana} \n" 
+        HP: #{player.health} (MAX) \n
+        MP: #{player.mana} (MAX) \n" 
     end 
 
     def setting_the_background
@@ -104,9 +104,9 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         and go somewhere less popular. \n\n"
         choice = gets 
         if MythPlace.all.find {|place| place.name == choice} #truthy statement #why is this not registering
-            self.background = MythPlace.all.find {|place| place.name == choice}
+            background = MythPlace.all.find {|place| place.name == choice}
             puts "Splendid choice! You've chosen to explore #{self.background.name}. \n
-            Did you know that #{self.background.name} is #{self.background.description} \n
+            Did you know that #{background.name} is #{background.description} \n
             Well, now you do."
         else 
             puts "\nPlease remember how to spell proper nouns.\n"
@@ -265,16 +265,18 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "You've decided to battle! Great!"
         monster.battle_cry 
         #monsters begs and fights back only 
-        until over?
+        until over? #until the 
             self.player_turn
             
             # self.monster_turn player_turn and monster_turn  
         end  
     end 
 
-    # LOGIC for gameplay: 
-    # monster_generator
-    # run_or_fight
+    # LOGIC for gameplay #event_generator until ending
+    # event_generator until over?
+
+    # monster_generator [done]
+    # run_or_fight [done]
     # if run_away,
     #   self.run_away 
     #   event_generator
@@ -340,31 +342,50 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             dmg = player.third_attack
             monster.health -= dmg 
             puts "You dealt #{dmg} damage! \n
-            Monster's HP: #{monster.health}"
+            Monster's HP: #{self.monster.health}"
         else 
-            puts "#{player_name}, you really only have three attacks to choose from. \n
+            puts "#{self.player_name}, you really only have three attacks to choose from. \n
             It's not that hard to choose. Please try again."
             choosing_attack
         end 
     end 
 
     def player_turn 
-        counter = 0
-        while !over? #could use this as a separate method
-            self.ask_player_for_battle_turn_choice
-            counter += 1
-        end 
-        if counter == 10 && self.monster.health > 0
-            self.friends_made_save 
-        elsif monster.health == 0 
-            self.monsters_slain_save 
-            self.increase_evilness
-            puts "Oh... You actually killed the monster... \n
-            Well, okay. \n
-            Umm... You're not slightly more evil. \n
-            Evilness Counter: #{player.evilness}"
-        end 
+        ask_player_for_battle_turn_choice
+        #check for monster.health
+        #if monster.health == 0
+        # puts "W O W ! You defeated the monster!"
+        # player.increase_evilness_by_2
+        # puts "Well, now your evilness level is #{player.evilness}! \n
+        # What could go wrong?"
+        #else
+        #monster_turn 
     end 
+
+    def monster_turn
+        atk = self.monster.attack
+        player.health -= atk 
+        puts "#{self.monster.name} dealt #{atk} damage to you! \n
+        Your HP: #{self.player.health} \n"
+    end 
+
+    # def player_turn 
+    #     counter = 0 #
+    #     while !over? #could use this as a separate method
+    #         self.ask_player_for_battle_turn_choice
+    #         counter += 1
+    #     end 
+    #     if counter == 10 && self.monster.health > 0
+    #         self.friends_made_save 
+    #     elsif monster.health == 0 
+    #         self.monsters_slain_save 
+    #         self.increase_evilness
+    #         puts "Oh... You actually killed the monster... \n
+    #         Well, okay. \n
+    #         Umm... You're not slightly more evil. \n
+    #         Evilness Counter: #{player.evilness}"
+    #     end 
+    # end 
 
     #this should be checked every turn the user is fighting a monster
     def over?

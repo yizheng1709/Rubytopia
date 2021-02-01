@@ -108,4 +108,3 @@ class QuizMaster
     end 
 end 
 
-puts QuizMaster.new.question_generator
