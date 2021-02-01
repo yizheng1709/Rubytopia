@@ -56,7 +56,7 @@ class Karen
         elsif a == 6
             "YOU'RE TOO CLOSE TO ME!!! STOP IT!!!"
         elsif a == 7
-            "I HAVE MY RIGHTS AS A KEH-RAN!"
+            "I HAVE MY RIGHTS AS A KEH-RHAN!"
         elsif a == 8
             "DO YOU EVEN KNOW WHO I AM?"
         end 

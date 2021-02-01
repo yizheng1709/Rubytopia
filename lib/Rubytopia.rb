@@ -272,19 +272,21 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end  
     end 
 
-    #LOGIC: 
-    #monster_generator
-    #run_or_fight
-    #if run_away, event_generator
-    #if fight, #ask_player_for_battle_turn_choice
-    #execute the choice received from player
-    #show results
-    #check if monster.health == 0 ; friendly_ending/bad-ending
-    #if monster.health != 0
+    # LOGIC: 
+    # monster_generator
+    # run_or_fight
+    # if run_away, event_generator
+    # if fight, #ask_player_for_battle_turn_choice
+    # execute the choice received from player
+    # show results
+    # check if monster.health == 0 ; friendly_ending/bad-ending
+    # if monster.health != 0
     #   monster.reply
-    #monster's turn
-    #monter randomly attacks
-    #displays the result of monster's attack
+    # elsif monster.health == 0
+    #   monster.death_cry
+    # monster's turn
+    # monter randomly attacks
+    # displays the result of monster's attack
     #
     
     def list_of_battle_choices

@@ -52,8 +52,12 @@ class Race
         Do you think you're at a karaoke date with the monster or something?"
     end 
 
-    def increase_evilness
+    def increase_evilness_by_2
         self.evilness = @evilness + 2
+    end 
+
+    def increase_happiness_by_1
+        self.happiness = @happiness + 1
     end 
 
     def friends_made_count
