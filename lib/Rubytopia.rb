@@ -17,7 +17,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         self.setting_the_background 
         sleep(1)
         self.first_event_setup
-        sleep(1)
+        sleep(5)
         self.event_generator
 
     end 
@@ -56,7 +56,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         As a Giant, you have incredible stamina, \n
         but you have no idea what mana is or how to channel it. \n
         However, that does not stop you from being a happy Giant. \n
-
         HP: #{player.health} (MAX) \n
         MP: #{player.mana} (MAX) \n\n"
     end 
@@ -67,7 +66,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         You've chosen to be part of the Elf Race. \n
         As an Elf, your ❤  is purest amongst other races, \n 
         so you are able to channel your mana more efficiently. \n
-       
         HP: #{player.health} (MAX) \n
         MP: #{player.mana} (MAX) \n\n"
     end 
@@ -128,7 +126,13 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def first_event_setup
-        puts "You stepped through the portal and entered #{self.background.name}. "
+        puts "You stepped through the portal and entered #{self.background.name}."
+        puts "Allow me to tell you this, #{self.player_name}. \n
+        You control your own fate. You will be the one \n
+        to decide how your adventure will end. \n
+        If there is a time when you want to leave this world, \n
+        let me know by typing 'exit'."
+    end 
 
     def event_generator 
         a = rand(2)
@@ -150,69 +154,22 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end 
     end 
 
-    #THIS METHOD IS SO REPETITIVE ********
-    def quizmaster_generator #is this method too long?
-        luke = QuizMaster.new #i need to reference the player answer
-        puts luke.greeting #so thats why I have to put everything into one method
-        question = luke.question_generator
-        puts question
-        player_answer = gets.strip.downcase 
-        if question == luke.question_one
-            if luke.one_answer.include?(player_answer) #should I make the questions just class methods?
-                self.correct_answer
-            else 
-                self.wrong_answer
-            end 
-        elsif question == luke.question_two 
-            if luke.two_answer.include?(player_answer)
-                self.correct_answer
-            else 
-                self.wrong_answer
-            end 
-        elsif question == luke.question_three 
-            if luke.three_answer.include?(player_answer)
-                self.correct_answer
-            else 
-                self.wrong_answer
-            end 
-        elsif question == luke.question_four 
-            if luke.four_answer.include?(player_answer)
-                self.correct_answer
-            else 
-                self.wrong_answer
-            end 
-        elsif question == luke.question_five 
-            if luke.five_answer.include?(player_answer)
-                self.correct_answer
-            else 
-                self.wrong_answer
-            end    
-        elsif question == luke.question_six 
-            if luke.six_answer.include?(player_answer)
-                self.correct_answer
-            else 
-                self.wrong_answer
-            end 
-        elsif question == luke.question_seven 
-            if luke.seven_answer.include?(player_answer)
-                self.correct_answer
-            else 
-                self.wrong_answer
-            end 
-        elsif question == luke.question_eight 
-            if luke.eight_answer.include?(player_answer)
-                self.correct_answer
-            else 
-                self.wrong_answer
-            end 
-        elsif question == luke.question_nine 
-            if luke.nine_answer.include?(player_answer)
-                self.correct_answer
-            else 
-                self.wrong_answer
-            end  
-        end    
-    end  
+    def quizmaster_generator
+        luke = QuizMaster.new 
+        quiz = QandA.new 
+        puts luke.greeting
+        a = rand(9)
+        puts quiz.question[a]
+        input = gets.strip.downcase 
+        if quiz.answer[a].include?(input)
+            self.correct_answer
+        elsif input == "exit"
+            #abort method
+        elsif quiz.answer[a] != input
+            self.wrong_answer
+        end 
+    end   
+   
 #question class; question attribute and answer attribute
 #store in class variable. #sample method 
 #every instance of question has attribute of question and answer 
