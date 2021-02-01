@@ -2,12 +2,12 @@ class Dragon < Monster
     attr_accessor :health, :name  
 
     def initialize
-        self.health = 60
+        self.health = 50
         self.name_set
     end 
 
     def health=(health)
-        @health = health.clamp(0, 60)
+        @health = health.clamp(0, 50)
     end 
 
     def name_set
@@ -38,12 +38,17 @@ class Dragon < Monster
         "Ugh, I can't believe I got defeated by someone with one brain cell."
     end 
 
-    def attack #argument of adventurer's class
-        # adventurer.health = adventurer.health - 10, something like that 
-        # if adventurer.health != 0
-            #insult
-            #random generator for one of three attacks:
-            # 8 tail whip, 10 claw , 15 fire breath 
+    def attack
+        a = rand(4)
+        if a == 0
+            4
+        elsif a == 1
+            4
+        elsif a == 2
+            6
+        elsif a == 3
+            8
+        end 
     end 
 
     def reply

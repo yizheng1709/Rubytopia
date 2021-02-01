@@ -63,17 +63,16 @@ class Goblin < Monster
         end 
     end 
 
-    def attack #how to refer to the specific Rubytopia game
-        a = rand(3)
+    def attack 
+        a = rand(4)
         if a == 0 
-            RubytopiaGame.player_health -= 3
+            2
         elsif a == 1
-            Rubytopia.player_health -= 4
+            2
         elsif a == 2 
-            Rubytopia.player_health -= 2
+            3
         elsif a == 3 
-            puts "The Goblin landed a critical attack!"
-            Rubytopia.player_health -= 7
+            4
         end 
     end 
 end 

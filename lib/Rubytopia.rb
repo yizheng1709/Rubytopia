@@ -261,7 +261,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "You've decided to run away...?! Wow, okay."
     end 
 
-    def battle 
+    def battle #### MODIFY METHOD
         puts "You've decided to battle! Great!"
         monster.battle_cry 
         #monsters begs and fights back only 
@@ -272,11 +272,16 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end  
     end 
 
-    # LOGIC: 
+    # LOGIC for gameplay: 
     # monster_generator
     # run_or_fight
-    # if run_away, event_generator
-    # if fight, #ask_player_for_battle_turn_choice
+    # if run_away,
+    #   self.run_away 
+    #   event_generator
+    # elsif fight,
+    #   # "You've decided to battle! Great!"
+    #   #monster.battle_cry 
+    #   #ask_player_for_battle_turn_choice
     # execute the choice received from player
     # show results
     # check if monster.health == 0 ; friendly_ending/bad-ending

@@ -2,17 +2,16 @@ class Karen
     attr_accessor :health, :name  
 
     def initialize
-        self.health = 65
+        self.health = 55
         self.name_set
     end
 
     def health=(health)
-        @health = health.clamp(0,65)
+        @health = health.clamp(0, 55)
     end 
 
-    #random name generator 
     def name_set
-        num = rand(6)
+        num = rand(7)
         if num == 0
             self.name = "Joe-Le-An"
         elsif num == 1
@@ -62,6 +61,18 @@ class Karen
         end 
     end 
 
+    def attack
+        a = rand(4)
+        if a == 0
+            4
+        elsif a == 1
+            5
+        elsif a == 2
+            7
+        elsif a == 3
+            9
+        end 
+    end 
 
 
 end 
