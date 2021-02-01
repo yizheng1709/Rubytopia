@@ -15,7 +15,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         self.selecting_race
         sleep(4)
         self.setting_the_background 
-        sleep(1)
+        sleep(4)
         self.first_event_setup
         sleep(5)
         self.event_generator
@@ -101,11 +101,11 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         if MythPlace.all.find {|place| place.name.downcase == choice.downcase} 
             self.background = MythPlace.all.find {|place| place.name.downcase == choice.downcase}
             puts "Splendid choice! You've chosen to explore #{background.name}. \n"
+            sleep(1)
             info_about_background
-            sleep(3)
         else 
             puts "Please remember how to spell the place.\n"
-            sleep(1)
+            sleep(2)
             self.setting_the_background 
         end  
     end 
@@ -120,12 +120,15 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         elsif input == "no" || input == "n"
             puts "      Well, *someone* isn't open to being a student. Okay then. \n
             I will try to not take it personally."
-        else  
+        elsif input == "exit"
+            #abort method
+        else 
+            puts "It's a close-ended question. Please try again."  
             info_about_background
         end 
     end 
 
-    def first_event_setup
+    def first_event_setup #only in the first event_encounter
         puts "You stepped through the portal and entered #{self.background.name}."
         puts "Allow me to tell you this, #{self.player_name}. \n
         You control your own fate. You will be the one \n
@@ -134,7 +137,13 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         let me know by typing 'exit'."
     end 
 
+    def event_setup #this will be right before every event_encounter
+        puts "As you continue to explore the wonderful place of #{self.background.name}, \n
+        you had to make an unexpected stop."
+    end 
+
     def event_generator 
+        self.event_setup
         a = rand(2)
         if a == 0
             monster_generator
@@ -155,9 +164,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def quizmaster_generator
-        luke = QuizMaster.new 
-        quiz = QandA.new 
-        puts luke.greeting
+        quiz = QuizMaster.new 
+        puts quiz.greeting
         a = rand(9)
         puts quiz.question[a]
         input = gets.strip.downcase 
@@ -165,7 +173,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             self.correct_answer
         elsif input == "exit"
             #abort method
-        elsif quiz.answer[a] != input
+        elsif !quiz.answer[a].include?(input)
             self.wrong_answer
         end 
     end   
@@ -361,11 +369,14 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     def restart?
         puts "Would you like to restart your adventure? \n
         Yes or No \n"
-        a = gets.strip 
-        if a == "yes" || a == "Yes" || a == "Ya" || a == "ya" || a == "y"
+        a = gets.strip.downcase 
+        if a == "yes" || a == "ya" || a == "y"
             RubytopiaGame.new 
-         else 
+        elsif a == "no" || "n" 
             puts "Oh. Okay then. I won't take it personally. See you around?"
+        else 
+            puts "So... was that a 'yes' or a 'no'?" 
+            self.restart?
         end 
     end 
 

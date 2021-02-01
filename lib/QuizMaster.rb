@@ -7,6 +7,26 @@ class QuizMaster
     #if happiness gets to 0, game ends???
     #CLI class will check the gets.strip and match answers
     
+    attr_accessor :question, :answer
+
+    def initialize
+        self.question = [
+        "What is the square root of 225?",
+        "What year did World War II end?", 
+        "Who is the 46th president of the United States?",
+        "What is 11 times 11?",
+        "Who is the main protagonist of the Pokemon series?", 
+        "What do you call a baby cow?",
+        "What is one of the primary colors?", 
+        "Who is the baby with the football-shaped head in Family Guy?", 
+        "What is 12 times 12?",
+        ]
+
+        self.answer = [
+        "15", "1945", "biden", "121", "ash", "121", "calf", "blue, yellow, red", "stewie", "144" 
+        ]
+    end 
+
     def greeting 
         "       Hello, I am Luke the Quiz Master. \n
         My only desire in life is to mess with people's lives \n
@@ -15,29 +35,6 @@ class QuizMaster
         Today is your lucky day! \n"
     end 
 
-    def question_generator 
-        a = rand(9)
-        if a == 0
-            question_one
-        elsif a == 1
-            question_two
-        elsif a == 2
-            question_three 
-        elsif a == 3
-            question_four
-        elsif a == 4
-            question_five
-        elsif a == 5
-            question_six
-        elsif a == 6
-            question_seven 
-        elsif a == 7
-            question_eight 
-        elsif a == 8
-            question_nine 
-        end 
-    end 
+  
 end 
 
-
-a = QuizMaster.new.creating_attributes
