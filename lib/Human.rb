@@ -9,7 +9,8 @@ class Human < Race
     end 
 
     def set_of_attacks
-        "1. Punch (Does 2 damage. Costs 0 Mana.) \n
+        "Please choose an attack (1-3): \n
+        1. Punch (Does 2 damage. Costs 0 Mana.) \n
         2. Call the Manager (Does 6 damange. Costs 3 Mana.) \n
         3. Morning Breath (Does 12 damage. Costs 7 Mana.) \n"
     end 

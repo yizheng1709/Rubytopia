@@ -10,7 +10,8 @@ class Elf < Race
     end 
 
     def set_of_attacks 
-        "1. Single Shot (Does 2 damage. Consumes 1 Mana.)\n
+        "Please choose an attack (1-3): \n
+        1. Single Shot (Does 2 damage. Consumes 1 Mana.)\n
         2. Triple Shots (Does 8 damage. Consumes 5 Mana.) \n
         3. Arcane Arrows (Does 13 damage. Consumes 8 Mana.) \n"
     end 

@@ -215,7 +215,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def monster_generator 
-        num = rand(1) #add to this as I build more monsters
+        num = rand(2) #add to this as I build more monsters
         if num == 0
             goblin_encounter 
         elsif num == 1
@@ -304,16 +304,30 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         #monsters begs and fights back only 
         until over?
             self.player_turn
-            self.mosnter_turn 
+            
+            # self.monster_turn player_turn and monster_turn  
         end  
     end 
 
+    #LOGIC: 
+    #monster_generator
+    #run_or_fight
+    #if run_away, event_generator
+    #if fight, #ask_player_for_battle_turn_choice
+    #execute the choice received from player
+    #show results
+    #check for 
+    
+    def list_of_battle_choices
+        puts "What will you do? (1-4) \n 
+        1. Drink HP potion (+10 HP) \n
+        2. Drink MP potion (+10 MP) \n
+        3. Attack \n
+        4. Ask the monster to be friends...? \n"
+    end 
+
     def ask_player_for_battle_turn_choice
-        puts "What will you do?"
-        puts "1. Drink HP potion (+10 HP)"
-        puts "2. Drink MP potion (+10 MP)"
-        puts "3. Attack"
-        puts "4. Do nothing"
+        list_of_battle_choices
         choice = gets.strip 
         if choice.include?("1") || choice.include?("HP") || choice.include?("hp")
             self.player.drink_health_potion
