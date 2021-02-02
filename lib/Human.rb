@@ -1,6 +1,6 @@
 class Human < Race 
 
-    def initialize(name)
+    def initialize
         super
         @health = 80
         @mana = 40

@@ -198,7 +198,7 @@ class RubytopiaGame
     end 
 
     def monster_generator 
-        num = rand(4) #add to this as I build more monsters
+        num = rand(5) #add to this as I build more monsters
         if num == 0
             goblin_encounter 
         elsif num == 1
@@ -207,6 +207,8 @@ class RubytopiaGame
             karen_encounter
         elsif num == 3
             santa_encounter
+        elsif num == 4
+            imp_encounter
         end 
     end 
 

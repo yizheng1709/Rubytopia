@@ -2,8 +2,7 @@ class Race
     attr_accessor :health, :mana, :hp_pots, :mp_pots, :evilness, 
     :friends_made, :happiness    
 
-    def initialize(name)
-        @name = name 
+    def initialize
         @hp_pots = 20
         @mp_pots = 15
         @friends_made = [] 

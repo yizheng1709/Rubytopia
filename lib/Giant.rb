@@ -1,7 +1,7 @@
-require_relative "./Race"
+
 class Giant < Race 
 
-    def initialize(name)
+    def initialize
         super 
         self.health = 100
         @mana = 20

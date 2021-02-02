@@ -1,30 +1,30 @@
-class Elf < Race 
+class Jinook < Race 
 
-    def initialize(name)
+    def initialize
         super
-        @health = 60
-        @mana = 80
-        @evil = 1
+        @health = 90
+        @mana = 30
+        @evil = 0
         @happiness = 5
     end 
     
     def health= (health)
-        @health = health.clamp(0,60)
+        @health = health.clamp(0,90)
     end 
 
     def mana= (mana)
-        @mana = mana.clamp(0,80)
+        @mana = mana.clamp(0,30)
     end 
 
     def set_of_attacks 
         "Please choose an attack (1-3): \n
-        1. Single Shot (Does 2 damage. Consumes 1 Mana.)\n
-        2. Triple Shots (Does 8 damage. Consumes 5 Mana.) \n
-        3. Arcane Arrows (Does 13 damage. Consumes 8 Mana.) \n"
+        1. Praise (Does 3 damage. Consumes 1 Mana.)\n
+        2. Deep Knowledge (Does 8 damage. Consumes 3 Mana.) \n
+        3. Perfection (Does 12 damage. Consumes 5 Mana.) \n"
     end 
 
     def first_attack 
-        2
+        3
     end 
 
     def second_attack
@@ -32,7 +32,7 @@ class Elf < Race
     end 
 
     def third_attack
-        13
+        12
     end 
    
     def first_mana
@@ -40,11 +40,11 @@ class Elf < Race
     end 
 
     def second_mana
-        5
+        3
     end 
 
     def third_mana
-        8
+        5
     end 
 
 end 
