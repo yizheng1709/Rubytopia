@@ -8,5 +8,6 @@ require_relative '../lib/Race.rb'
 require_relative '../lib/Rubytopia.rb'
 require_relative '../lib/Scraper.rb'
 require_relative '../lib/QuizMaster.rb'
+require_relative '../lib/Karen.rb'
 
 RubytopiaGame.new.start

@@ -27,20 +27,21 @@ class QuizMaster
         ]
     end 
 
-    def greeting 
-        "       A plump little man appears in front of you. \n
+    def appearance 
+        "A plump little man appears in front of you. \n
         He is wearing a purple top hat as well as a purple tuxedo. \n
-        Although a small man, he is capable of holding onto a big cat. \n
+        Although a small man, he is capable of holding a big cat. \n
         He is petting his cat as he starts to approach you. \n"
-        
+    end 
+
+    def greeting
         "He says: \n
         'Hello, I am Luke the Quiz Master. \n
         My only desire in life is to mess with people's lives \n
         by appearing before them and asking them questions \n
         to test their intelligence. \n
-        Today is your lucky day!' \n
-        I would love for you could amuse me with that brain of yours. \n"
-        
+        Today is your lucky day! \n
+        I would love for you could amuse me with that brain of yours.' \n"
     end 
 
   

@@ -25,5 +25,5 @@ class Scraper
     end  
 end 
 
-# Scraper.new.make_mythplace
+
              
