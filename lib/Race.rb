@@ -18,12 +18,12 @@ class Race
     end 
 
     def drink_health_potion #can be done once per turn
-        self.player_health += 10
+        self.player.health += 10
         self.hp_pots -= 1  
     end 
 
     def drink_mana_potion
-        self.player_mana += 10
+        self.player.mana += 10
         self.mp_pots -= 1
     end 
 

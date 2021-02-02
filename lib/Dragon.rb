@@ -21,11 +21,11 @@ class Dragon
         elsif num == 3
             @name = "DekKee the Dragon"
         elsif num == 4
-            @name == "DonKee the Dragon"
+            @name = "DonKee the Dragon"
         elsif num == 5
-            @name == "D.Dog the Dragon"
+            @name = "D.Dog the Dragon"
         elsif num == 6
-            @name == "DoDo the Dragon"
+            @name = "DoDo the Dragon"
         end 
     end 
 
@@ -53,7 +53,7 @@ class Dragon
 
     def reply
         a = rand(9)
-        "#{self.name} the Dragon says: \n"
+        "#{self.name} says: \n"
         if a == 0
             "'What are you doing here? Did someone leave your cage open?'"
         elsif a == 1

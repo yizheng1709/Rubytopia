@@ -1,14 +1,7 @@
-#add current monster to friend list if monster does not die
-#if you cannot kill mosnter within 10 turns, the monster thinks you're super nice
-# code the ABORT method
-
-
-class RubytopiaGame #this is the only clss that should have puts, and method invocation 
+class RubytopiaGame 
     
     attr_accessor :player_name, :monster, :player, :background   
-    #monster should record his own health
    #if friends_made.count == 5, your journey comes to an end and your friends bid you farewell
-    
 
     def start
         Scraper.new.make_mythplace
@@ -99,7 +92,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "Why would you want to be a Human when you are already one in real life?"
         puts ""
         puts "But I digress."
-        sleep(3)
+        sleep(4)
         puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
         puts "You've chosen to be part of the Human Race."
         puts "As a Human, you have average stats amongst other races."
@@ -225,11 +218,11 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts ""
         puts quiz.question[a]
         input = gets.strip.downcase 
-        if quiz.answer[a].include?(input)
+        if input == quiz.answer[a]
             self.correct_answer
         elsif input == "exit"
             self.exit_game
-        elsif !quiz.answer[a].include?(input)
+        elsif input != quiz.answer[a]
             self.wrong_answer
         end 
     end   
@@ -252,7 +245,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "Luke the Quiz Master laughs at your wrong answer."
         puts ""
         sleep(2)
-        puts "You're upset about giving the incorrect answer."
+        puts "You're upset about giving the incorrect answer. Your happiness decreases by 1 point."
         puts ""
         puts "Happiness: #{self.player.happiness}"
         sleep(3)
@@ -330,30 +323,6 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             puts self.monster.reply 
         end 
     end 
-
-    # LOGIC for gameplay #event_generator until ending
-    # event_generator until over?
-
-    # monster_generator [done]
-    # run_or_fight [done]
-    # if run_away,
-    #   self.run_away 
-    #   event_generator
-    # elsif fight,
-    #   # "You've decided to battle! Great!"
-    #   #monster.battle_cry 
-    #   #ask_player_for_battle_turn_choice
-    # execute the choice received from player
-    # show results
-    # check if monster.health == 0 ; friendly_ending/bad-ending
-    # if monster.health != 0
-    #   monster.reply
-    # elsif monster.health == 0
-    #   monster.death_cry
-    # monster's turn
-    # monter randomly attacks
-    # displays the result of monster's attack
-    #
     
     def list_of_battle_choices
         puts "What will you do? (1-4)" 
@@ -367,18 +336,21 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     def player_turn_choice
         list_of_battle_choices
         choice = gets.strip.downcase 
-        if choice.include?("1") || choice.include?("HP") || choice.include?("hp")
+        if choice == "1" 
             self.player.drink_health_potion
             puts "HP +10"
             puts "HP: #{player.health}"
-        elsif choice.include?("2") || choice.include?("MP") || choice.include?("mp")
+            puts "HP pots left: #{self.player.hp_pots}"
+        elsif choice == "2" 
             self.player.drink_mana_potion
             puts "MP +10"
             puts "MP: #{player_mana}"
-        elsif choice.include?("3") || choice == "attack" || choice == "Attack"
+            puts "MP pots left: #{self.player.mp_pots}"
+        elsif choice == "3" 
             self.choosing_attack
-        elsif choice.include?("4") || choice.include?("ask") || choice.include?("friend")
-            self.player.be_friends
+        elsif choice == "4" 
+            puts self.player.be_friends
+            sleep(3)
         elsif choice == "exit"
             self.exit_game
         else 
@@ -392,9 +364,9 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     def choosing_attack  #choice 3 of player_turn_choice
         puts player.set_of_attacks
         atk = gets.strip
-        if atk.include?("1")
+        if atk == "1"
             mp = player.first_mana
-            player_mana -= mp
+            player.mana -= mp
             dmg = player.first_attack #this section is repetitive
             monster.health -= dmg  #could write as its own method
             puts "You dealt #{dmg} damage!"
@@ -405,9 +377,9 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             puts ""
             puts ""
             sleep(3)
-        elsif atk.include?("2")
+        elsif atk == "2"
             mp = player.second_mana
-            player_mana -= mp 
+            player.mana -= mp  
             dmg = player.second_attack
             monster.health -= dmg 
             puts "You dealt #{dmg} damage!"
@@ -418,7 +390,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             puts ""
             puts ""
             sleep(3)
-        elsif atk.include?("3")
+        elsif atk == "3"
             mp = player.third_mana
             dmg = player.third_attack
             monster.health -= dmg 
@@ -454,7 +426,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         if monster.health == 0
             self.monster_dies
         elsif counter == 7 && monster.health > 0
-            self.monter_becomes_friend
+            self.monster_becomes_friend
         elsif over?
             over?
         end 
@@ -486,27 +458,12 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts ""
     end 
     
-            # if monster.health == 0
-            #     player.increase_evilness_by_2
-            #     puts self.monster.death_cry
-            #     puts "W O W ! You defeated the monster!"
-            #     puts ""
-            #     puts "Well, now your evilness level is #{player.evilness}! \n"
-            #     puts ""
-            #     puts "What could go wrong?"
-        #     elsif monster.health > 0
-        #         counter += 1
-        #         puts self.monster.reply
-        #         self.monster_turn 
-        #     end 
-        # end 
-    
 
     def monster_turn
-        self.monster.reply
+        puts self.monster.reply
         atk = self.monster.attack
         player.health -= atk 
-        puts "#{self.monster.name} dealt #{atk} damage to you! OUCH"
+        puts "#{self.monster.name} dealt #{atk} damage to you! OUCH!"
         puts ""
         puts "Your HP: #{self.player.health}"
         puts ""
@@ -517,9 +474,17 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         if self.death?
             self.death?
         elsif self.friendly_ending?
-            self.friendly_ending
-        elsif self.bad_ending
+            self.friendly_ending?
+        elsif self.bad_ending?
             self.bad_ending?
+        elsif so_sad_ending?
+            self.so_sad_ending?
+        end 
+    end 
+
+    def so_sad_ending? 
+        if self.player.happiness == 0
+            self.restart?
         end 
     end 
 
@@ -530,14 +495,13 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         a = gets.strip.downcase 
         if a == "yes" || a == "ya" || a == "y"
             RubytopiaGame.new 
-        elsif a == "no" || "n" 
+        elsif a == "no" || a == "n" 
             puts "Oh. Okay then. I won't take it personally. See you around?"
         else 
             puts "So... was that a 'yes' or a 'no'?" 
             self.restart?
         end 
     end 
-
     
     def death? #ending 1
         if self.player.death?

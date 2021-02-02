@@ -22,11 +22,11 @@ class Goblin
         elsif num == 3
             @name = "Gavin the Goblin"
         elsif num == 4
-            @name == "Gideon the Goblin"
+            @name = "Gideon the Goblin"
         elsif num == 5
-            @name == "Greg the Goblin"
+            @name = "Greg the Goblin"
         elsif num == 6
-            @name == "Gabriel the Goblin"
+            @name = "Gabriel the Goblin"
         end 
     end 
 
@@ -39,7 +39,7 @@ class Goblin
     end 
 
     def reply 
-        "#{@name} the Goblin says: \n"
+        "#{@name} says: \n"
         a = rand(9)
         if a == 0
             "'Please let me go! I have six wives and ten kids waiting for me!'"

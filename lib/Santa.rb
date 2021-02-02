@@ -2,35 +2,35 @@ class Karen
     attr_accessor :health, :name  
 
     def initialize
-        self.health = 55
+        self.health = 40
         self.name_set
     end
 
     def health=(health)
-        @health = health.clamp(0, 55)
+        @health = health.clamp(0, 540)
     end 
 
     def name_set
         num = rand(7)
         if num == 0
-            @name = "Joe-Le-An the Keh-Rhan"
+            @name = "Joe-Le-An the Fake Santa"
         elsif num == 1
-            @name = "Op-Al the Keh-Rhan"
+            @name = "Op-Al the Fake Santa"
         elsif num == 2
-            @name = "DeBo-Ra-Ah-Ah the Keh-Rhan"
+            @name = "DeBo-Ra-Ah-Ah the Fake Santa"
         elsif num == 3
-            @name = "Mar-Ga-Ret the Keh-Rhan"
+            @name = "Mar-Ga-Ret the Fake Santa"
         elsif num == 4
-            @name = "Whey-Le-E the Keh-Rhan"
+            @name = "Whey-Le-E the Fake Santa"
         elsif num == 5
-            @name = "Hay-Le-E the Keh-Rhan" 
+            @name = "Hay-Le-E the Fake Santa" 
         elsif num == 6
-            @name = "Nahn-See the Keh-Rhan"
+            @name = "Nahn-See the Fake Santa"
         end 
     end 
 
     def battle_cry
-        "AHHHHHHHHHHHHHHHHHHHH!!!!! OUTSIDER!!!!!!"
+        "Sad Holidays!"
     end 
 
     def death_cry
@@ -55,7 +55,7 @@ class Karen
         elsif a == 6
             "'YOU'RE TOO CLOSE TO ME!!! STOP IT!!!'"
         elsif a == 7
-            "'I HAVE MY RIGHTS AS A KEH-RHAN!'"
+            "'I HAVE MY RIGHTS AS A Fake Santa!'"
         elsif a == 8
             "'DO YOU EVEN KNOW WHO I AM?'"
         end 
@@ -76,5 +76,3 @@ class Karen
 
 
 end 
-
-
