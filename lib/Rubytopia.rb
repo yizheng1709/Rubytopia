@@ -443,10 +443,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     end 
 
     def player_turn 
-        #loop so that once the amount of turns is > 7, the monster becomes friend?
         counter = 0
-        # self.player_turn_choice
-        while counter < 7 || self.monster.health != 0 
+        while counter < 7 
             self.player_turn_choice
             counter += 1
             break if self.monster.health == 0 || self.over?
@@ -454,19 +452,39 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         end 
 
         if monster.health == 0
-            sleep(3)
-            player.increase_evilness_by_2
-            puts self.monster.death_cry
-            puts "W O W ! You defeated the monster!"
-            puts ""
-            puts "Well, now your evilness level is #{player.evilness}! \n"
-            puts ""
-            puts "What could go wrong?"
-            puts ""
-            sleep(5)
+            self.monster_dies
+        elsif counter == 7 && monster.health > 0
+            self.monter_becomes_friend
+        elsif over?
+            over?
         end 
     end 
 
+    def monster_dies
+        sleep(3)
+        player.increase_evilness_by_2
+        puts self.monster.death_cry
+        puts "W O W ! You defeated the monster!"
+        puts ""
+        puts "Well, now your evilness level is #{player.evilness}! \n"
+        puts ""
+        puts "What could go wrong?"
+        puts ""
+        sleep(3)
+    end 
+
+    def monster_becomes_friend
+        self.player.friends_made << self.monster 
+        puts "Some time had passed and the Monster realizes that you aren't trying to kill it."
+        puts ""
+        puts "The Monster thinks you're kind and stops fighting you."
+        puts ""
+        sleep(4)
+        puts "The Monster becomes your friend instead!"
+        puts ""
+        puts "Sweet!"
+        puts ""
+    end 
     
             # if monster.health == 0
             #     player.increase_evilness_by_2
@@ -496,8 +514,12 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     #this should be checked every turn the user is fighting a monster
     def over?
-        if self.death? || self.friendly_ending? || self.bad_ending?
-            true 
+        if self.death?
+            self.death?
+        elsif self.friendly_ending?
+            self.friendly_ending
+        elsif self.bad_ending
+            self.bad_ending?
         end 
     end 
 
