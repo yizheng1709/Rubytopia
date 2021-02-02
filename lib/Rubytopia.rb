@@ -16,10 +16,11 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         self.selecting_race
         sleep(4)
         self.setting_the_background 
-        sleep(4)
-        self.first_event_setup
         sleep(5)
-        self.event_generator
+        self.first_event_setup
+        sleep(8)
+        self.event_generator until self.over?
+        sleep(4)
 
     end 
 
@@ -147,7 +148,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         self.event_setup
         a = rand(2)
         if a == 0
-            monster_generator
+            self.monster_generator
+            self.run_or_fight
         elsif a == 1
             quizmaster_generator 
         end 
@@ -218,10 +220,10 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         The monstrous Keh-Rhan makes your knees tremble. \n"
     end 
 
-    def monster_encounter 
-        monster_generator
-        run_or_fight
-    end 
+    # def monster_encounter 
+    #     monster_generator
+    #     run_or_fight
+    # end 
 
     def run_or_fight
         puts "What will you do?"

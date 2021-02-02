@@ -2,7 +2,7 @@ require_relative "./Race"
 class Giant < Race 
 
     def initialize(name)
-       super 
+        super 
         self.health = 100
         @mana = 20
         @evilness = 3
@@ -10,7 +10,7 @@ class Giant < Race
     end 
     
     def health= (health)
-        @health = evilness.clamp(0,100)
+        @health = health.clamp(0,100)
     end 
 
     def mana= (mana)
