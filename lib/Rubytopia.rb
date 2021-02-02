@@ -136,6 +136,7 @@ class RubytopiaGame
         puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
         puts ""
         puts "You've chosen to be part of the Vampire Race, the race that embodies sexiness."
+        puts ""
         sleep(3)
         puts "As a Vampire, you are incredibly attractive, supposedly."
         puts ""
@@ -258,6 +259,8 @@ class RubytopiaGame
             santa_encounter
         elsif num == 4
             witch_encounter
+        elsif num == 5
+            sorcerer_encounter
         else
             imp_encounter
         end 
@@ -312,7 +315,9 @@ class RubytopiaGame
     def goblin_encounter
         self.monster = Goblin.new
         puts ""
-        puts "You've encountered a Goblin!"
+        puts "You've encountered a Goblin! His appearance is just..."
+        puts ""
+        puts "Let's just say, he wouldn't last long on The Bachelorette."
         puts ""
         puts "The Goblin shyly smiles and waves at you."
         puts ""
@@ -322,9 +327,9 @@ class RubytopiaGame
     def imp_encounter
         self.monster = Imp.new
         puts ""
-        puts "You've encountered an Imp!"
+        puts "You've encountered an Imp! Well, meh. He looks weak."
         puts ""
-        puts "The Imp thinks you're blocking his path."
+        puts "The Imp thinks you're blocking his path. Is he trying to pick a fight?"
         puts ""
         sleep(3)
     end  
@@ -332,7 +337,7 @@ class RubytopiaGame
     def dragon_encounter
         self.monster = Dragon.new  
         puts ""
-        puts "Just your luck! You've encountered a fierce and sassy dragon! Yikes!"
+        puts "You've encountered not just any Dragon, but a sassy one!"
         puts ""
         puts "*The Dragon farts in front of you.*"
         puts ""
@@ -346,17 +351,7 @@ class RubytopiaGame
         puts ""
         puts "Today is not your day! You've encountered a mighty Keh-Rhan!"
         puts ""
-        puts "The monstrous Keh-Rhan makes your knees tremble."
-        puts ""
-        sleep(4)
-    end 
-
-    def witch_encounter
-        self.monster = Witch.new 
-        puts ""
-        puts "Double, double toil and trouble;"
-        puts ""
-        puts "Fire burn and caldron bubble."
+        puts "The monstrous Keh-Rhan makes your knees tremble. Luckily, you're not at work today!"
         puts ""
         sleep(4)
     end 
@@ -364,9 +359,31 @@ class RubytopiaGame
     def santa_encounter
         self.monster = Santa.new 
         puts ""
-        puts "You will have a sad holiday! You've encountered a Fake Santa!"
+        puts "You will have a sad holiday! It's a Fake Santa!"
         puts ""
         puts "His pot belly amuses you."
+        puts ""
+        sleep(4)
+    end 
+
+    def witch_encounter
+        self.monster = Witch.new 
+        puts ""
+        puts "'Double, double toil and trouble;"
+        puts ""
+        puts "Fire burn and caldron bubble.'"
+        puts ""
+        puts "Have you seen a Witch before?"
+        puts ""
+        sleep(4)
+    end 
+
+    def sorcerer_encounter
+        self.monster = Sorcerer.new 
+        puts ""
+        puts "'In his house at R'lyeh, dead Cthulhu waits dreaming.'"
+        puts ""
+        puts "Sorcerers are known for creeping up on adventurers in #{self.background.name}."
         puts ""
         sleep(4)
     end 
@@ -423,7 +440,7 @@ class RubytopiaGame
         puts "1. Drink HP potion (+10 HP)".colorize(:red)
         puts "2. Drink MP potion (+10 MP)".colorize(:blue)
         puts "3. Attack"
-        puts "4. Ask the monster to be friends...?"
+        puts "4. Ask the monster to be friends...?".colorize(:green)
     end 
 
     def player_turn_choice
@@ -432,7 +449,7 @@ class RubytopiaGame
         if choice == "1" 
             self.player.drink_health_potion
             puts ""
-            puts "You've decided to drink a Health potion."
+            puts "You've decided to drink a Health potion.".colorize(:red)
             puts ""
             puts "HP +10".colorize(:red)
             puts "HP: #{player.health}".colorize(:red)
@@ -442,7 +459,7 @@ class RubytopiaGame
         elsif choice == "2" 
             self.player.drink_mana_potion
             puts ""
-            puts "You've decided to drink a Mana potion."
+            puts "You've decided to drink a Mana potion.".colorize(:blue)
             puts ""
             puts "MP +10".colorize(:blue)
             puts "MP: #{player.mana}".colorize(:blue)
