@@ -13,29 +13,29 @@ class Dragon
     def name_set
         num = rand(7)
         if num == 0
-            self.name = "DyanNa"
+            @name = "DyanNa the Dragon"
         elsif num == 1
-            self.name = "DaNa"
+            @name = "DaNa the Dragon"
         elsif num == 2
-            self.name = "DonNa"
+            @name = "DonNa the Dragon"
         elsif num == 3
-            self.name = "DekKee"
+            @name = "DekKee the Dragon"
         elsif num == 4
-            self.name == "DonKee"
+            @name == "DonKee the Dragon"
         elsif num == 5
-            self.name == "D.Dog"
+            @name == "D.Dog the Dragon"
         elsif num == 6
-            self.name == "DoDo"
+            @name == "DoDo the Dragon"
         end 
     end 
 
     def battle_cry
-        "Shall I wait for you to put on a diaper first? \n
-        Or do you not know how to do that?\n"
+        "'Shall I wait for you to put on a diaper first? \n
+        Or do you not know how to do that?' \n"
     end 
 
     def death_cry
-        "Ugh, I can't believe I got defeated by someone with one brain cell."
+        "#{@name} says: Ugh, I can't believe I got defeated by someone with one brain cell."
     end 
 
     def attack

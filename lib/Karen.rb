@@ -13,19 +13,19 @@ class Karen
     def name_set
         num = rand(7)
         if num == 0
-            self.name = "Joe-Le-An"
+            @name = "Joe-Le-An the Keh-Rhan"
         elsif num == 1
-            self.name = "Op-Al"
+            @name = "Op-Al the Keh-Rhan"
         elsif num == 2
-            self.name = "DeBo-Ra-Ah-Ah"
+            @name = "DeBo-Ra-Ah-Ah the Keh-Rhan"
         elsif num == 3
-            self.name = "Mar-Ga-Ret"
+            @name = "Mar-Ga-Ret the Keh-Rhan"
         elsif num == 4
-            self.name == "Whey-Le-E"
+            @name == "Whey-Le-E the Keh-Rhan"
         elsif num == 5
-            self.name == "Hay-Le-E"
+            @name == "Hay-Le-E the Keh-Rhan" 
         elsif num == 6
-            self.name == "Nahn-See"
+            @name == "Nahn-See the Keh-Rhan"
         end 
     end 
 
@@ -34,11 +34,11 @@ class Karen
     end 
 
     def death_cry
-        "I *WILL* SPEAK TO YOUR MANAGER ONE DAY!!! JUST YOU WAIT!"
+        "#{@name} says: I *WILL* SPEAK TO YOUR MANAGER ONE DAY!!! JUST YOU WAIT!"
     end 
 
     def reply 
-        "#{self.name} the Keh-Rhan says: \n"
+        "#{@name} the Keh-Rhan says: \n"
         a = rand()
         if a == 0
             "'I *NEED* TO SPEAK TO YOUR MANAGER!!!!'"

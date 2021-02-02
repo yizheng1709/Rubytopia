@@ -14,19 +14,19 @@ class Goblin
     def name_set
         num = rand(6)
         if num == 0
-            self.name = "Gary"
+            @name = "Gary the Goblin"
         elsif num == 1
-            self.name = "Gerald"
+            @name = "Gerald the Goblin"
         elsif num == 2
-            self.name = "Gunther"
+            @name = "Gunther the Goblin"
         elsif num == 3
-            self.name = "Gavin"
+            @name = "Gavin the Goblin"
         elsif num == 4
-            self.name == "Gideon"
+            @name == "Gideon the Goblin"
         elsif num == 5
-            self.name == "Greg"
+            @name == "Greg the Goblin"
         elsif num == 6
-            self.name == "Gabriel"
+            @name == "Gabriel the Goblin"
         end 
     end 
 
@@ -36,11 +36,11 @@ class Goblin
     end 
 
     def death_cry
-        "I just wanted to bring honor to my wives and kids..."
+        "#{@name} says: I just wanted to bring honor to my wives and kids..."
     end 
 
     def reply 
-        "#{self.name} the Goblin says: \n"
+        "#{@name} the Goblin says: \n"
         a = rand(9)
         if a == 0
             "'Please let me go! I have six wives and ten kids waiting for me!'"

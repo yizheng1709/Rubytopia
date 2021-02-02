@@ -272,7 +272,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts ""
         puts "Just your luck! You've encountered a fierce and sassy dragon! Yikes!"
         puts ""
-        puts "*The Dragon farts in fron of you.*"
+        puts "*The Dragon farts in front of you.*"
         puts ""
         puts "The putrid smell is strong enough to make you forget your own name."
         puts ""
@@ -448,12 +448,13 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         # self.player_turn_choice
         while counter < 7 || self.monster.health != 0 
             self.player_turn_choice
-            self.monster_turn
             counter += 1
             break if self.monster.health == 0 || self.over?
+            self.monster_turn
         end 
 
         if monster.health == 0
+            sleep(3)
             player.increase_evilness_by_2
             puts self.monster.death_cry
             puts "W O W ! You defeated the monster!"
@@ -462,6 +463,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             puts ""
             puts "What could go wrong?"
             puts ""
+            sleep(5)
         end 
     end 
 
@@ -483,11 +485,13 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
     
 
     def monster_turn
+        self.monster.reply
         atk = self.monster.attack
         player.health -= atk 
-        puts "#{self.monster.name} dealt #{atk} damage to you!"
+        puts "#{self.monster.name} dealt #{atk} damage to you! OUCH"
         puts ""
         puts "Your HP: #{self.player.health}"
+        puts ""
     end 
 
     #this should be checked every turn the user is fighting a monster
