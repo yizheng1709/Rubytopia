@@ -39,13 +39,17 @@ class RubytopiaGame
         puts ""
         puts "3. Human"
         puts ""
-        race_choice = gets.strip
-        if race_choice.include?("1") || race_choice == "giant" || race_choice == "Giant"
+        puts "4. Jinook"
+        puts ""
+        race_choice = gets.strip.downcase
+        if race_choice == "1" || race_choice == "giant" 
             self.create_giant
-        elsif race_choice.include?("2") || race_choice == "elf" || race_choice == "Elf"
+        elsif race_choice == "2" || race_choice == "elf" 
             self.create_elf
-        elsif race_choice.include?("3") || race_choice == "human" || race_choice == "Human"
+        elsif race_choice == "3" || race_choice == "human" 
             self.create_human
+        elsif race_choice == "4" || race_choice == "jinook" 
+            self.create_jinook
         else
             puts "It's not hard to select a race."
             puts ""
@@ -57,13 +61,29 @@ class RubytopiaGame
     end 
 
     def create_giant 
-        self.player = Giant.new(self.player_name)
+        self.player = Giant.new
         puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
+        puts ""
         puts "You've chosen to be part of the Giant Race."
         sleep(3)
-        puts "As a Giant, you have incredible stamina,"
-        puts "but you have little idea of what Mana is or how to channel it well."
+        puts "As a Giant, you have incredible stamina, but you have little idea of what Mana is or how to channel it well."
+        puts ""
         puts "However, that does not stop you from being a happy Giant."
+        puts ""
+        puts "HP: #{player.health} (MAX)".colorize(:red)
+        puts ""
+        puts "MP: #{player.mana} (MAX)".colorize(:blue)
+        puts ""
+    end 
+
+    def create_jinook 
+        self.player = Jinook.new
+        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
+        puts "You've chosen to be part of the Jinook Race, the race of perfect dads."
+        sleep(3)
+        puts "As a Jinook, you have incredible intelligence and stamina."
+        puts ""
+        puts "Your race is admired for being incredibly wise and diligent."
         puts ""
         puts "HP: #{player.health} (MAX)".colorize(:red)
         puts ""
@@ -72,7 +92,7 @@ class RubytopiaGame
     end 
     
     def create_elf 
-        self.player = Elf.new(self.player_name)
+        self.player = Elf.new
         puts "💎 Welcome to Rubytopia, #{self.player_name}!💎"
         puts ""
         puts "You've chosen to be part of the Elf Race."
@@ -86,7 +106,7 @@ class RubytopiaGame
     end 
 
     def create_human 
-        self.player = Human.new(self.player_name)
+        self.player = Human.new
         puts ""
         puts "#{self.player_name}, seriously?"
         puts "Why would you want to be a Human when you are already one in real life?"
