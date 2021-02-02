@@ -227,14 +227,16 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def run_or_fight
         puts "What will you do?"
-        puts "Run or Fight?"
-        choice = gets.strip 
-        if self.run_or_fight.include?("run") || self.run_or_fight.include?("Run")
+        puts "1. Run \n
+        2. Fight? \n"
+        choice = gets.strip.downcase  
+        if self.run_or_fight.include?("run") || self.run_or_fight.include?("1")
             self.run_away
-        elsif run_or_fight.include?("fight") || self.run_or_fight.include?("Fight")
+        elsif run_or_fight.include?("fight") || self.run_or_fight.include?("2")
             self.battle #double check the logic of battle method
+        elsif choice == "exit"
+            self.exit_game
         else 
-            puts "There is no third choice, sorry."
             puts "Please do try to stick with the choices that I've given you."
             self.run_or_fight
         end 
