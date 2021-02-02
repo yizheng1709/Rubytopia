@@ -9,11 +9,19 @@ This little game was written with the Ruby language and uses a gem called 'color
 
 ### Installing
     
-Copy the code of this repo
+Copy the code of this repo.
 
-    git clone <repo code>
+In your terminal:
 
-    bundle install
+    git clone "paste-github-repo-code"
+
+Go to the first level directory that contains all of Rubytopia's folders. 
+
+    bundle install #this will install the 'colorize' gem
+
+Finally,
+
+    ruby bin/run
 
 ## Authors
 Eva (Yi) Zheng
