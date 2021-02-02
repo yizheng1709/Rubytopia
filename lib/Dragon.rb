@@ -30,12 +30,12 @@ class Dragon
     end 
 
     def battle_cry
-        "'Shall I wait for you to put on a diaper first? \n
+        "#{@name} says: 'Shall I wait for you to put on a diaper first? \n
         Or do you not know how to do that?' \n"
     end 
 
     def death_cry
-        "#{@name} says: Ugh, I can't believe I got defeated by someone with one brain cell."
+        "#{@name} says: 'Ugh, I can't believe I got defeated by someone with one brain cell.'"
     end 
 
     def attack

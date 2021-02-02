@@ -262,6 +262,15 @@ class RubytopiaGame
         sleep(3)
     end  
 
+    def imp_encounter
+        self.monster = Imp.new
+        puts "You've encountered an Imp!"
+        puts ""
+        puts "The Imp thinks you're block his path."
+        puts ""
+        sleep(3)
+    end  
+
     def dragon_encounter
         self.monster = Dragon.new  
         puts ""
@@ -317,14 +326,14 @@ class RubytopiaGame
     def run_away
         puts "You've decided to run away...?! Wow, okay."
         puts ""
+        puts "Is that how you deal with all your problems?"
         puts ""
         sleep(5)
     end 
 
-    def battle #### MODIFY METHOD
+    def battle 
         puts "You've decided to battle! Great!"
         puts ""
-        puts "The Monster says:"
         puts monster.battle_cry 
         puts ""
     end 

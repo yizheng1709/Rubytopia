@@ -30,11 +30,11 @@ class Karen
     end 
 
     def battle_cry
-        "AHHHHHHHHHHHHHHHHHHHH!!!!! OUTSIDER!!!!!!"
+        "#{@name} says: 'AHHHHHHHHHHHHHHHHHHHH!!!!! OUTSIDER!!!!!!'"
     end 
 
     def death_cry
-        "#{@name} says: I *WILL* SPEAK TO YOUR MANAGER ONE DAY!!! JUST YOU WAIT!"
+        "#{@name} says: 'I *WILL* SPEAK TO YOUR MANAGER ONE DAY!!! JUST YOU WAIT!'"
     end 
 
     def reply 

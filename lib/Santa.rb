@@ -30,7 +30,7 @@ class Santa
     end 
 
     def battle_cry
-        "Sad Holidays for you!"
+        "#{@name} says: 'Sad Holidays for you!'"
     end 
 
     def death_cry

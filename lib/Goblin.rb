@@ -31,11 +31,11 @@ class Goblin
     end 
 
     def battle_cry
-        ":("
+        "#{@name} says: :("
     end 
 
     def death_cry
-        "#{@name} says: I just wanted to bring honor to my wives and kids..."
+        "#{@name} says: 'I just wanted to bring honor to my wives and kids...'"
     end 
 
     def reply 
