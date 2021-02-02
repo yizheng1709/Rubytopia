@@ -1,7 +1,6 @@
 Rubytopia
-One Paragraph of project description goes here ***
-#######Describe what this project does? 
-#walkthrough of the game
+This is a small game where the user gets to use the portal of Rubytopia and travel to any mythological place he/she wishes to go! The user can
+choose from a selection of Races to start their journey. 
 
 This initially appeared on gist, but as I can no longer open that page as there are too many comments, I have moved it here.
 

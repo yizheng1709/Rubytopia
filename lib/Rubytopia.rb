@@ -240,7 +240,7 @@ class RubytopiaGame
     def event_generator 
         self.event_setup
         a = rand(10)
-        if a > 9
+        if a > 1
             self.monster_generator
             self.run_or_fight
         else
