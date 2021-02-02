@@ -41,6 +41,8 @@ class RubytopiaGame
         puts ""
         puts "4. Jinook"
         puts ""
+        puts "5. Vampire"
+        puts ""
         race_choice = gets.strip.downcase
         if race_choice == "1" || race_choice == "giant" 
             self.create_giant
@@ -50,6 +52,8 @@ class RubytopiaGame
             self.create_human
         elsif race_choice == "4" || race_choice == "jinook" 
             self.create_jinook
+        elsif race_choice == "5" || race_choice == "vampire" 
+            self.create_vampire
         else
             puts "It's not hard to select a race."
             puts ""
@@ -75,22 +79,6 @@ class RubytopiaGame
         puts "MP: #{player.mana} (MAX)".colorize(:blue)
         puts ""
     end 
-
-    def create_jinook 
-        self.player = Jinook.new
-        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
-        puts ""
-        puts "You've chosen to be part of the Jinook Race, the race of perfect dads."
-        sleep(3)
-        puts "As a Jinook, you have incredible intelligence and stamina."
-        puts ""
-        puts "Your race is admired for being incredibly wise and diligent."
-        puts ""
-        puts "HP: #{player.health} (MAX)".colorize(:red)
-        puts ""
-        puts "MP: #{player.mana} (MAX)".colorize(:blue)
-        puts ""
-    end 
     
     def create_elf 
         self.player = Elf.new
@@ -99,6 +87,8 @@ class RubytopiaGame
         puts "You've chosen to be part of the Elf Race."
         sleep(3)
         puts "As an Elf, your ❤  is purest amongst other races, so you are able to channel your mana more efficiently."
+        puts ""
+        puts "You are admired for your elegance and grace."
         puts ""
         puts "HP: #{player.health} (MAX)".colorize(:red)
         puts ""
@@ -120,6 +110,38 @@ class RubytopiaGame
         puts "You've chosen to be part of the Human Race."
         puts ""
         puts "As a Human, you have average stats amongst other races."
+        puts ""
+        puts "HP: #{player.health} (MAX)".colorize(:red)
+        puts ""
+        puts "MP: #{player.mana} (MAX)".colorize(:blue)
+        puts ""
+    end 
+
+    def create_jinook 
+        self.player = Jinook.new
+        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
+        puts ""
+        puts "You've chosen to be part of the Jinook Race, the race of perfect dads."
+        sleep(3)
+        puts "As a Jinook, you have incredible intelligence and stamina."
+        puts ""
+        puts "Your race is admired for being incredibly wise and diligent."
+        puts ""
+        puts "HP: #{player.health} (MAX)".colorize(:red)
+        puts ""
+        puts "MP: #{player.mana} (MAX)".colorize(:blue)
+        puts ""
+    end 
+
+    def create_jinook 
+        self.player = Vampire.new
+        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
+        puts ""
+        puts "You've chosen to be part of the Vampire Race, the race that embodies sexiness."
+        sleep(3)
+        puts "As a Vampire, you are incredibly attractive, supposedly."
+        puts ""
+        puts "But beauty is in the eye of the beholder."
         puts ""
         puts "HP: #{player.health} (MAX)".colorize(:red)
         puts ""

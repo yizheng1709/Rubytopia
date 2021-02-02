@@ -4,6 +4,7 @@ require_relative '../lib/Giant.rb'
 require_relative '../lib/Human.rb'
 require_relative '../lib/Jinook.rb'
 require_relative '../lib/Race.rb'
+require_relative '../lib/Vampire.rb'
 
 #monster
 require_relative '../lib/Dragon.rb'
