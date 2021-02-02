@@ -260,7 +260,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def goblin_encounter
         self.monster = Goblin.new
-        puts "You've encountered a goblin!"
+        puts "You've encountered a Goblin!"
         puts ""
         puts "The Goblin shyly smiles and waves at you."
         puts ""
@@ -366,7 +366,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
 
     def player_turn_choice
         list_of_battle_choices
-        choice = gets.strip 
+        choice = gets.strip.downcase 
         if choice.include?("1") || choice.include?("HP") || choice.include?("hp")
             self.player.drink_health_potion
             puts "HP +10"
@@ -377,8 +377,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             puts "MP: #{player_mana}"
         elsif choice.include?("3") || choice == "attack" || choice == "Attack"
             self.choosing_attack
-        elsif choice.include?("4") || choice.include?("ask")
-            self.player.do_nothing
+        elsif choice.include?("4") || choice.include?("ask") || choice.include?("friend")
+            self.player.be_friends
         elsif choice == "exit"
             self.exit_game
         else 

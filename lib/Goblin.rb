@@ -31,8 +31,7 @@ class Goblin
     end 
 
     def battle_cry
-        "The Goblin is sad. \n
-        :("
+        ":("
     end 
 
     def death_cry
