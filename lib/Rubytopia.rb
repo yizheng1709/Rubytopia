@@ -369,17 +369,21 @@ class RubytopiaGame
     def witch_encounter
         self.monster = Witch.new 
         puts ""
+        puts "#{monster.name} says:"
+        puts ""
         puts "'Double, double toil and trouble;"
         puts ""
         puts "Fire burn and caldron bubble.'"
         puts ""
-        puts "Have you seen a Witch before?"
+        puts "Have you seen this Witch before?"
         puts ""
         sleep(4)
     end 
 
     def sorcerer_encounter
         self.monster = Sorcerer.new 
+        puts ""
+        puts "#{monster.name} says:"
         puts ""
         puts "'In his house at R'lyeh, dead Cthulhu waits dreaming.'"
         puts ""
@@ -447,31 +451,15 @@ class RubytopiaGame
         list_of_battle_choices
         choice = gets.strip.downcase 
         if choice == "1" 
-            self.player.drink_health_potion
-            puts ""
-            puts "You've decided to drink a Health potion.".colorize(:red)
-            puts ""
-            puts "HP +10".colorize(:red)
-            puts "HP: #{player.health}".colorize(:red)
-            puts "HP pots left: #{self.player.hp_pots}".colorize(:red)
-            puts ""
-            sleep(4)
+            self.hp_pot_choice
         elsif choice == "2" 
-            self.player.drink_mana_potion
-            puts ""
-            puts "You've decided to drink a Mana potion.".colorize(:blue)
-            puts ""
-            puts "MP +10".colorize(:blue)
-            puts "MP: #{player.mana}".colorize(:blue)
-            puts "MP pots left: #{self.player.mp_pots}".colorize(:blue)
-            puts ""
-            sleep(4)
+            self.mp_pot_choice
         elsif choice == "3" 
             if self.check_mana
                 puts ""
-                puts "You don't have any Mana left! Can't you see?"
+                puts "You don't have any Mana left! Can't you see?".colorize(:blue)
                 puts ""
-                puts "Perhaps you should rethink your choice."
+                puts "Perhaps you should rethink your choice.".colorize(:blue)
                 puts ""
                 sleep(3)
                 self.player_turn_choice
@@ -491,8 +479,48 @@ class RubytopiaGame
         end 
     end  
 
-    def check_mana
-        self.player.mana == 0
+    def mp_pot_choice
+        if !self.player.check_mp_pot
+            self.player.drink_mana_potion
+            puts ""
+            puts "You've decided to drink a Mana potion.".colorize(:blue)
+            puts ""
+            puts "MP +10".colorize(:blue)
+            puts "MP: #{player.mana}".colorize(:blue)
+            puts "MP pots left: #{self.player.mp_pots}".colorize(:blue)
+            puts ""
+            sleep(4)
+        else 
+            puts ""
+            puts "Shame. You're out of MP potions."
+            puts ""
+            puts "Choose again."
+            puts ""
+            sleep(3)
+            player_turn_choice
+        end 
+    end 
+
+    def hp_pot_choice
+        if !self.player.check_hp_pot
+            self.player.drink_health_potion
+            puts ""
+            puts "You've decided to drink a Mana potion.".colorize(:red)
+            puts ""
+            puts "HP +10".colorize(:red)
+            puts "HP: #{player.health}".colorize(:red)
+            puts "HP pots left: #{self.player.hp_pots}".colorize(:red)
+            puts ""
+            sleep(4)
+        else 
+            puts ""
+            puts "Shame. You're out of HP potions."
+            puts ""
+            puts "Choose again."
+            puts ""
+            sleep(3)
+            player_turn_choice
+        end 
     end 
 
     def choosing_attack  #choice 3 of player_turn_choice
@@ -576,11 +604,12 @@ class RubytopiaGame
         sleep(3)
         player.increase_evilness_by_2
         puts self.monster.death_cry
-        puts "W O W ! You defeated the monster!"
         puts ""
-        puts "Well, now your evilness level is #{player.evilness}! \n"
+        puts "W O W ! You defeated the monster!".colorize(:red)
         puts ""
-        puts "What could go wrong?"
+        puts "Well, now your evilness level is #{player.evilness}!".colorize(:red)
+        puts ""
+        puts "What could go wrong?".colorize(:red)
         puts ""
         sleep(3)
     end 
@@ -588,23 +617,25 @@ class RubytopiaGame
     def monster_becomes_friend
         self.player.friends_made << self.monster 
         puts ""
-        puts "Some time has passed and the Monster realizes that you aren't trying to kill it."
+        puts "Some time has passed and the Monster realizes that you aren't trying to kill it.".colorize(:green)
         puts ""
-        puts "The Monster thinks you're kind and stops fighting you."
+        puts "The Monster thinks you're kind and stops fighting you.".colorize(:green)
         puts ""
         sleep(4)
-        puts "The Monster becomes your friend instead!"
+        puts "The Monster becomes your friend instead!".colorize(:green)
         puts ""
-        puts "Sweet!"
+        puts "Sweet!".colorize(:green)
         puts ""
     end 
     
 
     def monster_turn
+        puts ""
         puts self.monster.reply
+        puts ""
         atk = self.monster.attack
         player.health -= atk 
-        puts "#{self.monster.name} dealt #{atk} damage to you! OUCH!"
+        puts "#{self.monster.name} dealt #{atk} damage to you! OUCH!".colorize(:red)
         puts ""
         puts "Your HP: #{self.player.health}".colorize(:red)
         puts ""

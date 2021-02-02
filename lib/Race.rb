@@ -122,6 +122,18 @@ class Race
         @friends_made.count 
     end 
 
+    def check_mana
+        self.player.mana == 0
+    end 
+
+    def check_mp_pot
+        self.mp_pots == 0
+    end 
+
+    def check_hp_pot
+        self.hp_pots == 0
+    end 
+
     def death?
         self.health == 0
     end 
