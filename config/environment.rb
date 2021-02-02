@@ -12,6 +12,7 @@ require_relative '../lib/Goblin.rb'
 require_relative '../lib/Imp.rb'
 require_relative '../lib/Karen.rb'
 require_relative '../lib/Santa.rb'
+require_relative '../lib/Sorcerer.rb'
 require_relative '../lib/Witch.rb'
 
 #misc event

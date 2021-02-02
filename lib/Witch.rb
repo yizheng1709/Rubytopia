@@ -11,7 +11,7 @@ class Witch
     end 
 
     def name_set
-        num = rand(7)
+        num = rand(11)
         if num == 0
             self.name = "J.K. Rowling the Witch"
         elsif num == 1
@@ -24,6 +24,14 @@ class Witch
             self.name = "Mary Wollstonecraft the Witch"
         elsif num == 5
             self.name = "Mary Shelley the Witch"
+        elsif num == 6
+            self.name = "Margaret Atwood the Witch"
+        elsif num == 7
+            self.name = "Emily Dickinson the Witch"
+        elsif num == 8
+            self.name = "Joan Didion the Witch"
+        elsif num == 9
+            self.name = "Kate Chopin the Witch"
         else
             self.name = "Jane Austen the Witch"
         end 
