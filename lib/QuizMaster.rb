@@ -31,20 +31,22 @@ class QuizMaster
         ]
 
         self.answer = [
-        "15", "1945", "biden", "121", "ash", "121", "calf", "green", "stewie", "144", "china", "hieroglyphics",
+        "15", "1945", "biden", "121", "ash", "calf", "green", "stewie", "144", "china", "hieroglyphics",
         "moose", "india", "albany", "french", "proton", "365"
         ]
     end 
 
     def appearance 
-        "A plump little man appears in front of you. \n
+        "\n
+        A plump little man appears in front of you. \n
         He is wearing a purple top hat as well as a purple tuxedo. \n
         Although a small man, he is capable of holding a big cat. \n
         He is petting his cat as he starts to approach you. \n"
     end 
 
     def greeting
-        "He says: \n
+        "\n
+        He says: \n
         'Hello, I am Luke the Quiz Master. \n
         My only desire in life is to mess with people's lives \n
         by appearing before them and asking them questions \n

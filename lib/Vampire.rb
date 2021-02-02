@@ -5,7 +5,7 @@ class Vampire < Race
         super
         @health = 70
         @mana = 30
-        @evilness = 1
+        @evilness = 2
         @happiness = 4
     end 
     

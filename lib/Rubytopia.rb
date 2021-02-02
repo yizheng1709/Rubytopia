@@ -18,9 +18,9 @@ class RubytopiaGame
     end 
 
     def greeting_user
-        puts "Hello, player!"
+        puts "Hello, player!".colorize(:yellow)
         puts ""
-        puts "What is your name?"
+        puts "What is your name?".colorize(:yellow)
         puts ""
         self.player_name = gets.strip 
         puts "Welcome #{self.player_name}!"
@@ -64,7 +64,7 @@ class RubytopiaGame
 
     def create_giant 
         self.player = Giant.new
-        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
+        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎".colorize(:yellow)
         puts ""
         puts "You've chosen to be part of the Giant Race."
         sleep(3)
@@ -80,7 +80,7 @@ class RubytopiaGame
     
     def create_elf 
         self.player = Elf.new
-        puts "💎 Welcome to Rubytopia, #{self.player_name}!💎"
+        puts "💎 Welcome to Rubytopia, #{self.player_name}!💎".colorize(:yellow)
         puts ""
         puts "You've chosen to be part of the Elf Race."
         sleep(3)
@@ -103,7 +103,7 @@ class RubytopiaGame
         puts ""
         puts "But I digress."
         sleep(4)
-        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
+        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎".colorize(:yellow)
         puts ""
         puts "You've chosen to be part of the Human Race."
         puts ""
@@ -117,9 +117,10 @@ class RubytopiaGame
 
     def create_jinook 
         self.player = Jinook.new
-        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
+        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎".colorize(:yellow)
         puts ""
         puts "You've chosen to be part of the Jinook Race, the race of perfect dads."
+        puts ""
         sleep(3)
         puts "As a Jinook, you have incredible intelligence and stamina."
         puts ""
@@ -133,7 +134,7 @@ class RubytopiaGame
 
     def create_vampire 
         self.player = Vampire.new
-        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
+        puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎".colorize(:yellow)
         puts ""
         puts "You've chosen to be part of the Vampire Race, the race that embodies sexiness."
         puts ""
@@ -157,21 +158,21 @@ class RubytopiaGame
         puts "Today, it's your turn to play with this mysterious portal!"
         puts ""
         sleep(6)
-        puts "Which mytholgical land would you like to visit?"
+        puts "Which mytholgical land would you like to visit?".colorize(:yellow)
         puts ""
-        puts "The most popular choices for Rubytopian citizens have been:"
+        puts "The most popular choices for Rubytopian citizens have been:".colorize(:yellow)
         puts ""
-        puts "Themyscira"
+        puts "Themyscira".colorize(:yellow)
         puts ""
-        puts "Camelot"
+        puts "Camelot".colorize(:yellow)
         puts ""
-        puts "Atlantis"
+        puts "Atlantis".colorize(:yellow)
         puts ""
-        puts "Hell"
+        puts "Hell".colorize(:yellow)
         puts ""
-        puts "Asgard"
+        puts "Asgard".colorize(:yellow)
         puts ""
-        puts "However, feel free to take the road less traveled and go somewhere less popular."
+        puts "However, feel free to take the road less traveled and go somewhere less popular.".colorize(:yellow)
         puts ""
         choice = gets.strip 
         if MythPlace.all.find {|place| place.name.downcase == choice.downcase} 
@@ -230,7 +231,7 @@ class RubytopiaGame
         puts ""
     end 
 
-    def event_setup #this will be right before every event_encounter
+    def event_setup 
         puts ""
         puts "As you continue to explore the wonderful place of #{self.background.name}, you had to make an unexpected stop."
         puts ""
@@ -239,7 +240,7 @@ class RubytopiaGame
     def event_generator 
         self.event_setup
         a = rand(10)
-        if a > 1
+        if a > 9
             self.monster_generator
             self.run_or_fight
         else
@@ -274,11 +275,11 @@ class RubytopiaGame
         sleep(4)
         a = rand(17)
         puts ""
-        puts "This is the question he asks:"
+        puts "This is the question he asks:".colorize(:yellow)
         puts ""
         puts quiz.question[a]
         input = gets.strip.downcase 
-        if input == quiz.answer[a]
+        if input == quiz.answer[a].downcase 
             self.correct_answer
         elsif input == "exit"
             self.exit_game
@@ -290,25 +291,26 @@ class RubytopiaGame
     def correct_answer
         self.player.increase_happiness_by_1
         puts ""
-        puts "Amazing! Your answer is correct, so Luke the Quiz Master left you alone."
+        puts "Amazing! Your answer is correct, so Luke the Quiz Master left you alone.".colorize(:yellow)
         puts ""
         sleep(2)
-        puts "You feel so smart that your happiness increased by 1 point!"
+        puts "You feel so smart that your happiness increased by 1 point!".colorize(:yellow)
         puts ""
-        puts "Happiness: #{self.player.happiness}"
+        puts "Happiness: #{self.player.happiness}".colorize(:yellow)
         puts ""
+        puts "(Max Happiness is 10)".colorize(:yellow)
         sleep(3)
     end 
 
     def wrong_answer 
         self.player.decrease_happiness_by_1
         puts ""
-        puts "Luke the Quiz Master laughs at your wrong answer."
+        puts "Luke the Quiz Master laughs at your wrong answer.".colorize(:blue)
         puts ""
         sleep(2)
-        puts "You're upset about giving the incorrect answer. Your happiness decreases by 1 point."
+        puts "You're upset about giving the incorrect answer. Your happiness decreased by 1 point.".colorize(:blue)
         puts ""
-        puts "Happiness: #{self.player.happiness}"
+        puts "Happiness: #{self.player.happiness}".colorize(:blue)
         sleep(3)
     end 
 
@@ -455,7 +457,7 @@ class RubytopiaGame
         elsif choice == "2" 
             self.mp_pot_choice
         elsif choice == "3" 
-            if self.check_mana
+            if self.player.check_mana
                 puts ""
                 puts "You don't have any Mana left! Can't you see?".colorize(:blue)
                 puts ""
@@ -583,9 +585,9 @@ class RubytopiaGame
     def player_turn 
         counter = 0
         while counter < 7 
+            break if self.monster.health == 0 || self.player.health == 0
             self.player_turn_choice
             counter += 1
-            break if self.monster.health == 0 || self.over?
             self.monster_turn
         end 
 
@@ -658,6 +660,11 @@ class RubytopiaGame
 
     def so_sad_ending? 
         if self.player.happiness == 0
+            puts ""
+            puts "You died from sadness.".colorize(:blue)
+            puts ""
+            puts "Yep... What a rare way to go, but you managed to do it.".colorize(:blue)
+            puts ""
             self.restart?
         end 
     end 
@@ -669,7 +676,8 @@ class RubytopiaGame
         puts "Yes or No"
         a = gets.strip.downcase 
         if a == "yes" || a == "ya" || a == "y"
-            RubytopiaGame.new 
+            sleep(2)
+            RubytopiaGame.new.start 
         elsif a == "no" || a == "n" 
             puts "Oh. Okay then. I won't take it personally. See you around?"
         else 
@@ -680,32 +688,45 @@ class RubytopiaGame
     
     def death? #ending 1
         if self.player.death?
-            puts "Your adventure was aight. \n"
-            puts "Nothing to brag about. \n"
+            puts ""
+            puts "LOL How did you die?"
+            puts ""
             self.restart?
         end 
     end 
 
     #these methods should be cchecked every time a battle ends 
     def friendly_ending? #ending 2
+        sleep(3)
         if self.player.friends_made_count == 5 
-            puts "Your journey comes to an end, as you realize you have work tomorrow. \n"
-            puts "As you are about to walk through the exit portal, \n"
-            puts "all of the friends that you've made today came to bid farewell. \n"
-            self.player.friends_made.each {|friend| puts "#{friend.name} said: See you around?"}
+            puts "Your journey comes to an end, as you realize you have work tomorrow.".colorize(:green)
+            puts ""
+            puts "As you are about to walk through the exit portal,".colorize(:green)
+            puts ""
+            puts "all of the friends that you've made today came to bid farewell.".colorize(:green)
+            puts ""
+            self.player.friends_made.each {|friend| puts "#{friend.name} said: 'See you around?'"}
+            puts ""
+            puts "Good job, #{player_name}!"
             sleep(3)
             self.restart?
         end 
     end 
     
     def bad_ending? #ending three
-        if self.player.evilness == 10
-            puts "I can't believe you are so cruel! \n"
-            puts "But you know who loves cruel souls? \n"
-            puts "Satan. \n"
-            puts "Satan loves your soul so much that he decided to take it from you. \n"
-            puts "Now your soul is part of Satan's favorite souls collection. \n"
-            puts "Way to go, #{self.player_name}."
+        if self.player.evilness == 4
+            puts "I can't believe you are so cruel!".colorize(:red)
+            puts ""
+            puts "But you know who loves cruel souls?".colorize(:red)
+            sleep(2)
+            puts "Satan.".colorize(:red)
+            puts ""
+            sleep(1)
+            puts "Satan loves your soul so much that he decided to take it from you.".colorize(:red)
+            puts ""
+            puts "Now your soul is part of Satan's favorite souls collection.".colorize(:red)
+            puts ""
+            puts "Way to go, #{self.player_name}.".colorize(:red)
             sleep(4)
             self.restart?
         end 

@@ -5,7 +5,7 @@ class Jinook < Race
         super
         @health = 90
         @mana = 30
-        @evilness = 1
+        @evilness = 2
         @happiness = 5
     end 
     

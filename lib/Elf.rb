@@ -5,7 +5,7 @@ class Elf < Race
         super
         @health = 60
         @mana = 80
-        @evilness = 1
+        @evilness = 2
         @happiness = 5
     end 
     

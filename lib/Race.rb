@@ -3,8 +3,8 @@ class Race
     :friends_made, :happiness    
 
     def initialize
-        @hp_pots = 20
-        @mp_pots = 15
+        @hp_pots = 25
+        @mp_pots = 25
         @friends_made = [] 
     end 
 
@@ -70,7 +70,7 @@ class Race
     end 
 
     def library
-        "\nYou said: 'How about I we go to the library and I'll read you some of my favorite stories?' \n
+        "\nYou said: 'How about we go to the library and I'll read you some of my favorite stories?' \n
         Maybe the Monster will like comic books...!\n
         ... Yeah, I don't think so.\n".colorize(:green)
     end 
