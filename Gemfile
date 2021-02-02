@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-git_source(:github) {|Rubytopia| "https://github.com/#{Rubytopia}" }
+# git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem 'colorize'
 

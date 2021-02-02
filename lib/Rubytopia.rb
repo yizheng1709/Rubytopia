@@ -227,7 +227,7 @@ class RubytopiaGame
     end 
 
     def monster_generator 
-        num = rand(5) #add to this as I build more monsters
+        num = rand(6) #add to this as I build more monsters
         if num == 0
             goblin_encounter 
         elsif num == 1
@@ -236,6 +236,8 @@ class RubytopiaGame
             karen_encounter
         elsif num == 3
             santa_encounter
+        elsif num == 4
+            witch_encounter
         else
             imp_encounter
         end 
@@ -244,8 +246,10 @@ class RubytopiaGame
     def quizmaster_generator
         quiz = QuizMaster.new 
         puts quiz.appearance
+        sleep(4)
         puts quiz.greeting 
-        a = rand(9)
+        sleep(4)
+        a = rand(17)
         puts ""
         puts "This is the question he asks:"
         puts ""
@@ -323,6 +327,16 @@ class RubytopiaGame
         puts "Today is not your day! You've encountered a mighty Keh-Rhan!"
         puts ""
         puts "The monstrous Keh-Rhan makes your knees tremble."
+        puts ""
+        sleep(4)
+    end 
+
+    def witch_encounter
+        self.monster = Witch.new 
+        puts ""
+        puts "Double, double toil and trouble;"
+        puts ""
+        puts "Fire burn and caldron bubble."
         puts ""
         sleep(4)
     end 

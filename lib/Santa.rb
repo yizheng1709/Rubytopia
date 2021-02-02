@@ -13,50 +13,50 @@ class Santa
     def name_set
         num = rand(7)
         if num == 0
-            @name = "Wrathful the Fake Santa"
+            self.name = "Wrathful the Fake Santa"
         elsif num == 1
-            @name = "Bitter the Fake Santa"
+            self.name = "Bitter the Fake Santa"
         elsif num == 2
-            @name = "Furious the Fake Santa"
+            self.name = "Furious the Fake Santa"
         elsif num == 3
-            @name = "Rage the Fake Santa"
+            self.name = "Rage the Fake Santa"
         elsif num == 4
-            @name = "Resentful the Fake Santa"
+            self.name = "Resentful the Fake Santa"
         elsif num == 5
-            @name = "Outrage the Fake Santa" 
+            self.name = "Outrage the Fake Santa" 
         else
-            @name = "Offended the Fake Santa"
+            self.name = "Offended the Fake Santa"
         end 
     end 
 
     def battle_cry
-        "#{@name} says: 'Sad Holidays for you!'"
+        "#{self.name} says: 'Sad Holidays for you!'"
     end 
 
     def death_cry
-        "#{@name} says: You'll get getting coal for Christmas!!!!"
+        "#{self.name} says: You'll get getting coal for Christmas!!!!"
     end 
 
     def reply 
         a = rand(9)
         if a == 0
-            "#{self.name} says: 'Ha Ha Ha. Terrible Christmas!'"
+            "#{self.name} says: 'Ha Ha Ha. Terrible Christmas!'\n"
         elsif a == 1
-            "#{self.name} says: 'Hu Hu Hu. Crazy Christmas!'"
+            "#{self.name} says: 'Hu Hu Hu. Crazy Christmas!'\n"
         elsif a == 2
-            "#{self.name} says: 'He He He. No Christmas!'"
+            "#{self.name} says: 'He He He. No Christmas!'\n"
         elsif a == 3
-            "#{self.name} says: 'Hoo Hoo Hoo. Irritable Christmas!'"
+            "#{self.name} says: 'Hoo Hoo Hoo. Irritable Christmas!'\n"
         elsif a == 4
-            "#{self.name} says: 'You are on the naughty list!'"
+            "#{self.name} says: 'You are on the naughty list!'\n"
         elsif a == 5
-            "#{self.name} says: 'I swear I will eat all of your cookies!'"
+            "#{self.name} says: 'I swear I will eat all of your cookies!'\n"
         elsif a == 6
-            "#{self.name} says: 'Nobody likes you!'"
+            "#{self.name} says: 'Nobody likes you!'\n"
         elsif a == 7
-            "#{self.name} says: 'You won't be getting a PS5 this Christmas!'"
+            "#{self.name} says: 'You won't be getting a PS5 this Christmas!'\n"
         else
-            "#{self.name} says: 'You are no longer my favorite!"
+            "#{self.name} says: 'You are no longer my favorite!'\n"
         end 
     end 
 

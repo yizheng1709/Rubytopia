@@ -13,50 +13,50 @@ class Karen
     def name_set
         num = rand(7)
         if num == 0
-            @name = "Joe-Le-An the Keh-Rhan"
+            self.name = "Joe-Le-An the Keh-Rhan"
         elsif num == 1
-            @name = "Op-Al the Keh-Rhan"
+            self.name = "Op-Al the Keh-Rhan"
         elsif num == 2
-            @name = "DeBo-Ra-Ah-Ah the Keh-Rhan"
+            self.name = "DeBo-Ra-Ah-Ah the Keh-Rhan"
         elsif num == 3
-            @name = "Mar-Ga-Ret the Keh-Rhan"
+            self.name = "Mar-Ga-Ret the Keh-Rhan"
         elsif num == 4
-            @name = "Whey-Le-E the Keh-Rhan"
+            self.name = "Whey-Le-E the Keh-Rhan"
         elsif num == 5
-            @name = "Hay-Le-E the Keh-Rhan" 
+            self.name = "Hay-Le-E the Keh-Rhan" 
         else
-            @name = "Nahn-See the Keh-Rhan"
+            self.name = "Nahn-See the Keh-Rhan"
         end 
     end 
 
     def battle_cry
-        "#{@name} says: 'AHHHHHHHHHHHHHHHHHHHH!!!!! OUTSIDER!!!!!!'"
+        "#{self.name} says: 'AHHHHHHHHHHHHHHHHHHHH!!!!! OUTSIDER!!!!!!'"
     end 
 
     def death_cry
-        "#{@name} says: 'I *WILL* SPEAK TO YOUR MANAGER ONE DAY!!! JUST YOU WAIT!'"
+        "#{self.name} says: 'I *WILL* SPEAK TO YOUR MANAGER ONE DAY!!! JUST YOU WAIT!'\n"
     end 
 
     def reply 
         a = rand(9)
         if a == 0
-            "#{self.name} says: 'I *NEED* TO SPEAK TO YOUR MANAGER!!!!'"
+            "#{self.name} says: 'I *NEED* TO SPEAK TO YOUR MANAGER!!!!'\n"
         elsif a == 1
-            "#{self.name} says: 'I AM ALWAYS RIGHT!'"
+            "#{self.name} says: 'I AM ALWAYS RIGHT!'\n"
         elsif a == 2
-            "#{self.name} says: 'NUH-UH! NUH! UH!'"
+            "#{self.name} says: 'NUH-UH! NUH! UH!'\n"
         elsif a == 3
-            "#{self.name} says: 'DON'T EVEN DARE TO TOUCH ME!'"
+            "#{self.name} says: 'DON'T EVEN DARE TO TOUCH ME!'\n"
         elsif a == 4
-            "#{self.name} says: 'I'M CALLING THE POLICE!'"
+            "#{self.name} says: 'I'M CALLING THE POLICE!'\n"
         elsif a == 5
-            "#{self.name} says: 'I FEEL SO ATTACKED RIGHT NOW!!!!'"
+            "#{self.name} says: 'I FEEL SO ATTACKED RIGHT NOW!!!!'\n"
         elsif a == 6
-            "#{self.name} says: 'YOU'RE TOO CLOSE TO ME!!! STOP IT!!!'"
+            "#{self.name} says: 'YOU'RE TOO CLOSE TO ME!!! STOP IT!!!'\n"
         elsif a == 7
-            "#{self.name} says: 'I HAVE MY RIGHTS AS A KEH-RHAN!'"
+            "#{self.name} says: 'I HAVE MY RIGHTS AS A KEH-RHAN!'\n"
         else
-            "#{self.name} says: 'DO YOU EVEN KNOW WHO I AM?'"
+            "#{self.name} says: 'DO YOU EVEN KNOW WHO I AM?'\n"
         end 
     end 
 

@@ -17,13 +17,22 @@ class QuizMaster
         "What is 11 times 11?",
         "Who is the main protagonist of the Pokemon series?", 
         "What do you call a baby cow?",
-        "What is one of the primary colors?", 
+        "What color do you get when you add blue and yellow?", 
         "Who is the baby with the football-shaped head in Family Guy?", 
         "What is 12 times 12?",
+        "The first fireworks were invented in the 7th century in what country?",
+        "What was the ancient Egyptian writing system called?",
+        "The plural of “moose” is…?",
+        "In what country is the famous Taj Mahal located?",
+        "What is the capital of New York?",
+        "What is the main language spoken in the Canadian province of Quebec?",
+        "What is the name of a positively charged subatomic particle that appears in the nucleus of all atoms?",
+        "How many days are in a year?"
         ]
 
         self.answer = [
-        "15", "1945", "biden", "121", "ash", "121", "calf", "blue, yellow, red", "stewie", "144" 
+        "15", "1945", "biden", "121", "ash", "121", "calf", "green", "stewie", "144", "china", "hieroglyphics",
+        "moose", "india", "albany", "french", "proton", "365"
         ]
     end 
 
