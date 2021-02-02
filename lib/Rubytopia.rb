@@ -79,6 +79,7 @@ class RubytopiaGame
     def create_jinook 
         self.player = Jinook.new
         puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
+        puts ""
         puts "You've chosen to be part of the Jinook Race, the race of perfect dads."
         sleep(3)
         puts "As a Jinook, you have incredible intelligence and stamina."
@@ -109,12 +110,15 @@ class RubytopiaGame
         self.player = Human.new
         puts ""
         puts "#{self.player_name}, seriously?"
+        puts ""
         puts "Why would you want to be a Human when you are already one in real life?"
         puts ""
         puts "But I digress."
         sleep(4)
         puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
+        puts ""
         puts "You've chosen to be part of the Human Race."
+        puts ""
         puts "As a Human, you have average stats amongst other races."
         puts ""
         puts "HP: #{player.health} (MAX)".colorize(:red)
@@ -170,8 +174,12 @@ class RubytopiaGame
         input = gets.strip.downcase 
         if input == "yes" || input == "y"
             puts "Did you know that #{background.name} is"
+            puts ""
             puts "#{background.description}"
+            puts ""
             puts "Well, now you do."
+            puts ""
+            puts "You're very welcome :)"
             puts ""
         elsif input == "no" || input == "n"
             puts "Well, *someone* isn't open to being a student. Okay then."
@@ -189,6 +197,7 @@ class RubytopiaGame
     end 
 
     def first_event_setup #only in the first event_encounter
+        puts ""
         puts "You stepped through the portal and entered #{self.background.name}."
         puts ""
         puts "Allow me to tell you this, #{self.player_name}."
@@ -201,8 +210,8 @@ class RubytopiaGame
     end 
 
     def event_setup #this will be right before every event_encounter
-        puts "As you continue to explore the wonderful place of #{self.background.name}, you had to make an unexpected stop."
         puts ""
+        puts "As you continue to explore the wonderful place of #{self.background.name}, you had to make an unexpected stop."
         puts ""
     end 
 
@@ -212,7 +221,7 @@ class RubytopiaGame
         if a > 1
             self.monster_generator
             self.run_or_fight
-        elsif a <= 1
+        else
             quizmaster_generator 
         end 
     end 
@@ -227,7 +236,7 @@ class RubytopiaGame
             karen_encounter
         elsif num == 3
             santa_encounter
-        elsif num == 4
+        else
             imp_encounter
         end 
     end 
@@ -246,7 +255,7 @@ class RubytopiaGame
             self.correct_answer
         elsif input == "exit"
             self.exit_game
-        elsif input != quiz.answer[a]
+        else
             self.wrong_answer
         end 
     end   
@@ -266,6 +275,7 @@ class RubytopiaGame
 
     def wrong_answer 
         self.player.decrease_happiness_by_1
+        puts ""
         puts "Luke the Quiz Master laughs at your wrong answer."
         puts ""
         sleep(2)
@@ -277,6 +287,7 @@ class RubytopiaGame
 
     def goblin_encounter
         self.monster = Goblin.new
+        puts ""
         puts "You've encountered a Goblin!"
         puts ""
         puts "The Goblin shyly smiles and waves at you."
@@ -286,9 +297,10 @@ class RubytopiaGame
 
     def imp_encounter
         self.monster = Imp.new
+        puts ""
         puts "You've encountered an Imp!"
         puts ""
-        puts "The Imp thinks you're block his path."
+        puts "The Imp thinks you're blocking his path."
         puts ""
         sleep(3)
     end  
@@ -307,6 +319,7 @@ class RubytopiaGame
 
     def karen_encounter
         self.monster = Karen.new 
+        puts ""
         puts "Today is not your day! You've encountered a mighty Keh-Rhan!"
         puts ""
         puts "The monstrous Keh-Rhan makes your knees tremble."
@@ -316,6 +329,7 @@ class RubytopiaGame
 
     def santa_encounter
         self.monster = Santa.new 
+        puts ""
         puts "You will have a sad holiday! You've encountered a Fake Santa!"
         puts ""
         puts "His pot belly amuses you."
@@ -346,7 +360,9 @@ class RubytopiaGame
     end 
 
     def run_away
+        puts ""
         puts "You've decided to run away...?! Wow, okay."
+        sleep(1)
         puts ""
         puts "Is that how you deal with all your problems?"
         puts ""
@@ -354,6 +370,7 @@ class RubytopiaGame
     end 
 
     def battle 
+        puts ""
         puts "You've decided to battle! Great!"
         puts ""
         puts monster.battle_cry 
@@ -380,28 +397,52 @@ class RubytopiaGame
         choice = gets.strip.downcase 
         if choice == "1" 
             self.player.drink_health_potion
+            puts ""
+            puts "You've decided to drink a Health potion."
+            puts ""
             puts "HP +10".colorize(:red)
             puts "HP: #{player.health}".colorize(:red)
             puts "HP pots left: #{self.player.hp_pots}".colorize(:red)
+            puts ""
+            sleep(4)
         elsif choice == "2" 
             self.player.drink_mana_potion
+            puts ""
+            puts "You've decided to drink a Mana potion."
+            puts ""
             puts "MP +10".colorize(:blue)
-            puts "MP: #{player_mana}".colorize(:blue)
+            puts "MP: #{player.mana}".colorize(:blue)
             puts "MP pots left: #{self.player.mp_pots}".colorize(:blue)
+            puts ""
+            sleep(4)
         elsif choice == "3" 
+            if self.check_mana
+                puts ""
+                puts "You don't have any Mana left! Can't you see?"
+                puts ""
+                puts "Perhaps you should rethink your choice."
+                puts ""
+                sleep(3)
+                self.player_turn_choice
+            end 
             self.choosing_attack
         elsif choice == "4" 
             puts self.player.be_friends
-            sleep(3)
+            sleep(5)
         elsif choice == "exit"
             self.exit_game
         else 
-            puts "Umm, #{player_name}... It's not hard to choose from 1-4. \n"
+            puts "Umm, #{player_name}... It's not hard to choose from 1-4."
+            puts ""
             puts "Please try again."
             sleep(3)
             self.player_turn_choice
         end 
     end  
+
+    def check_mana
+        self.player.mana == 0
+    end 
 
     def choosing_attack  #choice 3 of player_turn_choice
         puts player.set_of_attacks
@@ -411,6 +452,7 @@ class RubytopiaGame
             player.mana -= mp
             dmg = player.first_attack #this section is repetitive
             monster.health -= dmg  #could write as its own method
+            puts ""
             puts "You dealt #{dmg} damage!"
             puts ""
             puts "Remaining MP: #{self.player.mana}".colorize(:blue)
@@ -424,6 +466,7 @@ class RubytopiaGame
             player.mana -= mp  
             dmg = player.second_attack
             monster.health -= dmg 
+            puts ""
             puts "You dealt #{dmg} damage!"
             puts ""
             puts "Remaining MP: #{self.player.mana}".colorize(:blue)
@@ -437,6 +480,7 @@ class RubytopiaGame
             dmg = player.third_attack
             monster.health -= dmg 
             player.mana -= mp 
+            puts ""
             puts "You dealt #{dmg} damage!"
             puts ""
             puts "Remaining MP: #{self.player.mana}".colorize(:blue)
@@ -448,6 +492,7 @@ class RubytopiaGame
         elsif atk == "exit"
             self.exit_game
         else 
+            puts ""
             puts "#{self.player_name}, you really only have three attacks to choose from."
             puts ""
             puts "It's not that hard to choose. Please try again."
@@ -471,6 +516,8 @@ class RubytopiaGame
             self.monster_becomes_friend
         elsif over?
             over?
+        else
+            false 
         end 
     end 
 
@@ -489,7 +536,8 @@ class RubytopiaGame
 
     def monster_becomes_friend
         self.player.friends_made << self.monster 
-        puts "Some time had passed and the Monster realizes that you aren't trying to kill it."
+        puts ""
+        puts "Some time has passed and the Monster realizes that you aren't trying to kill it."
         puts ""
         puts "The Monster thinks you're kind and stops fighting you."
         puts ""
@@ -521,6 +569,8 @@ class RubytopiaGame
             self.bad_ending?
         elsif so_sad_ending?
             self.so_sad_ending?
+        else 
+            false 
         end 
     end 
 
@@ -531,6 +581,7 @@ class RubytopiaGame
     end 
 
     def restart?
+        puts ""
         puts "Would you like to restart your adventure?"
         puts ""
         puts "Yes or No"

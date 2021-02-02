@@ -1,10 +1,11 @@
+require_relative 'Race'
 class Jinook < Race 
 
     def initialize
         super
         @health = 90
         @mana = 30
-        @evil = 0
+        @evilness = 1
         @happiness = 5
     end 
     

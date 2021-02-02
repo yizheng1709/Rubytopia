@@ -1,10 +1,11 @@
+require_relative 'Race'
 class Elf < Race 
 
-    def initialize(name)
+    def initialize
         super
         @health = 60
         @mana = 80
-        @evil = 1
+        @evilness = 1
         @happiness = 5
     end 
     

@@ -24,7 +24,7 @@ class Santa
             @name = "Resentful the Fake Santa"
         elsif num == 5
             @name = "Outrage the Fake Santa" 
-        elsif num == 6
+        else
             @name = "Offended the Fake Santa"
         end 
     end 
@@ -38,26 +38,25 @@ class Santa
     end 
 
     def reply 
-        "#{@name} says: \n"
-        a = rand()
+        a = rand(9)
         if a == 0
-            "'Ha Ha Ha. Terrible Christmas!'"
+            "#{self.name} says: 'Ha Ha Ha. Terrible Christmas!'"
         elsif a == 1
-            "'Hu Hu Hu. Crazy Christmas!'"
+            "#{self.name} says: 'Hu Hu Hu. Crazy Christmas!'"
         elsif a == 2
-            "'He He He. No Christmas!'"
+            "#{self.name} says: 'He He He. No Christmas!'"
         elsif a == 3
-            "'Hoo Hoo Hoo. Irritable Christmas!'"
+            "#{self.name} says: 'Hoo Hoo Hoo. Irritable Christmas!'"
         elsif a == 4
-            "'You are on the naughty list!'"
+            "#{self.name} says: 'You are on the naughty list!'"
         elsif a == 5
-            "'I swear I will eat all of your cookies!'"
+            "#{self.name} says: 'I swear I will eat all of your cookies!'"
         elsif a == 6
-            "'Nobody likes you!'"
+            "#{self.name} says: 'Nobody likes you!'"
         elsif a == 7
-            "'You won't be getting a PS5 this Christmas!'"
-        elsif a == 8
-            "'You are no longer my favorite!"
+            "#{self.name} says: 'You won't be getting a PS5 this Christmas!'"
+        else
+            "#{self.name} says: 'You are no longer my favorite!"
         end 
     end 
 
@@ -69,7 +68,7 @@ class Santa
             3
         elsif a == 2
             4
-        elsif a == 3
+        else
             6
         end 
     end 

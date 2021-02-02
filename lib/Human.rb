@@ -1,3 +1,4 @@
+require_relative 'Race'
 class Human < Race 
 
     def initialize

@@ -24,7 +24,7 @@ class Karen
             @name = "Whey-Le-E the Keh-Rhan"
         elsif num == 5
             @name = "Hay-Le-E the Keh-Rhan" 
-        elsif num == 6
+        else
             @name = "Nahn-See the Keh-Rhan"
         end 
     end 
@@ -38,26 +38,25 @@ class Karen
     end 
 
     def reply 
-        "#{@name} says: \n"
-        a = rand()
+        a = rand(9)
         if a == 0
-            "'I *NEED* TO SPEAK TO YOUR MANAGER!!!!'"
+            "#{self.name} says: 'I *NEED* TO SPEAK TO YOUR MANAGER!!!!'"
         elsif a == 1
-            "'I AM ALWAYS RIGHT!'"
+            "#{self.name} says: 'I AM ALWAYS RIGHT!'"
         elsif a == 2
-            "'NUH-UH! NUH! UH!'"
+            "#{self.name} says: 'NUH-UH! NUH! UH!'"
         elsif a == 3
-            "'DON'T EVEN DARE TO TOUCH ME!'"
+            "#{self.name} says: 'DON'T EVEN DARE TO TOUCH ME!'"
         elsif a == 4
-            "'I'M CALLING THE POLICE!'"
+            "#{self.name} says: 'I'M CALLING THE POLICE!'"
         elsif a == 5
-            "'I FEEL SO ATTACKED RIGHT NOW!!!!'"
+            "#{self.name} says: 'I FEEL SO ATTACKED RIGHT NOW!!!!'"
         elsif a == 6
-            "'YOU'RE TOO CLOSE TO ME!!! STOP IT!!!'"
+            "#{self.name} says: 'YOU'RE TOO CLOSE TO ME!!! STOP IT!!!'"
         elsif a == 7
-            "'I HAVE MY RIGHTS AS A KEH-RHAN!'"
-        elsif a == 8
-            "'DO YOU EVEN KNOW WHO I AM?'"
+            "#{self.name} says: 'I HAVE MY RIGHTS AS A KEH-RHAN!'"
+        else
+            "#{self.name} says: 'DO YOU EVEN KNOW WHO I AM?'"
         end 
     end 
 
@@ -69,7 +68,7 @@ class Karen
             5
         elsif a == 2
             7
-        elsif a == 3
+        else
             9
         end 
     end 

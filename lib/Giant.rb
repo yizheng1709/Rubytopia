@@ -1,11 +1,11 @@
-
+require_relative 'Race'
 class Giant < Race 
 
     def initialize
         super 
-        self.health = 100
+        @health = 100
         @mana = 20
-        @evilness = 3
+        @evilness = 2
         @happiness = 6
     end 
     

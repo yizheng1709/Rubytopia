@@ -24,7 +24,7 @@ class Dragon
             @name = "DonKee the Dragon"
         elsif num == 5
             @name = "D.Dog the Dragon"
-        elsif num == 6
+        else
             @name = "DoDo the Dragon"
         end 
     end 
@@ -46,32 +46,31 @@ class Dragon
             4
         elsif a == 2
             6
-        elsif a == 3
+        else
             8
         end 
     end 
 
     def reply
         a = rand(9)
-        "#{self.name} says: \n"
         if a == 0
-            "'What are you doing here? Did someone leave your cage open?'"
+            "#{self.name} says: 'What are you doing here? Did someone leave your cage open?'"
         elsif a == 1
-            "'Let's play Horse. I'll be the front end, and you be yourself.'"
+            "#{self.name} says: 'Let's play Horse. I'll be the front end, and you be yourself.'"
         elsif a == 2
-            "'I'm busy right now. Could I ignore you another time?'"
+            "#{self.name} says: 'I'm busy right now. Could I ignore you another time?'"
         elsif a == 3
-            "'You are living proof that our Creator has a sense of humor.'"
+            "#{self.name} says: 'You are living proof that our Creator has a sense of humor.'"
         elsif a == 4
-            "'How do you explain to your mother what you do for a living?'"
+            "#{self.name} says: 'How do you explain to your mother what you do for a living?'"
         elsif a == 5
-            "'Did you step on a branch? Or was that your back?'"
+            "#{self.name} says: 'Did you step on a branch? Or was that your back?'"
         elsif a == 6
-            "'I wish I was shopping right now.'"
+            "#{self.name} says: 'I wish I was shopping right now.'"
         elsif a == 7
-            "'You know, I really don't think you can defeat me.'"
-        elsif a == 8
-            "'I'm going to be late to my date. UGH!'"
+            "#{self.name} says: 'You know, I really don't think you can defeat me.'"
+        else
+            "#{self.name} says: 'I'm going to be late to my date. UGH!'"
         end 
     end 
 

@@ -16,51 +16,52 @@ class Race
         @happiness = happiness.clamp(0,10)
     end 
 
-    def drink_health_potion #can be done once per turn
-        self.player.health += 10
+    def drink_health_potion
+        self.health += 10
         self.hp_pots -= 1  
     end 
 
     def drink_mana_potion
-        self.player.mana += 10
+        self.mana += 10
         self.mp_pots -= 1
     end 
 
     def sing_a_song 
-        "Oh...okay. You want to sing a song. Interesting choice. \n
-        Do you think you're at a karaoke date with the Monster or something?"
+        "\n
+        Oh...okay. You want to sing a song. Interesting choice. \n
+        Do you think you're at a karaoke date with the Monster or something? \n"
     end 
 
     def yo_yo_trick 
-        "You decided to show the Monster your mediocre yo-yo tricks... Why?"
+        "\n You decided to show the Monster your mediocre yo-yo tricks... Why? \n"
     end 
 
     def lullaby
-        "You sang: 'Hush, little baby don't say a word. \n
+        "\nYou sang: 'Hush, little baby don't say a word. \n
         Papa's gonna buy you a mocking word.' \n
-        ...
+        ... \n
         This is so embarrassing! \n
-        I can't believe you decided to sing 'Hush Little Baby' to this Monster!"
+        I can't believe you decided to sing 'Hush Little Baby' to this Monster! \n"
     end 
 
     def bake_a_cake
-        "You said: 'Let's bake a cake together!' \n
-        D-D-Did you just suggest baking a cake with the Monster?"
+        "\nYou said: 'Let's bake a cake together!' \n
+        D-D-Did you just suggest baking a cake with the Monster?\n"
     end 
 
     def coffee_date 
-        "You said: 'Do you think we could stop by MoonBucks and grab coffee tomorrow?' \n
-        Now why would a Monster drink coffee with you?"
+        "\nYou said: 'Do you think we could stop by MoonBucks and grab coffee tomorrow?' \n
+        Now why would a Monster drink coffee with you?\n"
     end 
 
     def shopping
-        "You said: 'Let's go shopping! I heard there will be free samples at the mall!' \n
-        Do you have a crush on the Monster...?"
+        "\nYou said: 'Let's go shopping! I heard there will be free samples at the mall!' \n
+        Do you have a crush on the Monster...?\n"
     end 
 
     def movie_date 
-        "You said: 'The new Mudzilla movie is coming out soon! Would you like to go?'\n
-        Do you even know a movie theater that allows Monsters????"
+        "\nYou said: 'The new Mudzilla movie is coming out soon! Would you like to go?'\n
+        Do you even know a movie theater that allows Monsters????\n"
     end 
 
     def be_friends 
