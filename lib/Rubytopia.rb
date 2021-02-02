@@ -55,7 +55,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         puts "       💎 Welcome to Rubytopia, #{self.player_name}! 💎\n
         You've chosen to be part of the Giant Race. \n
         As a Giant, you have incredible stamina, \n
-        but you have no idea what mana is or how to channel it. \n
+        but you have little idea of what Mana is or how to channel it well. \n
         However, that does not stop you from being a happy Giant. \n
         HP: #{player.health} (MAX) \n
         MP: #{player.mana} (MAX) \n\n"

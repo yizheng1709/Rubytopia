@@ -8,6 +8,14 @@ class Elf < Race
         @evil = 1
         @happiness = 5
     end 
+    
+    def health= (health)
+        @health = health.clamp(0,60)
+    end 
+
+    def mana= (mana)
+        @mana = mana.clamp(0,80)
+    end 
 
     def set_of_attacks 
         "Please choose an attack (1-3): \n

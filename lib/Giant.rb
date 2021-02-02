@@ -3,10 +3,18 @@ class Giant < Race
 
     def initialize(name)
        super 
-        @health = 100
+        self.health = 100
         @mana = 20
         @evilness = 3
         @happiness = 6
+    end 
+    
+    def health= (health)
+        @health = evilness.clamp(0,100)
+    end 
+
+    def mana= (mana)
+        @mana = mana.clamp(0,20)
     end 
 
     def set_of_attacks
