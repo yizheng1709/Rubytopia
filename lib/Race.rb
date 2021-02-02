@@ -123,7 +123,7 @@ class Race
     end 
 
     def check_mana
-        self.player.mana == 0
+        self.mana == 0
     end 
 
     def check_mp_pot
