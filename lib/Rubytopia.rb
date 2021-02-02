@@ -14,9 +14,7 @@ class RubytopiaGame
         sleep(8)
         until self.over? 
             self.event_generator
-        end 
-        
-
+        end
     end 
 
     def greeting_user
@@ -133,7 +131,7 @@ class RubytopiaGame
         puts ""
     end 
 
-    def create_jinook 
+    def create_vampire 
         self.player = Vampire.new
         puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎"
         puts ""
@@ -141,7 +139,7 @@ class RubytopiaGame
         sleep(3)
         puts "As a Vampire, you are incredibly attractive, supposedly."
         puts ""
-        puts "But beauty is in the eye of the beholder."
+        puts "However, beauty is in the eye of the beholder."
         puts ""
         puts "HP: #{player.health} (MAX)".colorize(:red)
         puts ""
