@@ -1,14 +1,15 @@
 Rubytopia
-One Paragraph of project description goes here
+One Paragraph of project description goes here ***
 #######Describe what this project does? 
+#walkthrough of the game
 
 This initially appeared on gist, but as I can no longer open that page as there are too many comments, I have moved it here.
 
 Summary
 Getting Started
-Runing the tests
-Deployment
-Built With
+
+
+Built With #optional
 Contributing
 Versioning
 Authors
@@ -20,35 +21,11 @@ These instructions will get you a copy of the project up and running on your loc
 Prerequisites
 What things you need to install the software and how to install them
 ########gems used if any?
+#need ruby / gems
 
-Give examples
-Installing
+
+Installing ####how to start app *important 
 ######kinda like describe how we would install the lessons?
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-Give the example
-And repeat
-
-until finished
-End with an example of getting some data out of the system or using it for a little demo
-
-Running the tests
-########what is meant by automated tests? like the ones for lessons?
-Explain how to run the automated tests for this system
-
-Break down into end to end tests
-Explain what these tests test and why
-
-Give an example
-And coding style tests###### what tests???
-Explain what these tests test and why
-
-Give an example
-Deployment#############??? 
-Add additional notes about how to deploy this on a live system
 
 Built With #is this one necessary?
 Contributor Covenant - Used for the Code of Conduct

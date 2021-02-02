@@ -1,4 +1,4 @@
-class Karen
+class Santa
     attr_accessor :health, :name  
 
     def initialize
@@ -13,64 +13,64 @@ class Karen
     def name_set
         num = rand(7)
         if num == 0
-            @name = "Joe-Le-An the Fake Santa"
+            @name = "Wrathful the Fake Santa"
         elsif num == 1
-            @name = "Op-Al the Fake Santa"
+            @name = "Bitter the Fake Santa"
         elsif num == 2
-            @name = "DeBo-Ra-Ah-Ah the Fake Santa"
+            @name = "Furious the Fake Santa"
         elsif num == 3
-            @name = "Mar-Ga-Ret the Fake Santa"
+            @name = "Rage the Fake Santa"
         elsif num == 4
-            @name = "Whey-Le-E the Fake Santa"
+            @name = "Resentful the Fake Santa"
         elsif num == 5
-            @name = "Hay-Le-E the Fake Santa" 
+            @name = "Outrage the Fake Santa" 
         elsif num == 6
-            @name = "Nahn-See the Fake Santa"
+            @name = "Offended the Fake Santa"
         end 
     end 
 
     def battle_cry
-        "Sad Holidays!"
+        "Sad Holidays for you!"
     end 
 
     def death_cry
-        "#{@name} says: I *WILL* SPEAK TO YOUR MANAGER ONE DAY!!! JUST YOU WAIT!"
+        "#{@name} says: You'll get getting coal for Christmas!!!!"
     end 
 
     def reply 
         "#{@name} says: \n"
         a = rand()
         if a == 0
-            "'I *NEED* TO SPEAK TO YOUR MANAGER!!!!'"
+            "'Ha Ha Ha. Terrible Christmas!'"
         elsif a == 1
-            "'I AM ALWAYS RIGHT!'"
+            "'Hu Hu Hu. Crazy Christmas!'"
         elsif a == 2
-            "'NUH-UH! NUH! UH!'"
+            "'He He He. No Christmas!'"
         elsif a == 3
-            "'DON'T EVEN DARE TO TOUCH ME!'"
+            "'Hoo Hoo Hoo. Irritable Christmas!'"
         elsif a == 4
-            "'I'M CALLING THE POLICE!'"
+            "'You are on the naughty list!'"
         elsif a == 5
-            "'I FEEL SO ATTACKED RIGHT NOW!!!!'"
+            "'I swear I will eat all of your cookies!'"
         elsif a == 6
-            "'YOU'RE TOO CLOSE TO ME!!! STOP IT!!!'"
+            "'Nobody likes you!'"
         elsif a == 7
-            "'I HAVE MY RIGHTS AS A Fake Santa!'"
+            "'You won't be getting a PS5 this Christmas!'"
         elsif a == 8
-            "'DO YOU EVEN KNOW WHO I AM?'"
+            "'You are no longer my favorite!"
         end 
     end 
 
     def attack
         a = rand(4)
         if a == 0
-            4
+            2
         elsif a == 1
-            5
+            3
         elsif a == 2
-            7
+            4
         elsif a == 3
-            9
+            6
         end 
     end 
 

@@ -65,9 +65,9 @@ class RubytopiaGame
         puts "but you have little idea of what Mana is or how to channel it well."
         puts "However, that does not stop you from being a happy Giant."
         puts ""
-        puts "HP: #{player.health} (MAX)"
+        puts "HP: #{player.health} (MAX)".colorize(:red)
         puts ""
-        puts "MP: #{player.mana} (MAX)"
+        puts "MP: #{player.mana} (MAX)".colorize(:blue)
         puts ""
     end 
     
@@ -79,9 +79,9 @@ class RubytopiaGame
         sleep(3)
         puts "As an Elf, your ❤  is purest amongst other races, so you are able to channel your mana more efficiently."
         puts ""
-        puts "HP: #{player.health} (MAX)"
+        puts "HP: #{player.health} (MAX)".colorize(:red)
         puts ""
-        puts "MP: #{player.mana} (MAX)"
+        puts "MP: #{player.mana} (MAX)".colorize(:blue)
         puts ""
     end 
 
@@ -97,9 +97,9 @@ class RubytopiaGame
         puts "You've chosen to be part of the Human Race."
         puts "As a Human, you have average stats amongst other races."
         puts ""
-        puts "HP: #{player.health} (MAX)"
+        puts "HP: #{player.health} (MAX)".colorize(:red)
         puts ""
-        puts "MP: #{player.mana} (MAX)" 
+        puts "MP: #{player.mana} (MAX)".colorize(:blue)
         puts ""
     end 
 
@@ -198,13 +198,15 @@ class RubytopiaGame
     end 
 
     def monster_generator 
-        num = rand(3) #add to this as I build more monsters
+        num = rand(4) #add to this as I build more monsters
         if num == 0
             goblin_encounter 
         elsif num == 1
             dragon_encounter 
         elsif num == 2
             karen_encounter
+        elsif num == 3
+            santa_encounter
         end 
     end 
 
@@ -281,6 +283,15 @@ class RubytopiaGame
         sleep(4)
     end 
 
+    def santa_encounter
+        self.monster = Santa.new 
+        puts "You will have a sad holiday! You've encountered a Fake Santa!"
+        puts ""
+        puts "His pot belly amuses you."
+        puts ""
+        sleep(4)
+    end 
+
     def run_or_fight
         puts ""
         puts "What will you do?"
@@ -327,8 +338,8 @@ class RubytopiaGame
     def list_of_battle_choices
         puts "What will you do? (1-4)" 
         puts ""
-        puts "1. Drink HP potion (+10 HP)"
-        puts "2. Drink MP potion (+10 MP)"
+        puts "1. Drink HP potion (+10 HP)".colorize(:red)
+        puts "2. Drink MP potion (+10 MP)".colorize(:blue)
         puts "3. Attack"
         puts "4. Ask the monster to be friends...?"
     end 
@@ -338,14 +349,14 @@ class RubytopiaGame
         choice = gets.strip.downcase 
         if choice == "1" 
             self.player.drink_health_potion
-            puts "HP +10"
-            puts "HP: #{player.health}"
-            puts "HP pots left: #{self.player.hp_pots}"
+            puts "HP +10".colorize(:red)
+            puts "HP: #{player.health}".colorize(:red)
+            puts "HP pots left: #{self.player.hp_pots}".colorize(:red)
         elsif choice == "2" 
             self.player.drink_mana_potion
-            puts "MP +10"
-            puts "MP: #{player_mana}"
-            puts "MP pots left: #{self.player.mp_pots}"
+            puts "MP +10".colorize(:blue)
+            puts "MP: #{player_mana}".colorize(:blue)
+            puts "MP pots left: #{self.player.mp_pots}".colorize(:blue)
         elsif choice == "3" 
             self.choosing_attack
         elsif choice == "4" 
@@ -371,9 +382,9 @@ class RubytopiaGame
             monster.health -= dmg  #could write as its own method
             puts "You dealt #{dmg} damage!"
             puts ""
-            puts "Remaining MP: #{self.player.mana}"
+            puts "Remaining MP: #{self.player.mana}".colorize(:blue)
             puts ""
-            puts "Monster's HP: #{monster.health}"
+            puts "Monster's HP: #{monster.health}".colorize(:red)
             puts ""
             puts ""
             sleep(3)
@@ -384,9 +395,9 @@ class RubytopiaGame
             monster.health -= dmg 
             puts "You dealt #{dmg} damage!"
             puts ""
-            puts "Remaining MP: #{self.player.mana}"
+            puts "Remaining MP: #{self.player.mana}".colorize(:blue)
             puts ""
-            puts "Monster's HP: #{monster.health}"
+            puts "Monster's HP: #{monster.health}".colorize(:red)
             puts ""
             puts ""
             sleep(3)
@@ -397,9 +408,9 @@ class RubytopiaGame
             player.mana -= mp 
             puts "You dealt #{dmg} damage!"
             puts ""
-            puts "Remaining MP: #{self.player.mana}"
+            puts "Remaining MP: #{self.player.mana}".colorize(:blue)
             puts ""
-            puts "Monster's HP: #{self.monster.health}"
+            puts "Monster's HP: #{self.monster.health}".colorize(:red)
             puts ""
             puts ""
             sleep(3)
@@ -465,7 +476,7 @@ class RubytopiaGame
         player.health -= atk 
         puts "#{self.monster.name} dealt #{atk} damage to you! OUCH!"
         puts ""
-        puts "Your HP: #{self.player.health}"
+        puts "Your HP: #{self.player.health}".colorize(:red)
         puts ""
     end 
 

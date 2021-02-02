@@ -9,5 +9,6 @@ require_relative '../lib/Rubytopia.rb'
 require_relative '../lib/Scraper.rb'
 require_relative '../lib/QuizMaster.rb'
 require_relative '../lib/Karen.rb'
+require 'colorize'
 
 RubytopiaGame.new.start
