@@ -1,5 +1,6 @@
 #add current monster to friend list if monster does not die
 #if you cannot kill mosnter within 10 turns, the monster thinks you're super nice
+# code the ABORT method
 
 
 class RubytopiaGame #this is the only clss that should have puts, and method invocation 
@@ -121,7 +122,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             puts "      Well, *someone* isn't open to being a student. Okay then. \n
             I will try to not take it personally."
         elsif input == "exit"
-            #abort method
+            self.exit_game
         else 
             puts "It's a close-ended question. Please try again."  
             info_about_background
@@ -172,7 +173,7 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
         if quiz.answer[a].include?(input)
             self.correct_answer
         elsif input == "exit"
-            #abort method
+            self.exit_game
         elsif !quiz.answer[a].include?(input)
             self.wrong_answer
         end 
@@ -305,6 +306,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             self.choosing_attack
         elsif choice.include?("4") || choice.include?("nothing")
             self.player.do_nothing
+        elsif choice == "exit"
+            self.exit_game
         else 
             puts "Umm, #{player_name}... It's not hard to choose from 1-4. \n
             Please try again."
@@ -330,6 +333,8 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             monster.health -= dmg 
             puts "You dealt #{dmg} damage! \n
             Monster's HP: #{self.monster.health}"
+        elsif atk == "exit"
+            self.exit_game
         else 
             puts "#{self.player_name}, you really only have three attacks to choose from. \n
             It's not that hard to choose. Please try again."
@@ -410,5 +415,9 @@ class RubytopiaGame #this is the only clss that should have puts, and method inv
             Way to go, #{self.player_name}."
             self.restart?
         end 
+    end 
+
+    def exit_game 
+        abort("Goodbye, #{self.player_name}! See you around?")
     end 
 end 
