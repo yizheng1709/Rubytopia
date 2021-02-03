@@ -66,6 +66,7 @@ class RubytopiaGame
         puts "💎 Welcome to Rubytopia, #{self.player_name}! 💎".colorize(:yellow)
         puts ""
         puts "You've chosen to be part of the Giant Race."
+        puts ""
         sleep(3)
         puts "As a Giant, you have incredible stamina, but you have little idea of what Mana is or how to channel it well."
         puts ""
@@ -528,9 +529,11 @@ class RubytopiaGame
     end 
 
     def choosing_attack  
-        puts "current MP: #{self.player.mana}".colorize(:blue)
         puts ""
         puts player.set_of_attacks
+        puts ""
+        puts "current MP: #{self.player.mana}".colorize(:blue)
+        puts ""
         atk = gets.strip
         if atk == "1"
             mp = player.first_mana
