@@ -408,7 +408,7 @@ class RubytopiaGame
             self.run_away
         elsif choice.include?("fight") || choice.include?("2")
             self.battle 
-            self.player_turn #double check the logic of battle method
+            self.player_turn 
         elsif choice == "exit"
             self.exit_game
         else 
@@ -518,7 +518,7 @@ class RubytopiaGame
             sleep(3)
         else 
             puts ""
-            puts "Shame. You're out of HP potions."
+            puts "Shame. You're out of HP potions.".colorize(:red)
             puts ""
             puts "Choose again."
             puts ""
@@ -528,7 +528,7 @@ class RubytopiaGame
     end 
 
     def choosing_attack  
-        puts "current MP: #{self.player.mana}"
+        puts "current MP: #{self.player.mana}".colorize(:blue)
         puts ""
         puts player.set_of_attacks
         atk = gets.strip
