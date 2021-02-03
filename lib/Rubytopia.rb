@@ -157,7 +157,7 @@ class RubytopiaGame
         puts ""
         puts "Today, it's your turn to play with this mysterious portal!"
         puts ""
-        sleep(4)
+        sleep(3)
         puts "Which mytholgical land would you like to visit?".colorize(:yellow)
         puts ""
         puts "The most popular choices for Rubytopian citizens have been:".colorize(:yellow)
@@ -179,13 +179,16 @@ class RubytopiaGame
             self.background = MythPlace.all.find {|place| place.name.downcase == choice.downcase}
             puts "Splendid choice! You've chosen to explore #{background.name}."
             puts ""
-            sleep(2)
+            sleep(1)
             info_about_background
+        elsif choice == "" || choice == nil 
+            puts "Please choose a place."
+            self.setting_the_background
         else 
             puts "Please remember how to spell the name of the place."
             puts ""
             puts ""
-            sleep(2)
+            sleep(1)
             self.setting_the_background 
         end  
     end 
@@ -675,7 +678,7 @@ class RubytopiaGame
         puts "Yes or No"
         a = gets.strip.downcase 
         if a == "yes" || a == "ya" || a == "y"
-            sleep(2)
+            sleep(1)
             RubytopiaGame.new.start 
         elsif a == "no" || a == "n" 
             self.exit_game
