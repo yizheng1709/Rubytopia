@@ -249,7 +249,7 @@ class RubytopiaGame
     end 
 
     def monster_generator 
-        num = rand(6) #add to this as I build more monsters
+        num = rand(7) 
         if num == 0
             goblin_encounter 
         elsif num == 1
@@ -345,7 +345,7 @@ class RubytopiaGame
         puts ""
         puts "The putrid smell is strong enough to make you forget your own name."
         puts ""
-        sleep(5)
+        sleep(2)
     end 
 
     def karen_encounter
@@ -355,7 +355,7 @@ class RubytopiaGame
         puts ""
         puts "The monstrous Keh-Rhan makes your knees tremble. Luckily, you're not at work today!"
         puts ""
-        sleep(4)
+        sleep(2)
     end 
 
     def santa_encounter
@@ -365,7 +365,7 @@ class RubytopiaGame
         puts ""
         puts "His pot belly amuses you."
         puts ""
-        sleep(4)
+        sleep(2)
     end 
 
     def witch_encounter
@@ -379,7 +379,7 @@ class RubytopiaGame
         puts ""
         puts "Have you seen this Witch before?"
         puts ""
-        sleep(4)
+        sleep(2)
     end 
 
     def sorcerer_encounter
@@ -391,7 +391,7 @@ class RubytopiaGame
         puts ""
         puts "Sorcerers are known for creeping up on adventurers in #{self.background.name}."
         puts ""
-        sleep(4)
+        sleep(2)
     end 
 
     def run_or_fight
@@ -469,7 +469,7 @@ class RubytopiaGame
             self.choosing_attack
         elsif choice == "4" 
             puts self.player.be_friends
-            sleep(4)
+            sleep(3)
         elsif choice == "exit"
             self.exit_game
         else 
@@ -525,14 +525,14 @@ class RubytopiaGame
         end 
     end 
 
-    def choosing_attack  #choice 3 of player_turn_choice
+    def choosing_attack  
         puts player.set_of_attacks
         atk = gets.strip
         if atk == "1"
             mp = player.first_mana
             player.mana -= mp
-            dmg = player.first_attack #this section is repetitive
-            monster.health -= dmg  #could write as its own method
+            dmg = player.first_attack 
+            monster.health -= dmg 
             puts ""
             puts "You dealt #{dmg} damage!"
             puts ""
@@ -629,7 +629,7 @@ class RubytopiaGame
         puts "Sweet!".colorize(:green)
         puts ""
     end 
-    
+
 
     def monster_turn
         puts ""
@@ -643,7 +643,6 @@ class RubytopiaGame
         puts ""
     end 
 
-    #this should be checked every turn the user is fighting a monster
     def over?
         if self.death?
             self.death?
@@ -679,14 +678,14 @@ class RubytopiaGame
             sleep(2)
             RubytopiaGame.new.start 
         elsif a == "no" || a == "n" 
-            puts "Oh. Okay then. I won't take it personally. See you around?"
+            self.exit_game
         else 
             puts "So... was that a 'yes' or a 'no'?" 
             self.restart?
         end 
     end 
     
-    def death? #ending 1
+    def death? 
         if self.player.death?
             puts ""
             puts "LOL How did you die?"
@@ -695,8 +694,7 @@ class RubytopiaGame
         end 
     end 
 
-    #these methods should be cchecked every time a battle ends 
-    def friendly_ending? #ending 2
+    def friendly_ending? 
         sleep(3)
         if self.player.friends_made_count == 5 
             puts "Your journey comes to an end, as you realize you have work tomorrow.".colorize(:green)
