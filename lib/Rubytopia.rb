@@ -590,11 +590,11 @@ class RubytopiaGame
     def player_turn 
         counter = 0
         while counter < 7 
-            break if self.monster_or_player_death
             self.player_turn_choice
             break if self.monster_or_player_death
-            counter += 1
             self.monster_turn
+            break if self.monster_or_player_death
+            counter += 1
         end 
 
         if monster.health == 0
