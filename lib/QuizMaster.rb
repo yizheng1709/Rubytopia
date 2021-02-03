@@ -1,11 +1,6 @@
 require 'pry'
 
 class QuizMaster
-    #random event that could happen
-    #increases happiness if answer is correct
-    #random generator for a question 
-    #if happiness gets to 0, game ends???
-    #CLI class will check the gets.strip and match answers
     
     attr_accessor :question, :answer
 

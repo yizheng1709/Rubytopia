@@ -10,7 +10,6 @@ class Goblin
         @health = health.clamp(0,20)
     end 
 
-    #random name generator 
     def name_set
         num = rand(6)
         if num == 0

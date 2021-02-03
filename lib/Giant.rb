@@ -50,4 +50,3 @@ class Giant < Race
 
 end 
 
-# polly = Giant.new("Polly")

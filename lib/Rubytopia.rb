@@ -715,7 +715,7 @@ class RubytopiaGame
         end 
     end 
     
-    def bad_ending? #ending three
+    def bad_ending? 
         if self.player.evilness == 10
             puts "I can't believe you are so cruel!".colorize(:red)
             puts ""
