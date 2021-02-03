@@ -455,13 +455,7 @@ class RubytopiaGame
             self.mp_pot_choice
         elsif choice == "3" 
             if self.player.check_mana
-                puts ""
-                puts "You don't have any Mana left! Can't you see?".colorize(:blue)
-                puts ""
-                puts "Perhaps you should rethink your choice.".colorize(:blue)
-                puts ""
-                sleep(3)
-                self.player_turn_choice
+                self.no_more_mana
             end 
             self.choosing_attack
         elsif choice == "4" 
@@ -477,6 +471,17 @@ class RubytopiaGame
             self.player_turn_choice
         end 
     end  
+
+    def no_more_mana
+        puts ""
+        puts "You don't have any Mana left! Can't you see?".colorize(:blue)
+        puts ""
+        puts "Perhaps you should rethink your choice.".colorize(:blue)
+        puts ""
+        sleep(3)
+        self.player_turn_choice
+    end 
+
 
     def mp_pot_choice
         if !self.player.check_mp_pot
