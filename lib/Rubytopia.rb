@@ -510,7 +510,7 @@ class RubytopiaGame
         if !self.player.check_hp_pot
             self.player.drink_health_potion
             puts ""
-            puts "You've decided to drink a Mana potion.".colorize(:red)
+            puts "You've decided to drink a Health potion.".colorize(:red)
             puts ""
             puts "HP +10".colorize(:red)
             puts "HP: #{player.health}".colorize(:red)
@@ -529,6 +529,8 @@ class RubytopiaGame
     end 
 
     def choosing_attack  
+        puts "current MP: #{self.player.mana}"
+        puts ""
         puts player.set_of_attacks
         atk = gets.strip
         if atk == "1"
@@ -590,6 +592,7 @@ class RubytopiaGame
         while counter < 7 
             break if self.monster.health == 0 || self.player.health == 0
             self.player_turn_choice
+            break if self.monster.health == 0 || self.player.health == 0
             counter += 1
             self.monster_turn
         end 
@@ -629,7 +632,7 @@ class RubytopiaGame
         sleep(3)
         puts "The Monster becomes your friend instead!".colorize(:green)
         puts ""
-        puts "Sweet!".colorize(:green)
+        puts "Sweet! This is the amount of friends you have in this world: #{self.player.friends_made_count}".colorize(:green)
         puts ""
     end 
 
