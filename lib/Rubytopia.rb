@@ -437,12 +437,6 @@ class RubytopiaGame
         puts ""
     end 
 
-    def monster_reply
-        if self.monster.health > 0
-            puts self.monster.reply 
-        end 
-    end 
-    
     def list_of_battle_choices
         puts "What will you do? (1-4)" 
         puts ""
