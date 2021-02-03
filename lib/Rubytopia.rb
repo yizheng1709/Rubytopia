@@ -522,6 +522,15 @@ class RubytopiaGame
         end 
     end 
 
+    def display_player_mana_and_monster_health
+        puts ""
+        puts "Remaining MP: #{self.player.mana}".colorize(:blue)
+        puts ""
+        puts "Monster's HP: #{monster.health}".colorize(:red)
+        puts ""
+        puts ""
+    end
+
     def choosing_attack  
         puts ""
         puts player.set_of_attacks
@@ -536,12 +545,7 @@ class RubytopiaGame
             monster.health -= dmg 
             puts ""
             puts "You dealt #{dmg} damage!"
-            puts ""
-            puts "Remaining MP: #{self.player.mana}".colorize(:blue)
-            puts ""
-            puts "Monster's HP: #{monster.health}".colorize(:red)
-            puts ""
-            puts ""
+            self.display_player_mana_and_monster_health
             sleep(3)
         elsif atk == "2"
             mp = player.second_mana
@@ -550,12 +554,7 @@ class RubytopiaGame
             monster.health -= dmg 
             puts ""
             puts "You dealt #{dmg} damage!"
-            puts ""
-            puts "Remaining MP: #{self.player.mana}".colorize(:blue)
-            puts ""
-            puts "Monster's HP: #{monster.health}".colorize(:red)
-            puts ""
-            puts ""
+            self.display_player_mana_and_monster_health
             sleep(3)
         elsif atk == "3"
             mp = player.third_mana
@@ -564,12 +563,7 @@ class RubytopiaGame
             player.mana -= mp 
             puts ""
             puts "You dealt #{dmg} damage!"
-            puts ""
-            puts "Remaining MP: #{self.player.mana}".colorize(:blue)
-            puts ""
-            puts "Monster's HP: #{self.monster.health}".colorize(:red)
-            puts ""
-            puts ""
+            self.display_player_mana_and_monster_health
             sleep(3)
         elsif atk == "exit"
             self.exit_game
@@ -583,12 +577,17 @@ class RubytopiaGame
         end 
     end 
 
+    def monster_or_player_death
+        self.monster.health == 0 || self.player.health == 0
+    end 
+
+
     def player_turn 
         counter = 0
         while counter < 7 
-            break if self.monster.health == 0 || self.player.health == 0
+            break if self.monster_or_player_death
             self.player_turn_choice
-            break if self.monster.health == 0 || self.player.health == 0
+            break if self.monster_or_player_death
             counter += 1
             self.monster_turn
         end 
