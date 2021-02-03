@@ -5,7 +5,7 @@ This is a small game where the user gets to use the portal of Rubytopia and trav
 
 ### Prerequisites
 
-This little game was written with the Ruby language and uses a gem called 'colorize'. The Installing section will show you how to install this gem! 
+This little game was written with the Ruby language and uses several gems. The Installing section will show you how to install this gem! 
 
 ### Installing
     
