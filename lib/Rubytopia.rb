@@ -157,7 +157,7 @@ class RubytopiaGame
         puts ""
         puts "Today, it's your turn to play with this mysterious portal!"
         puts ""
-        sleep(6)
+        sleep(4)
         puts "Which mytholgical land would you like to visit?".colorize(:yellow)
         puts ""
         puts "The most popular choices for Rubytopian citizens have been:".colorize(:yellow)
@@ -423,7 +423,7 @@ class RubytopiaGame
         puts ""
         puts "Is that how you deal with all your problems?"
         puts ""
-        sleep(5)
+        sleep(3)
     end 
 
     def battle 
@@ -469,7 +469,7 @@ class RubytopiaGame
             self.choosing_attack
         elsif choice == "4" 
             puts self.player.be_friends
-            sleep(5)
+            sleep(4)
         elsif choice == "exit"
             self.exit_game
         else 
@@ -491,7 +491,7 @@ class RubytopiaGame
             puts "MP: #{player.mana}".colorize(:blue)
             puts "MP pots left: #{self.player.mp_pots}".colorize(:blue)
             puts ""
-            sleep(4)
+            sleep(3)
         else 
             puts ""
             puts "Shame. You're out of MP potions."
@@ -513,7 +513,7 @@ class RubytopiaGame
             puts "HP: #{player.health}".colorize(:red)
             puts "HP pots left: #{self.player.hp_pots}".colorize(:red)
             puts ""
-            sleep(4)
+            sleep(3)
         else 
             puts ""
             puts "Shame. You're out of HP potions."
@@ -623,7 +623,7 @@ class RubytopiaGame
         puts ""
         puts "The Monster thinks you're kind and stops fighting you.".colorize(:green)
         puts ""
-        sleep(4)
+        sleep(3)
         puts "The Monster becomes your friend instead!".colorize(:green)
         puts ""
         puts "Sweet!".colorize(:green)
@@ -727,7 +727,7 @@ class RubytopiaGame
             puts "Now your soul is part of Satan's favorite souls collection.".colorize(:red)
             puts ""
             puts "Way to go, #{self.player_name}.".colorize(:red)
-            sleep(4)
+            sleep(2)
             self.restart?
         end 
     end 
