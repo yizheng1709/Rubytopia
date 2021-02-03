@@ -1,7 +1,6 @@
 class RubytopiaGame 
     
     attr_accessor :player_name, :monster, :player, :background   
-   #if friends_made.count == 5, your journey comes to an end and your friends bid you farewell
 
     def start
         Scraper.new.make_mythplace
@@ -221,7 +220,7 @@ class RubytopiaGame
         end 
     end 
 
-    def first_event_setup #only in the first event_encounter
+    def first_event_setup 
         puts ""
         puts "You stepped through the portal and entered #{self.background.name}."
         puts ""
@@ -635,7 +634,6 @@ class RubytopiaGame
         puts "Sweet! This is the amount of friends you have in this world: #{self.player.friends_made_count}".colorize(:green)
         puts ""
     end 
-
 
     def monster_turn
         puts ""
