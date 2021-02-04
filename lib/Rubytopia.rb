@@ -151,7 +151,7 @@ class RubytopiaGame
 
     def setting_the_background
         puts ""
-        puts "Rubytopia is a land that is know for its mysterious portal."
+        puts "Rubytopia is a land that is known for its mysterious portal."
         puts ""
         puts "This portal can take you to any mythological land that you so desire."
         puts ""
