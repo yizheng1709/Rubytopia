@@ -17,7 +17,7 @@ In your terminal:
 
 Go to the first level directory that contains all of Rubytopia's folders. 
 
-    bundle install #this will install the 'colorize' gem
+    bundle install #this will install any necessary gems
 
 Finally,
 
