@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Hello there!
 
 You can use the [editor on GitHub](https://github.com/yizheng1709/Rubytopia/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
