@@ -27,5 +27,6 @@ require_relative '../lib/Scraper.rb'
 require 'colorize'
 require 'nokogiri'
 require 'open-uri'
+require 'pry'
 
 RubytopiaGame.new.start

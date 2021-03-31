@@ -1,6 +1,6 @@
 class Race
     attr_accessor :health, :mana, :hp_pots, :mp_pots, :evilness, 
-    :friends_made, :happiness    
+    :friends_made, :happiness   
 
     def initialize
         @hp_pots = 25
@@ -139,3 +139,5 @@ class Race
     end 
 
 end 
+
+
